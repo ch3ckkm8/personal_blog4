@@ -10,33 +10,33 @@ repo_url: https://github.com/Andre601/mkdocs-template
 nav:
   - Welcome: index.md
   - HTB Writeups:
-    - Active: ch3ckm8_HTB_Active.md
-    - Administrator: ch3ckm8_HTB_Administrator.md
-    - Blackfield: ch3ckm8_HTB_Blackfield.md
-    - Cascade: ch3ckm8_HTB_Cascade.md
-    - EscapeTwo: ch3ckm8_HTB_EscapeTwo.md
-    - Nocturnal: ch3ckm8_HTB_Nocturnal.md
-    - Return: ch3ckm8_HTB_Return.md
-    - TheFrizz: ch3ckm8_HTB_TheFrizz.md
-    - Forest: ch3ckm8_HTB_forest.md
-    - Monteverde: ch3ckm8_HTB_monteverde.md
-    - Sauna: ch3ckm8_HTB_sauna.md
+      - Active: ch3ckm8_HTB_Active.md
+      - Administrator: ch3ckm8_HTB_Administrator.md
+      - Blackfield: ch3ckm8_HTB_Blackfield.md
+      - Cascade: ch3ckm8_HTB_Cascade.md
+      - EscapeTwo: ch3ckm8_HTB_EscapeTwo.md
+      - Nocturnal: ch3ckm8_HTB_Nocturnal.md
+      - Return: ch3ckm8_HTB_Return.md
+      - TheFrizz: ch3ckm8_HTB_TheFrizz.md
+      - Forest: ch3ckm8_HTB_forest.md
+      - Monteverde: ch3ckm8_HTB_monteverde.md
+      - Sauna: ch3ckm8_HTB_sauna.md
   - Other CTF Writeups:
-    - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
+      - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
 
 theme:
-  name: 'material'
-  highlightjs: true       # Use highlight.js (built-in)
-  highlightjs_style: github  # Example style; works in dark mode nicely
-  
+  name: material
+  highlightjs: true
+  highlightjs_style: github
+
   palette:
-    - scheme: default       # Light mode
+    - scheme: default
       primary: indigo
       accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    - scheme: slate         # Dark mode
+    - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
@@ -47,18 +47,16 @@ theme:
     - navigation.instant
     - navigation.sections
     - navigation.tabs
-    - navigation.top
     - search.highlight
-    - toc.sticky       # ensures TOC shows on the right
+    - toc.sticky
+
   icon:
-    logo: 'material/library'
-    repo: 'material/library'
+    logo: material/library
+    repo: material/library
 
 markdown_extensions:
-  #- admonition
   - codehilite:
-      guess_lang: false   # Don't auto-detect language, use the specified one
-      linenums: false     # Optional: show line numbers
+      guess_lang: false
+      linenums: false
   - toc:
-      permalink: true     # adds anchor links
-
+      permalink: true
