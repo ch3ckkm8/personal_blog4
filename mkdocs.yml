@@ -56,8 +56,9 @@ theme:
 
 markdown_extensions:
   #- admonition
-   - codehilite:
+  - codehilite:
       guess_lang: false   # Don't auto-detect language, use the specified one
-      linenums: false      # Optional: show line numbers
+      linenums: false     # Optional: show line numbers
   - toc:
-      permalink: true    # adds anchor links
+      permalink: true     # adds anchor links
+
