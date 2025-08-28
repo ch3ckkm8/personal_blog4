@@ -26,6 +26,9 @@ nav:
 
 theme:
   name: 'material'
+  highlightjs: true       # Use highlight.js (built-in)
+  highlightjs_style: github  # Example style; works in dark mode nicely
+  
   palette:
     - scheme: default       # Light mode
       primary: indigo
@@ -53,7 +56,8 @@ theme:
 
 markdown_extensions:
   #- admonition
-  #- codehilite:
-  #    guess_lang: false
+   - codehilite:
+      guess_lang: false   # Don't auto-detect language, use the specified one
+      linenums: false      # Optional: show line numbers
   - toc:
       permalink: true    # adds anchor links
