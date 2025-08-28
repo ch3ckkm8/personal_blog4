@@ -4,6 +4,10 @@ site_author: 'ch3ckm8'
 
 docs_dir: docs/
 
+site_url: https://ch3ckkm8.github.io/personal_blog4/
+use_directory_urls: true
+
+
 #repo_name: Andre601/mkdocs-template
 #repo_url: https://github.com/Andre601/mkdocs-template
 
