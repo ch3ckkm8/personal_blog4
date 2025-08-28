@@ -1,5 +1,4 @@
-
-# Intro
+## Intro
 
 This is an "easy" linux machine from HackTheBox, lets dive in. 
 ![Pasted image 20250527225024](MediaFiles/Pasted%20image%2020250527225024.png)

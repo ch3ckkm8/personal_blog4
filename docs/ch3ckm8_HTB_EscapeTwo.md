@@ -1,6 +1,4 @@
-
-
-# Intro
+## Intro
 
 This is a WINDOWS machine of easy difficulty, named EscapeTwo, lets begin
 

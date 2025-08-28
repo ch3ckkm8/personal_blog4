@@ -1,7 +1,4 @@
-
-
-
-# Intro
+## Intro
 
 This is a WINDOWS machine of medium difficulty, named Administrator, and our final goal is to become the admin of the system (no shit sherlock). 
 Without further ado, lets dive in!

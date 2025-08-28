@@ -1,6 +1,4 @@
-
-
-# Intro
+## Intro
 
 This is a linux machine, custom made by my friend RoboGR00t 
 ![Pasted image 20250512003425](MediaFiles/Pasted%20image%2020250512003425.png)

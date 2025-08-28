@@ -1,7 +1,4 @@
-
-
-
-# Intro
+## Intro
 
 ![](MediaFiles/Pasted%20image%2020250809133212.png)
 

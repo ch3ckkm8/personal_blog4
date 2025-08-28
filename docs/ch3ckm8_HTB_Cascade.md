@@ -1,6 +1,4 @@
-
-
-# Intro
+## Intro
 
 ![](MediaFiles/Pasted%20image%2020250702081108.png)
 Tags: #windows #NotAssumedBreach #codereview #RecycleBin #OSCPpath 

@@ -1,7 +1,4 @@
-
-
-
-# Intro
+## Intro
 
 This is a WINDOWS machine of easy difficulty, named TheFrizz, lets begin 
 ![TheFrizz](MediaFiles/TheFrizz.png)
