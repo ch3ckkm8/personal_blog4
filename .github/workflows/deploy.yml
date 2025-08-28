@@ -1,13 +1,3 @@
-#
-# This is a working example of using GitHub Actions to publish the docs
-# to the GitHub Pages (gh_pages) branch.
-#
-# Remember to have a requirements.txt file with the required dependencies.
-# This template ships with one by default.
-#
-# It is also recommendet to also copy the template with all branches, to
-# have the gh-pages branch pre-made. This prevents possible errors.
-#
 name: Deploy Site
 
 on:
@@ -18,12 +8,9 @@ on:
     - 'theme/**'
     branches:
     - master
-    #
-    # If your repository would have releases should you uncomment the below lines
-    # in order to ignore pushes caused by newly created releases.
-    #
-    #tags-ignore:
-    #- '**'
+
+permissions:
+  contents: write   # ✅ this allows pushing to gh-pages
 
 jobs:
   build:
