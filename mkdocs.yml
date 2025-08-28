@@ -77,9 +77,9 @@ plugins:
 extra_javascript:
   - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
   - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
-  - /assets/javascripts/interactive_graph.js
+  - assets/javascripts/interactive_graph.js
 
 extra_css:
-  - /assets/stylesheets/interactive_graph.css
+  - assets/stylesheets/interactive_graph.css
 
 
