@@ -27,9 +27,18 @@ nav:
 theme:
   name: 'material'
   palette:
-    scheme: 'slate'
-    primary: 'indigo'
-    accent: 'indigo'
+    - scheme: default       # Light mode
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate         # Dark mode
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
   features:
     - navigation.instant
