@@ -30,3 +30,7 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "actions@github.com"
         mkdocs gh-deploy --force
+    - name: Install dependencies
+      run: |
+        pip install mkdocs-obsidian-interactive-graph-plugin
+        pip install -r requirements.txt
