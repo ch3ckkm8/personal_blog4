@@ -294,7 +294,7 @@ theme:
   
   # Table of Contents
   #
-  #- toc.integrate          # Include the TOC sections in the left navugation.
+  - toc.integrate          # Include the TOC sections in the left navugation.
   
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
@@ -477,6 +477,9 @@ markdown_extensions:
       guess_lang: false
   - markdown.extensions.toc:
       permalink: true
+  - toc:
+      permalink: true  # adds little anchor links to each header
+      title: "On this page"  # optional title for the TOC
   #- pymdownx.arithmex:
   #- pymdownx.b64:
   #- pymdownx.betterem:
