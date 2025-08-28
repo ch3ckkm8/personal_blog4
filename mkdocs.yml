@@ -309,6 +309,7 @@ theme:
   # Table of Contents
   #
   - toc.integrate          # Include the TOC sections in the left navugation.
+  - toc.stick
   
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
