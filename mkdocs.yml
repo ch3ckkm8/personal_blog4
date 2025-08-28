@@ -94,6 +94,20 @@ repo_url: https://github.com/Andre601/mkdocs-template
 # +--------------------------------------------------------------------------------------------------------+
 nav:
   - Welcome: index.md
+  - HTB Writeups:
+      - Active : ch3ckm8_HTB_Active.md
+      - Administrator: ch3ckm8_HTB_Administrator.md
+      - Blackfield: ch3ckm8_HTB_Blackfield.md
+      - Cascade : ch3ckm8_HTB_Cascade.md
+      - EscapeTwo: ch3ckm8_HTB_EscapeTwo.md
+      - Nocturnal : ch3ckm8_HTB_Nocturnal.md
+      - Return : ch3ckm8_HTB_Return.md
+      - TheFrizz : ch3ckm8_HTB_TheFrizz.md
+      - Forest : ch3ckm8_HTB_forest.md
+      - Monteverde : ch3ckm8_HTB_monteverde.md
+      - Sauna : ch3ckm8_HTB_sauna.md
+  - Other CTF Writeups
+      - RoboGRoot's-Portfolio : ch3ckm8_RoboGRoot-CTF_Portfolio.md
 
 # +--------------------------------------------------------------------------------------------------------+
 # |                                                                                                        |
