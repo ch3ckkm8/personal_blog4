@@ -1,10 +1,4 @@
----
-title: "ch3ckm8 RoboGRoot's Portfolio"
-has_toc: true
----
 
-* TOC
-{:toc}
 
 # Intro
 

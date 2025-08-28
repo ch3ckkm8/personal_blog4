@@ -1,10 +1,3 @@
----
-title: "ch3ckm8 HTB Nocturnal"
-has_toc: true
----
-
-* TOC
-{:toc}
 
 # Intro
 

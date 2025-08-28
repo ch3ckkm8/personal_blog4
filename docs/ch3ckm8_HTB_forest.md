@@ -1,11 +1,3 @@
----
-title: "ch3ckm8 HTB Forest"
-has_toc: true
----
-
-* TOC
-{:toc}
-
 # Intro
 
 ![](MediaFiles/Pasted%20image%2020250727182355.png)

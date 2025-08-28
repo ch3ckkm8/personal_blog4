@@ -1,10 +1,4 @@
----
-title: "ch3ckm8 HTB Blackfield"
-has_toc: true
----
 
-* TOC
-{:toc}
 
 
 # Intro
