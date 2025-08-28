@@ -27,7 +27,7 @@ nav:
       - Sauna: ch3ckm8_HTB_sauna.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
-  - Graph: graph/index.html
+  - Graph: graph
 
 theme:
   name: material
