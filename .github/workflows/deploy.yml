@@ -3,11 +3,11 @@ name: Deploy Site
 on:
   push:
     paths: 
-    - 'docs/**'
-    - 'mkdocs.yml'
-    - 'theme/**'
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'theme/**'
     branches:
-    - master
+      - master
 
 permissions:
   contents: write   # ✅ this allows pushing to gh-pages
@@ -16,21 +16,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.x
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip setuptools
-        python -m pip install -r requirements.txt
-    - name: Deploy Files
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "actions@github.com"
-        mkdocs gh-deploy --force
-    - name: Install dependencies
-      run: |
-        pip install mkdocs-obsidian-interactive-graph-plugin
-        pip install -r requirements.txt
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools
+          pip install mkdocs-material mkdocs-obsidian-interactive-graph-plugin
+          pip install -r requirements.txt
+
+      - name: Deploy Files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          mkdocs gh-deploy --force
