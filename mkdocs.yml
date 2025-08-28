@@ -65,3 +65,10 @@ markdown_extensions:
   - toc:
       permalink: true
 
+plugins:
+  - search
+  - graph:
+      tags: true
+      output: graph.html
+
+
