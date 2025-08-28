@@ -1,15 +1,10 @@
 site_name: Ch3ckm8 Vault
-#site_description: 'A template for future MkDocs wikis'
 site_author: 'ch3ckm8'
 
 docs_dir: docs/
 
-site_url: https://ch3ckkm8.github.io/personal_blog4/
+site_url: https://ch3ckm8.github.io/personal_blog4/
 use_directory_urls: true
-
-
-#repo_name: Andre601/mkdocs-template
-#repo_url: https://github.com/Andre601/mkdocs-template
 
 nav:
   - Welcome: index.md
@@ -57,7 +52,7 @@ theme:
 
   icon:
     logo: material/chess-knight
-    repo: material/github  # or any icon you prefer here
+    repo: material/github
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -73,14 +68,3 @@ markdown_extensions:
 plugins:
   - obsidian-interactive-graph
   - search
-
-extra_javascript:
-  - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
-  - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
-  - assets/css/javascripts/interactive_graph.js
-
-
-extra_css:
-  - assets/css/stylesheets/interactive_graph.css
-
-
