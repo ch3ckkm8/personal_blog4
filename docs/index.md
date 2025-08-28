@@ -8,15 +8,15 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
 |---------------|---------|------------|---------------------------------------------------------|------------------|
-| [Forest](ch3ckm8_HTB_forest.html)        | Windows | Easy       | ✅ NotAssumedBreach AS-REP-roasting                      | ✅                |
-| [Cascade](ch3ckm8_HTB_Cascade.html)       | Windows | Medium     | ✅ NotAssumedBreach RecycleBin codereview                | ✅                |
-| [Blackfield](ch3ckm8_HTB_Blackfield.html)    | Windows | Hard       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
-| [Administrator](ch3ckm8_HTB_Administrator.html) | Windows | Medium     | ✅ AsummedBreach Kerberoasting DCSync                    | ✅                |
-| [Escapetwo](ch3ckm8_HTB_Escapetwo.html)    | Windows | Easy       | ✅ AssumedBreach certificates certvulntemplate           | ✅                |
-| [Return](ch3ckm8_HTB_Return.html)        | Windows | Easy       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
-| [Sauna](ch3ckm8_HTB_sauna.html)         | Windows | Easy       | ✅ NotAssumedBreach DCSync WinPEAS                       | ✅                |
-| [Active](ch3ckm8_HTB_Active.html)        | Windows | Easy       | ✅ NotAssumedBreach Kerberoasting                        | ✅                |
-| [Monteverde](ch3ckm8_HTB_monteverde.html)    | Windows | Medium     | ✅ NotAssumedBreach ADconnectAbuse                       | ✅                |
+| [Forest](ch3ckm8_HTB_forest.md)        | Windows | Easy       | ✅ NotAssumedBreach AS-REP-roasting                      | ✅                |
+| [Cascade](ch3ckm8_HTB_Cascade.md)       | Windows | Medium     | ✅ NotAssumedBreach RecycleBin codereview                | ✅                |
+| [Blackfield](ch3ckm8_HTB_Blackfield.md)    | Windows | Hard       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
+| [Administrator](ch3ckm8_HTB_Administrator.md) | Windows | Medium     | ✅ AsummedBreach Kerberoasting DCSync                    | ✅                |
+| [Escapetwo](ch3ckm8_HTB_Escapetwo.md)    | Windows | Easy       | ✅ AssumedBreach certificates certvulntemplate           | ✅                |
+| [Return](ch3ckm8_HTB_Return.md)        | Windows | Easy       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
+| [Sauna](ch3ckm8_HTB_sauna.md)         | Windows | Easy       | ✅ NotAssumedBreach DCSync WinPEAS                       | ✅                |
+| [Active](ch3ckm8_HTB_Active.md)        | Windows | Easy       | ✅ NotAssumedBreach Kerberoasting                        | ✅                |
+| [Monteverde](ch3ckm8_HTB_monteverde.md)    | Windows | Medium     | ✅ NotAssumedBreach ADconnectAbuse                       | ✅                |
 | Escape        | Windows | Medium     | ✅ NotAssumedBreach MSSQL certificates certvulntoESC1    | ✅                |
 | Cicada        | Windows | Easy       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
 | Timelapse     | Windows | Easy       | ✅ NotAssumedBreach History LAPS                         | ✅                |
@@ -26,8 +26,8 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | Code          | Linux   | Easy       | ✅                                                      | 🛠️ in progress    |
 | Flight        | Windows | Hard       | 🛠️ in progress                                          | 🛠️ in progress    |
 | Puppy         | Windows | Medium     | ✅ password protected                                    | 🛠️ in progress    |
-| [TheFrizz](ch3ckm8_HTB_TheFrizz.html)      | Windows | Medium     | ✅ NotAssumedBreach GSSAPIauthentication GPO       | ✅                |
-| [Nocturnal](ch3ckm8_HTB_Nocturnal.html)     | Linux   | Easy       | ✅ commandinjection codereview PortForwarding   | ✅     |
+| [TheFrizz](ch3ckm8_HTB_TheFrizz.md)      | Windows | Medium     | ✅ NotAssumedBreach GSSAPIauthentication GPO       | ✅                |
+| [Nocturnal](ch3ckm8_HTB_Nocturnal.md)     | Linux   | Easy       | ✅ commandinjection codereview PortForwarding   | ✅     |
 | Fluffy        | Windows | Easy       | ✅ password protected                                    | 🛠️ in progress    |
 
 
@@ -35,4 +35,4 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
 |---------------|---------|------------|---------------------------------------------------------|------------------|
-| [Portfolio](ch3ckm8_RoboGRoot-CTF_Portfolio.html)        | Linux | -       | ✅ WebApp XSS RCE Docker   | ✅                |
+| [Portfolio](ch3ckm8_RoboGRoot-CTF_Portfolio.md)        | Linux | -       | ✅ WebApp XSS RCE Docker   | ✅                |
