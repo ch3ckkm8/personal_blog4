@@ -32,7 +32,7 @@ theme:
   features:
     - navigation.instant
     - navigation.sections
-    - navigation.top
+    #- navigation.top
     - search.highlight
     - toc.sticky       # ensures TOC shows on the right
   icon:
@@ -40,8 +40,8 @@ theme:
     repo: 'material/library'
 
 markdown_extensions:
-  - admonition
-  - codehilite:
-      guess_lang: false
+  #- admonition
+  #- codehilite:
+  #    guess_lang: false
   - toc:
       permalink: true    # adds anchor links
