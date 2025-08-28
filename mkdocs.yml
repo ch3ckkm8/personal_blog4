@@ -1,11 +1,11 @@
-site_name: MkDocs Template
-site_description: 'A template for future MkDocs wikis'
-site_author: 'Andre_601'
+site_name: Ch3ckm8 Vault
+#site_description: 'A template for future MkDocs wikis'
+site_author: 'ch3ckm8'
 
 docs_dir: docs/
 
-repo_name: Andre601/mkdocs-template
-repo_url: https://github.com/Andre601/mkdocs-template
+#repo_name: Andre601/mkdocs-template
+#repo_url: https://github.com/Andre601/mkdocs-template
 
 nav:
   - Welcome: index.md
@@ -51,8 +51,8 @@ theme:
     - toc.sticky
 
   icon:
-    logo: material/library
-    repo: material/library
+    logo: material/chess-knight
+    repo: material/github  # or any icon you prefer here
 
 markdown_extensions:
   - pymdownx.highlight:
