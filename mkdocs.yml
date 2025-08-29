@@ -58,6 +58,10 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.wikilinks:
+      base_url: ""
+      end_url: ".md"
+      build_url: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
@@ -69,10 +73,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.magiclink
   - pymdownx.superfences
-  - pymdownx.wikilinks:
-      base_url: ""
-      end_url: ".md"
-      build_url: true
   - toc:
       permalink: true
 
@@ -85,7 +85,6 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/interactive_graph.css
   - assets/stylesheets/obsidian_tags.css
-
 
 plugins:
   - obsidian-interactive-graph
