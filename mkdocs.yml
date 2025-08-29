@@ -110,12 +110,12 @@ plugins:
         function(node) {
             const keywords = ["windows", "Kerberoasting", "OSCPpath"];
             const colors = {};
-  
+            
             // helper to generate a random hex color
             function randomColor() {
               return "#" + Math.floor(Math.random()*16777215).toString(16);
             }
-  
+        
             for (let key of keywords) {
               if (!(key in colors)) {
                 colors[key] = randomColor();
