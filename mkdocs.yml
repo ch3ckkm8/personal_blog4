@@ -71,6 +71,7 @@ extra_javascript:
 
 extra_css:
   - assets/css/stylesheets/interactive_graph.css
+  - assets/stylesheets/obsidian_tags.css
 
 
 plugins:
