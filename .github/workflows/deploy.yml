@@ -10,7 +10,7 @@ on:
       - master
 
 permissions:
-  contents: write   # allows pushing to gh-pages
+  contents: write
 
 jobs:
   build:
@@ -18,27 +18,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Create and activate virtual environment
-      - name: Setup Python
+      - name: Set up Python and deploy
         run: |
           python -m venv .venv
-          source .venv/bin/activate
-          pip install --upgrade pip setuptools wheel
+          . .venv/bin/activate
 
-      # Install dependencies inside the venv
-      - name: Install dependencies
-        run: |
-          source .venv/bin/activate
+          pip install --upgrade pip setuptools wheel
           pip install mkdocs-material==9.6.18
           pip install pymdown-extensions>=10.16.1
           pip install -r requirements.txt
-          # Editable install of your local plugin
+
+          # Install local plugin in editable mode
           pip install -e obsidian_interactive_graph/
 
-      # Deploy the site using MkDocs inside the same venv
-      - name: Deploy Site
-        run: |
-          source .venv/bin/activate
+          # Configure git and deploy
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           mkdocs gh-deploy --force
