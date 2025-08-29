@@ -24,12 +24,16 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
         self.current_id += 1
         return current_id
 
+    def get_path(self, base: str, *argv: list[str]) -> str:
+        from urllib.parse import urljoin
+        result = base
+        for path in argv:
+            result = urljoin(result, path)
+        return result
+
     def get_page_path(self, page: MkDocsPage) -> str:
+        # Use only the relative path inside docs/, remove .md
         return page.file.src_uri.replace(".md", "")
-
-
-    def get_page_path(self, page: MkDocsPage) -> str:
-        return self.get_path(self.site_path, page.file.src_uri).replace(".md", "")
 
     def page_if_exists(self, page: str) -> str:
         page = self.get_path(self.site_path, page)
@@ -109,7 +113,7 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
             json.dump(self.data, file, sort_keys=False, indent=2)
 
     def on_config(self, config: MkDocsConfig, **kwargs):
-        self.site_path = config.site_name + "/"
+        self.site_path = ""  # not needed
 
     def on_nav(self, nav: MkDocsNav, files: MkDocsFiles, config: MkDocsConfig, **kwargs):
         self.collect_pages(nav, config)
