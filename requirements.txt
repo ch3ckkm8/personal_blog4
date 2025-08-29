@@ -1,7 +1,2 @@
 mkdocs-material==9.6.18
 pymdown-extensions>=10.16.1
-mkdocs-callouts
-mkdocs-glightbox
-mkdocs-obsidian-bridge
-mkdocs-obsidian-support
-mkdocs-obsidian-interactive-graph-plugin
