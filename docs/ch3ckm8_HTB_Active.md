@@ -4,8 +4,8 @@
 
 ![](MediaFiles/Pasted%20image%2020250730112329.png)
 
-Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath 
-Tools used:
+Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath
+Tools used: 
 - GetUserSPNs.py (Kerberoasting)
 - Hashcat (cracking)
 - smbclient / smbmap / nxc (smb enumeration) 
