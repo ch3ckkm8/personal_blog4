@@ -84,6 +84,7 @@ extra_css:
   - assets/stylesheets/obsidian_tags.css
 
 
+
 plugins:
   - obsidian-interactive-graph
   - search
