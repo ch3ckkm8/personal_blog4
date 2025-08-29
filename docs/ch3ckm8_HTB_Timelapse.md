@@ -2,7 +2,7 @@
 
 # Intro
 
-![timelapse_image.png](timelapse_image.png)
+![timelapse_image.png](MediaFiles/timelapse_image.png)
 
  [[windows]] [[NotAssumedBreach]] [[history]] [[LAPS]]
 
@@ -386,7 +386,7 @@ login was successful! grabbed user flag `8a46deaf35c3bcc3d2cd281014ace2c2`
 
 proof
 
-![timelapse_image.png](timelapse_image1.png)
+![timelapse_image.png](MediaFiles/timelapse_image1.png)
 
 ---
 
@@ -632,7 +632,7 @@ and we are in! grabbed root flag in the TRX user directory: `0e50b496868846720d2
 
 proof:
 
-![timelapse_image.png](timelapse_image2.png)
+![timelapse_image.png](MediaFiles/timelapse_image2.png)
 
 ---
 
@@ -671,4 +671,4 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 To conclude, this was a valuable machine, featuring cracking zip and pfx file passwords and also extracting valuable information from pfx file like keys and certificates for the foothold. As for the privesc part, it involved reading the PowerShell history where plaintext creds for another user were found, a user that was later found that can read LAPS password, which was the way i logged in as Administrator.
 
-![timelapse_image.png](timelapse_image3.png)
+![timelapse_image.png](MediaFiles/timelapse_image3.png)
