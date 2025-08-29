@@ -58,10 +58,7 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.wikilinks:
-      base_url: ""
-      end_url: ".md"
-      build_url: true
+  - pymdownx.wikilinks
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
