@@ -54,37 +54,43 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
             }
 
     def parse_markdown(self, markdown: str, page: MkDocsPage):
-        # wikilinks: [[Link#Anchor|Custom Text]], just the link is needed
+        # --- Patterns ---
         WIKI_PATTERN = re.compile(r"(?<!\!)\[\[(?P<wikilink>[^\|^\]^\#]{1,})(?:.*?)\]\]")
+        TAG_PATTERN = re.compile(r"#(\w+)")
+
+        page_path = self.get_page_path(page)
+
+        # --- Handle wiki-links ([[link]]) ---
         for match in re.finditer(WIKI_PATTERN, markdown):
-            wikilink = match.group('wikilink')
+            wikilink = match.group('wikilink').strip()
 
-            # get the nodes key
-            page_path = self.get_page_path(page)
-
-            # search page path of target page
             target_page_path = ""
 
-            # link to self if wikilink is index and current page is index
             if wikilink == "index" and self.nodes[page_path]["is_index"]:
                 target_page_path = page_path
             else:
-                # 1st: link to global page if exists
-                # 2nd: search relative
                 wikilink = self.page_if_exists(wikilink) or self.page_if_exists(self.get_path(page_path, wikilink)) or wikilink
 
-                # find something that matches: shortest path depth
                 abslen = None
                 for k,_ in self.nodes.items():
-                    for _ in re.finditer(re.compile(r"(.*" + wikilink + r")"), k):
+                    for _ in re.finditer(re.compile(r"(.*" + re.escape(wikilink) + r")"), k):
                         curlen = k.count('/')
-                        if abslen == None or curlen < abslen:
+                        if abslen is None or curlen < abslen:
                             target_page_path = k
                             abslen = curlen
 
             if target_page_path == "":
-                self.logger.warning(page.file.src_uri + ": no target page found for wikilink: " + wikilink)
-                continue
+                # treat as tag node if no page exists
+                if wikilink not in self.nodes:
+                    self.nodes[wikilink] = {
+                        "id": self.id,
+                        "title": wikilink,
+                        "url": "",
+                        "symbolSize": 1,
+                        "markdown": "",
+                        "is_index": False
+                    }
+                target_page_path = wikilink
 
             link = {
                 "source": str(self.nodes[page_path]["id"]),
@@ -92,17 +98,39 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
             }
             self.data["links"].append(link)
 
-            # rate +1 if page has link of is linked
             self.nodes[page_path]["symbolSize"] = self.nodes[page_path].get("symbolSize", 1) + 1
             self.nodes[target_page_path]["symbolSize"] = self.nodes[target_page_path].get("symbolSize", 1) + 1
+
+        # --- Handle hashtags (#tag) ---
+        for match in re.finditer(TAG_PATTERN, markdown):
+            tag = match.group(1).strip()
+
+            if tag not in self.nodes:
+                self.nodes[tag] = {
+                    "id": self.id,
+                    "title": tag,
+                    "url": "",
+                    "symbolSize": 1,
+                    "markdown": "",
+                    "is_index": False
+                }
+
+            link = {
+                "source": str(self.nodes[page_path]["id"]),
+                "target": str(self.nodes[tag]["id"])
+            }
+            self.data["links"].append(link)
+
+            self.nodes[page_path]["symbolSize"] = self.nodes[page_path].get("symbolSize", 1) + 1
+            self.nodes[tag]["symbolSize"] = self.nodes[tag].get("symbolSize", 1) + 1
 
     def create_graph_json(self, config: MkDocsConfig):
         for i, (k,v) in enumerate(self.nodes.items()):
             node = {
-                    "id": str(i),
-                    "name": v["title"],
-                    "symbolSize": v["symbolSize"],
-                    "value": v["url"]
+                "id": str(v["id"]),
+                "name": v["title"],
+                "symbolSize": v["symbolSize"],
+                "value": v["url"]
             }
             self.data["nodes"].append(node)
 
