@@ -26,18 +26,29 @@ jobs:
           python-version: 3.11
       
       - name: Create virtual environment
+        run: python -m venv .venv
+      
+      - name: Activate virtual environment
+        shell: bash
+        run: source .venv/bin/activate
+
+      - name: Install dependencies
+        shell: bash
         run: |
-          python -m venv .venv
           source .venv/bin/activate
           python -m pip install --upgrade pip setuptools wheel
-          pip install mkdocs-material==9.6.18
+          pip install mkdocs-material
           pip install pymdown-extensions>=10.16.1
           pip install -r requirements.txt
           pip install -e obsidian_interactive_graph/
+
+
           
       - name: Deploy Site
+        shell: bash
         run: |
           source .venv/bin/activate
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           mkdocs gh-deploy --force
+
