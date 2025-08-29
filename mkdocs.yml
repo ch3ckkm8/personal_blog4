@@ -21,8 +21,8 @@ nav:
       - Monteverde: ch3ckm8_HTB_monteverde.md
       - Sauna: ch3ckm8_HTB_sauna.md
       - windows: 
+          path: windows.md
           hidden: true
-          file: windows.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
 
