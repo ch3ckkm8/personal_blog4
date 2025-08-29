@@ -2,6 +2,7 @@
 
 ![](MediaFiles/Pasted%20image%2020250805150432.png)
 
+[[windows]] [[NotAssumedBreach]] [[OSCPpath]] [[DCSync]] [[WinPEAS]]
 Tags: #windows #NotAssumedBreach #OSCPpath #DCSync #WinPEAS
 Tools used:
 - BurpSuite (inspecting the web app)

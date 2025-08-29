@@ -2,6 +2,7 @@
 
 ![](MediaFiles/Pasted%20image%2020250813193600.png)
 
+[[#windows]] [[NotAssumedBreach]] [[OSCPpath]] [[PrivGroupAbuse]]
 Tags: #windows #NotAssumedBreach #OSCPpath #PrivGroupAbuse
 Tools used: 
 - BurpSuite (web app inspection)

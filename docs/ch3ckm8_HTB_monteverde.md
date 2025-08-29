@@ -2,6 +2,7 @@
 
 ![](MediaFiles/Pasted%20image%2020250624124752.png)
 
+[[windows]] [[AD]] [[OSCPpath]] [[NotAssumedBreach]] [[ADconnectAbuse]]
 Tags: #windows #AD #OSCPpath #NotAssumedBreach #ADconnectAbuse
 Tools used:
 - windapsearch (LDAP enum)

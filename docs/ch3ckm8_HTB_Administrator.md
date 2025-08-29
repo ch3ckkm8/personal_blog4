@@ -1,16 +1,15 @@
-[[windows]] [[AD]] [[AssumedBreach]]  [[Kerberoasting]]  [[DCsync]] [[OSCPpath]] 
-
 ## Intro
 
 This is a WINDOWS machine of medium difficulty, named Administrator, and our final goal is to become the admin of the system (no shit sherlock). 
-Without further ado, lets dive in!  
+Without further ado, lets dive in!
 
 ![](MediaFiles/Administrator.png)
 Machine Information:
 ```
 As is common in real life Windows pentests, you will start the Administrator box with credentials for the following account: Username: Olivia Password: ichliebedich, so its an assumed breach scenario
 ```
-Tags: #windows #AD #AssumedBreach  #Kerberoasting  #DCsync #OSCPpath
+[[windows]] [[AD]] [[AssumedBreach]]  [[Kerberoasting]]  [[DCsync]] [[OSCPpath]]
+Tags: #windows #AD #AssumedBreach  #Kerberoasting  #DCsync #OSCPpath 
 
 ---
 # Reconnaissance 

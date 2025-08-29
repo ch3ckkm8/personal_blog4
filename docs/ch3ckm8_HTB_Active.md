@@ -1,21 +1,16 @@
+#windows #NotAssumedBreach #Kerberoasting #OSCPpath
 
-# Intro
-
-[[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
-
-[[windows]]
-
-[windows](windows.md)
-
+## Intro
 
 ![](MediaFiles/Pasted%20image%2020250730112329.png)
 
-Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath
-Tools used:   
-- GetUserSPNs.py (Kerberoasting)   
-- Hashcat (cracking) 
-- smbclient / smbmap / nxc (smb enumeration)    
-- psexec.py (shell over smb)      
+[[windows]] [[NotAssumedBreach]] [[Kerberoasting]] [[OSCPpath]]
+Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath 
+Tools used:
+- GetUserSPNs.py (Kerberoasting)
+- Hashcat (cracking)
+- smbclient / smbmap / nxc (smb enumeration)
+- psexec.py (shell over smb) 
 
 ----
 # Reconnaissance

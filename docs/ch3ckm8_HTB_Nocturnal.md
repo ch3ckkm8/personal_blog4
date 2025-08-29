@@ -4,6 +4,8 @@ This is an "easy" linux machine from HackTheBox, lets dive in.
 ![Pasted image 20250527225024](MediaFiles/Pasted%20image%2020250527225024.png)
 
 No Machine Information/description was provided.
+
+[[linux]] [[commandinjection]] [[codereview]] [[PortForwarding]]
 Tags: #linux #commandinjection #codereview #PortForwarding
 Tools used:
 ffuf (webapp's users enumeration)

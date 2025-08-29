@@ -1,9 +1,8 @@
-[[windows]] [[#NotAssumedBreach]] [[#OSCPpath]] [[#PrivGroupAbuse]]
-
 ## Intro
 
 ![](MediaFiles/Pasted%20image%2020250809133212.png)
 
+[[windows]] [[NotAssumedBreach]] [[OSCPpath]] [[PrivGroupAbuse]]
 Tags: #windows #NotAssumedBreach #OSCPpath #PrivGroupAbuse 
 Tools used:
 - rpcclient (RPC enum)
