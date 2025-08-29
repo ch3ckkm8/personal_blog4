@@ -1,8 +1,5 @@
----
-title: HTB Active 
----
 
-## Intro
+# Intro
 
 [[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
 
