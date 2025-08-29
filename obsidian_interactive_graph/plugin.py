@@ -54,15 +54,15 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                 "is_index": page.is_index
             }
 
-    def parse_markdown(self, markdown: str, page: MkDocsPage):
-        # [[Link#Anchor|Custom Text]] → just the link
+     def parse_markdown(self, markdown: str, page: MkDocsPage):
+        # pattern for [[wikilinks]]
         WIKI_PATTERN = re.compile(r"(?<!\!)\[\[(?P<wikilink>[^\|\]\#]+).*?\]\]")
         page_path = self.get_page_path(page).lower()
         
         for match in re.finditer(WIKI_PATTERN, markdown):
             wikilink = match.group('wikilink').strip().lower()
             
-            # find exact node match
+            # find a matching page by basename
             target_page_path = None
             for k in self.nodes.keys():
                 if os.path.basename(k).lower() == wikilink:
@@ -78,9 +78,11 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                 "target": str(self.nodes[target_page_path]["id"])
             }
             self.data["links"].append(link)
-            # increase symbol sizes
+            
+            # increase node sizes
             self.nodes[page_path]["symbolSize"] += 1
             self.nodes[target_page_path]["symbolSize"] += 1
+
 
 
     def create_graph_json(self, config: MkDocsConfig):
