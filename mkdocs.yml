@@ -106,4 +106,5 @@ plugins:
   - obsidian-interactive-graph:
       include_wikilinks: true
       include_markdown_links: true
+      search: true
   - search
