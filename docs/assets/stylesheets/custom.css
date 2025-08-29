@@ -1,0 +1,4 @@
+/* hide nav section called Hidden */
+.md-nav__title:contains("Hidden") {
+    display: none;
+}
