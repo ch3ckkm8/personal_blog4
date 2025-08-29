@@ -1,10 +1,10 @@
-#windows #NotAssumedBreach #Kerberoasting #OSCPpath
 
 ## Intro
 
 ![](MediaFiles/Pasted%20image%2020250730112329.png)
 
 [[windows]] [[NotAssumedBreach]] [[Kerberoasting]] [[OSCPpath]]
+
 Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath 
 Tools used:
 - GetUserSPNs.py (Kerberoasting)
