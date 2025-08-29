@@ -60,7 +60,19 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - admonition
+  - attr_list
+  - codehilite
+  - md_in_html
+  - def_list
+  - sane_lists
+  - pymdownx.details
+  - pymdownx.magiclink
   - pymdownx.superfences
+  - pymdownx.wikilinks:
+      base_url: ""
+      end_url: ".md"
+      build_url: true
   - toc:
       permalink: true
 
