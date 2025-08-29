@@ -29,10 +29,6 @@ jobs:
           pip install mkdocs-material mkdocs-obsidian-interactive-graph-plugin
           pip install -r requirements.txt
 
-      - name: Generate Graph JSON
-        run: |
-          python obsidian_interactive_graph/plugin.py
-
       - name: Deploy Files
         run: |
           git config user.name "github-actions[bot]"
