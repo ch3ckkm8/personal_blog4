@@ -69,6 +69,7 @@ extra_javascript:
   - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
   - assets/javascripts/interactive_graph.js
   - assets/javascripts/obsidian_tags.js
+  - assets/javascripts/connect_tags.js
 
 extra_css:
   - assets/stylesheets/interactive_graph.css
