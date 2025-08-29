@@ -18,16 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Create fresh virtual environment
-      - name: Create virtual environment
-        run: python -m venv .venv
-
-      # Activate venv and upgrade pip/setuptools/wheel
-      - name: Upgrade pip & setuptools
+      # Create and activate virtual environment
+      - name: Setup Python
         run: |
+          python -m venv .venv
           source .venv/bin/activate
           pip install --upgrade pip setuptools wheel
-          pip cache purge  # optional: clear pip cache to remove stale packages
 
       # Install dependencies inside the venv
       - name: Install dependencies
@@ -36,8 +32,10 @@ jobs:
           pip install mkdocs-material==9.6.18
           pip install pymdown-extensions>=10.16.1
           pip install -r requirements.txt
+          # Editable install of your local plugin
+          pip install -e obsidian_interactive_graph/
 
-      # Deploy site using MkDocs inside venv
+      # Deploy the site using MkDocs inside the same venv
       - name: Deploy Site
         run: |
           source .venv/bin/activate
