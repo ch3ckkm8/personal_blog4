@@ -64,6 +64,15 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_javascript:
+  - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
+  - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
+  - assets/css/javascripts/interactive_graph.js
+
+extra_css:
+  - assets/css/stylesheets/interactive_graph.css
+
+
 plugins:
   - obsidian-interactive-graph
   - search
