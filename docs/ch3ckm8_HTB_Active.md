@@ -1,4 +1,4 @@
-[[windows]] [[NotAssumedBreach]] [[Kerberoasting]] [[OSCPpath]]
+[[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
 
 ## Intro
 
