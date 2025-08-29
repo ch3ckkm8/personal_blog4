@@ -1,5 +1,5 @@
 // draw graph in sidebar, change global to true if prefered
-function draw_graph_sidebar(myChart, global=false) {
+function draw_graph_sidebar(myChart, global=true) {
     draw_graph(myChart, global)
   }
   
@@ -171,4 +171,5 @@ function draw_graph_sidebar(myChart, global=false) {
     });
     myChart = init_graph();
     draw_graph_modal(myChart);
+
   });
