@@ -17,38 +17,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      
+      # Create fresh virtual environment
       - name: Create virtual environment
         run: python -m venv .venv
-      
-      - name: Activate virtual environment
-        shell: bash
-        run: source .venv/bin/activate
 
-      - name: Install dependencies
-        shell: bash
+      # Activate venv and upgrade pip/setuptools/wheel
+      - name: Upgrade pip & setuptools
         run: |
           source .venv/bin/activate
-          python -m pip install --upgrade pip setuptools wheel
-          pip install mkdocs-material
+          pip install --upgrade pip setuptools wheel
+          pip cache purge  # optional: clear pip cache to remove stale packages
+
+      # Install dependencies inside the venv
+      - name: Install dependencies
+        run: |
+          source .venv/bin/activate
+          pip install mkdocs-material==9.6.18
           pip install pymdown-extensions>=10.16.1
           pip install -r requirements.txt
-          pip install -e obsidian_interactive_graph/
 
-
-          
+      # Deploy site using MkDocs inside venv
       - name: Deploy Site
-        shell: bash
         run: |
           source .venv/bin/activate
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           mkdocs gh-deploy --force
-
