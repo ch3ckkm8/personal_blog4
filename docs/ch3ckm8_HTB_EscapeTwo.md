@@ -15,7 +15,7 @@ Tags: #windows #AD #AssumedBreach  #certificates #certvulntemplate #OSCPpath
 Tools used: 
 Bloodhound,
 bloodhound-python,
-impacket-mssqlclient, 
+impacket-mssqlclient,  
 bloodyAD, 
 impacket-dacledit, 
 nxc (netexec), 
