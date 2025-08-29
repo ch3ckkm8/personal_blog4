@@ -20,9 +20,8 @@ nav:
       - Forest: ch3ckm8_HTB_forest.md
       - Monteverde: ch3ckm8_HTB_monteverde.md
       - Sauna: ch3ckm8_HTB_sauna.md
-  - Windows:
-      path: windows.md
-      hidden: true
+  - Hidden:
+      - windows: windows.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
 
@@ -76,7 +75,7 @@ extra_javascript:
 extra_css:
   - assets/stylesheets/interactive_graph.css
   - assets/stylesheets/obsidian_tags.css
-  #- assets/stylesheets/custom.css
+  - assets/stylesheets/custom.css
 
 plugins:
   - obsidian-interactive-graph:
