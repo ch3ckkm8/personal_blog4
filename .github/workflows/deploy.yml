@@ -20,24 +20,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.x
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-
-
-      - name: Install dependencies
+      
+      - name: Create virtual environment
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           python -m pip install --upgrade pip setuptools wheel
-          pip install mkdocs-material
+          pip install mkdocs-material==9.6.18
+          pip install pymdown-extensions>=10.16.1
           pip install -r requirements.txt
-          # pretend a version so setuptools_scm doesn’t try to infer it
-          export SETUPTOOLS_SCM_PRETEND_VERSION_FOR_MKDOCS_OBSIDIAN_INTERACTIVE_GRAPH_PLUGIN=0.1.0
           pip install -e obsidian_interactive_graph/
-
-
+          
       - name: Deploy Site
         run: |
+          source .venv/bin/activate
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           mkdocs gh-deploy --force
