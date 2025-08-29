@@ -19,7 +19,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Monteverde](ch3ckm8_HTB_monteverde.md)    | Windows | Medium     | ✅ NotAssumedBreach ADconnectAbuse                       | ✅                |
 | Escape        | Windows | Medium     | ✅ NotAssumedBreach MSSQL certificates certvulntoESC1    | ✅                |
 | Cicada        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
-| [Monteverde](ch3ckm8_HTB_Timelapse.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach History LAPS                         | ✅                |
+| [Timelapse](ch3ckm8_HTB_Timelapse.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach History LAPS                         | ✅                |
 | Dog           | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅                                                      | 🛠️ in progress    |
 | Scepter       | Windows | Hard       | ✅                                                      | 🛠️ in progress    |
 | Cat           | Linux   | Medium     | ✅                                                      | 🛠️ in progress    |
