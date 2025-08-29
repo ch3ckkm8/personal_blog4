@@ -10,7 +10,7 @@ on:
       - master
 
 permissions:
-  contents: write   # ✅ allows pushing to gh-pages
+  contents: write   # allows pushing to gh-pages
 
 jobs:
   build:
@@ -25,12 +25,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools
-          pip install mkdocs-material mkdocs-obsidian-interactive-graph-plugin
-          pip install pymdown-extensions
+          python -m pip install --upgrade pip setuptools wheel
+          pip install mkdocs-material
           pip install -r requirements.txt
+          # Install local plugin in editable mode so MkDocs can use it
+          pip install -e obsidian_interactive_graph/
 
-      - name: Deploy Files
+      - name: Deploy Site
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
