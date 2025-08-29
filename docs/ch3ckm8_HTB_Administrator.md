@@ -1,4 +1,4 @@
-[[#windows]] [[#AD]] [[#AssumedBreach]]  [[#Kerberoasting]]  [[#DCsync]] [[#OSCPpath]] 
+[[windows]] [[AD]] [[AssumedBreach]]  [[Kerberoasting]]  [[DCsync]] [[OSCPpath]] 
 
 ## Intro
 
