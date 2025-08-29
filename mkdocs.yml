@@ -20,6 +20,9 @@ nav:
       - Forest: ch3ckm8_HTB_forest.md
       - Monteverde: ch3ckm8_HTB_monteverde.md
       - Sauna: ch3ckm8_HTB_sauna.md
+  - Other CTF Writeups:
+      - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
+      
   - Tags:
       - windows: windows.md
       - AD : AD.md
@@ -45,10 +48,6 @@ nav:
       - commandinjection : commandinjection.md
       - gpo : gpo.md
       - linux : linux.md
-
-      
-  - Other CTF Writeups:
-      - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
 
 theme:
   name: material
