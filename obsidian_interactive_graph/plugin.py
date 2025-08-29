@@ -24,12 +24,9 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
         self.current_id += 1
         return current_id
 
-    def get_path(self, base: str, *argv: list[str]) -> str:
-        from urllib.parse import urljoin
-        result = base
-        for path in argv:
-            result = urljoin(result, path)
-        return result
+    def get_page_path(self, page: MkDocsPage) -> str:
+        return page.file.src_uri.replace(".md", "")
+
 
     def get_page_path(self, page: MkDocsPage) -> str:
         return self.get_path(self.site_path, page.file.src_uri).replace(".md", "")
