@@ -2,7 +2,7 @@ name: Deploy Site
 
 on:
   push:
-    paths: 
+    paths:
       - 'docs/**'
       - 'mkdocs.yml'
       - 'theme/**'
@@ -10,7 +10,7 @@ on:
       - master
 
 permissions:
-  contents: write   # allows pushing to gh-pages
+  contents: write
 
 jobs:
   build:
@@ -18,26 +18,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python, install deps, and deploy
+      - name: Set up Python
+        run: python -m venv .venv
+
+      - name: Activate venv and install deps
+        shell: bash
         run: |
-          # Create and activate virtual environment
-          python -m venv .venv
-          . .venv/bin/activate
-
-          # Upgrade pip and setuptools
+          source .venv/bin/activate
           python -m pip install --upgrade pip setuptools wheel
-
-          # Install dependencies
+          # Install Pymdown first to guarantee wikilinks is available
+          python -m pip install "pymdown-extensions>=10.16.1"
           python -m pip install mkdocs-material==9.6.18
-          python -m pip install pymdown-extensions>=10.16.1
-          python -m pip install -r requirements.txt
+          # Install your plugin using PEP517
+          python -m pip install --use-pep517 -e obsidian_interactive_graph/
 
-          # Install local plugin in editable mode
-          python -m pip install -e obsidian_interactive_graph/
-
-          # Configure Git for gh-deploy
+      - name: Deploy MkDocs
+        shell: bash
+        run: |
+          source .venv/bin/activate
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
-
-          # Deploy site
           mkdocs gh-deploy --force
