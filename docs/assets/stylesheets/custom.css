@@ -2,3 +2,8 @@
 .md-nav__title:contains("Hidden") {
     display: none;
 }
+/* hide top nav section called Hidden */
+.md-header-nav__link:contains("Hidden") {
+    display: none;
+}
+
