@@ -9,7 +9,7 @@ Tools used:
 - GetUserSPNs.py (Kerberoasting)  
 - Hashcat (cracking)
 - smbclient / smbmap / nxc (smb enumeration)  
-- psexec.py (shell over smb)    
+- psexec.py (shell over smb)     
 
 ----
 # Reconnaissance
