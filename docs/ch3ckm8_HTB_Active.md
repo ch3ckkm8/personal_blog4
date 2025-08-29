@@ -1,3 +1,4 @@
+#windows #NotAssumedBreach #Kerberoasting #OSCPpath
 
 ## Intro
 

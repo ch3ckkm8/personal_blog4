@@ -3,6 +3,7 @@
 ![](MediaFiles/Pasted%20image%2020250702081108.png)
 
 [[windows]] [[NotAssumedBreach]] [[codereview]] [[RecycleBin]] [[OSCPpath]]
+
 Tags: #windows #NotAssumedBreach #codereview #RecycleBin #OSCPpath 
 Tools used:
 enum4linux (enumerating smb)
