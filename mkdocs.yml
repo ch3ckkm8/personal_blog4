@@ -76,5 +76,4 @@ extra_css:
 
 plugins:
   - obsidian-interactive-graph
-  - obsidian-support
   - search
