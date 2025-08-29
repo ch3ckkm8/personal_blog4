@@ -8,7 +8,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
 |---------------|---------|------------|---------------------------------------------------------|------------------|
-| [Forest](ch3ckm8_HTB_forest.md)        | Windows | Easy       | ✅ NotAssumedBreach AS-REP-roasting                      | ✅                |
+| [Forest](ch3ckm8_HTB_forest.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach AS-REP-roasting                      | ✅                |
 | [Cascade](ch3ckm8_HTB_Cascade.md)       | Windows | Medium     | ✅ NotAssumedBreach RecycleBin codereview                | ✅                |
 | [Blackfield](ch3ckm8_HTB_Blackfield.md)    | Windows | Hard       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
 | [Administrator](ch3ckm8_HTB_Administrator.md) | Windows | Medium     | ✅ AsummedBreach Kerberoasting DCSync                    | ✅                |
