@@ -20,7 +20,7 @@ nav:
       - Forest: ch3ckm8_HTB_forest.md
       - Monteverde: ch3ckm8_HTB_monteverde.md
       - Sauna: ch3ckm8_HTB_sauna.md
-      - windows: 
+      - Windows: 
           path: windows.md
           hidden: true
   - Other CTF Writeups:
