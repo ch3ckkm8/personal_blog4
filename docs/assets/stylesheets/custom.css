@@ -1,9 +1,6 @@
-/* hide nav section called Hidden */
-.md-nav__title:contains("Hidden") {
-    display: none;
-}
-/* hide top nav section called Hidden */
+/* Hide all nav items under "Hidden" */
+.md-nav__item:has(.md-nav__link:contains("Hidden")),
+.md-nav__item:has(.md-nav__link:contains("Hidden")) .md-nav__link,
 .md-header-nav__link:contains("Hidden") {
-    display: none;
+    display: none !important;
 }
-
