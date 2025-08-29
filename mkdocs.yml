@@ -106,7 +106,7 @@ plugins:
   - obsidian-interactive-graph:
       include_wikilinks: true
       include_markdown_links: true
-      node_colors_function: |
+      node_colors: |
         function(node) {
             const keywords = ["windows", "Kerberoasting", "OSCPpath"];
             const colors = {};
