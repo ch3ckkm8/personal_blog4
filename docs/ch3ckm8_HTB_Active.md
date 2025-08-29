@@ -1,6 +1,8 @@
-[[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
 
 ## Intro
+
+[[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
+
 
 ![](MediaFiles/Pasted%20image%2020250730112329.png)
 
