@@ -27,6 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install mkdocs-material
+          pip install mkdocs-obsidian-interactive-graph-plugin
           pip install mkdocs-obsidian-bridge  # handles [[wikilinks]] now
           pip install -r requirements.txt
 
