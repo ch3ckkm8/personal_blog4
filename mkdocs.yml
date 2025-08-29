@@ -58,7 +58,6 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.wikilinks
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
@@ -83,7 +82,7 @@ extra_css:
   - assets/stylesheets/interactive_graph.css
   - assets/stylesheets/obsidian_tags.css
 
-
 plugins:
   - obsidian-interactive-graph
+  - obsidian-bridge  # added this for [[wikilinks]]
   - search
