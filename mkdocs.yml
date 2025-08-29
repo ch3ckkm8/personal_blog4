@@ -106,24 +106,4 @@ plugins:
   - obsidian-interactive-graph:
       include_wikilinks: true
       include_markdown_links: true
-      node_colors: |
-        function(node) {
-            const keywords = ["windows", "Kerberoasting", "OSCPpath"];
-            const colors = {};
-            
-            // helper to generate a random hex color
-            function randomColor() {
-              return "#" + Math.floor(Math.random()*16777215).toString(16);
-            }
-        
-            for (let key of keywords) {
-              if (!(key in colors)) {
-                colors[key] = randomColor();
-              }
-              if (node.title && node.title.includes(key)) {
-                return colors[key];
-              }
-            }
-            return "#999999"; // fallback
-          }
   - search
