@@ -3,6 +3,8 @@
 
 [[windows|windows]] [[NotAssumedBreach|NotAssumedBreach]] [[Kerberoasting|NotAssumedBreach]] [[OSCPpath|NotAssumedBreach]]
 
+[[windows]]
+
 [windows](windows.md)
 
 
