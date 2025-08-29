@@ -20,6 +20,7 @@ nav:
       - Forest: ch3ckm8_HTB_forest.md
       - Monteverde: ch3ckm8_HTB_monteverde.md
       - Sauna: ch3ckm8_HTB_sauna.md
+      - Timelapse: ch3ckm8_HTB_Timelapse.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
       
@@ -48,6 +49,10 @@ nav:
       - commandinjection : commandinjection.md
       - gpo : gpo.md
       - linux : linux.md
+      - history : history.md
+      - LAPS : laps.md
+      - mssql : mssql.md
+      - certvulntoESC1 : certvulntoESC1.md
 
 theme:
   name: material
