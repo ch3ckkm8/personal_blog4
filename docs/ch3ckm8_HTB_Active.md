@@ -8,7 +8,7 @@ Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath
 Tools used:   
 - GetUserSPNs.py (Kerberoasting)  
 - Hashcat (cracking)
-- smbclient / smbmap / nxc (smb enumeration) 
+- smbclient / smbmap / nxc (smb enumeration)  
 - psexec.py (shell over smb)    
 
 ----
