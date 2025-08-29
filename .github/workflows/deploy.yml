@@ -31,8 +31,10 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install mkdocs-material
           pip install -r requirements.txt
-          # Install local plugin in editable mode so MkDocs can use it
+          # pretend a version so setuptools_scm doesn’t try to infer it
+          export SETUPTOOLS_SCM_PRETEND_VERSION_FOR_MKDOCS_OBSIDIAN_INTERACTIVE_GRAPH_PLUGIN=0.1.0
           pip install -e obsidian_interactive_graph/
+
 
       - name: Deploy Site
         run: |
