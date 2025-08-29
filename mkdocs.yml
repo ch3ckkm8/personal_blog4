@@ -74,7 +74,6 @@ extra_css:
   - assets/stylesheets/interactive_graph.css
   - assets/stylesheets/obsidian_tags.css
 
-
 plugins:
   - obsidian-interactive-graph:
       include_wikilinks: true
