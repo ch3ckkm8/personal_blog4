@@ -4,7 +4,7 @@ You’ve stumbled into my little corner of the internet where firewalls fear me,
 
 Disclaimer: Every writeup was fueled by caffeine and questionable confidence, don’t try this at home.
 
-[HackTheBox profile](https://app.hackthebox.com/profile/284567)
+[HackTheBox profile](https://app.hackthebox.com/profile/284567){target=_blank}
 
 # HackTheBox Writeups
 
