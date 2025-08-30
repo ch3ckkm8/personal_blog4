@@ -2,9 +2,9 @@
 
 ![](MediaFiles/Pasted%20image%2020250813193600.png)
 
-[[#windows]] [[NotAssumedBreach]] [[OSCPpath]] [[PrivGroupAbuse]]
+[[#windows]] [[NotAssumedBreach]] [[OSCPpath]] [[PrivGroupAbuse]] [[WebApp]]
 
-Tags: #windows #NotAssumedBreach #OSCPpath #PrivGroupAbuse
+Tags: #windows #NotAssumedBreach #OSCPpath #PrivGroupAbuse #WebApp
 Tools used: 
 - BurpSuite (web app inspection)
 - ldapsearch (ldap enum)
