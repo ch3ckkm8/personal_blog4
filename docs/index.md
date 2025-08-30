@@ -14,7 +14,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Cascade](ch3ckm8_HTB_Cascade.md)       | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach RecycleBin codereview                | ✅                |
 | [Blackfield](ch3ckm8_HTB_Blackfield.md)    | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
 | [Administrator](ch3ckm8_HTB_Administrator.md) | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ AsummedBreach Kerberoasting DCSync                    | ✅                |
-| [Escapetwo](ch3ckm8_HTB_Escapetwo.md)    | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ AssumedBreach certificates certvulntemplate           | ✅                |
+| [Escapetwo](ch3ckm8_HTB_EscapeTwo.md)    | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ AssumedBreach certificates certvulntemplate           | ✅                |
 | [Return](ch3ckm8_HTB_Return.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅                |
 | [Sauna](ch3ckm8_HTB_sauna.md)         | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach DCSync WinPEAS                       | ✅                |
 | [Active](ch3ckm8_HTB_Active.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach Kerberoasting                        | ✅                |
