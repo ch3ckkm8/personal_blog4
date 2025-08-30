@@ -820,31 +820,6 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 ```mermaid
 flowchart TD
     %% Reconnaissance
-    R1[Nmap Scan → Found multiple services: RPC, SMB, LDAP] --> R2[RPC Enumeration → nothing useful]
-    R1 --> R3[SMB Enumeration → share with PDF containing credentials]
-    R1 --> R4[LDAP Enumeration → nothing useful]
-    R3 --> R5[Correlated PDF credentials with MSSQL service]
-    R5 --> R6[MSSQL Enumeration → databases found, nothing further]
-
-    %% Foothold
-    F1[Leaked NTLM hash via MSSQL → capture hash of sql_svc] --> F2[Logged in as sql_svc]
-    F2 --> F3[Enumerated files/folders → SQL error logs with creds for ryan.cooper]
-    F3 --> F4[Logged in via WinRM as ryan.cooper] --> F5[Grabbed user flag]
-
-    %% Privilege Escalation
-    P1[ryan.cooper group membership → indicates ADCS existence] --> P2[Enumerated ADCS → vulnerable to ESC1]
-    P2 --> P3[Abused ESC1 → got admin PFX → extracted NTLM hash]
-    P3 --> P4[Logged in as Administrator via NTLM hash] --> P5[Grabbed root flag]
-
-    %% Connect phases
-    R6 --> F1
-    F5 --> P1
-
-```
-
-```mermaid
-flowchart TD
-    %% Reconnaissance
     subgraph Reconnaissance
         style Reconnaissance fill:blue,stroke:blue,stroke-width:2px
         R1[Nmap Scan → Found multiple services: <b>RPC</b>, <b>SMB</b>, <b>LDAP</b>]
