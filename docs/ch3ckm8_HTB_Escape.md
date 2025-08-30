@@ -1,6 +1,4 @@
-# ch3ckm8_HTB_Escape
-
-# Intro
+## Intro
 
 ![image.png](MediaFiles/escape_image.png)
 
