@@ -82,6 +82,7 @@ theme:
     - search.highlight
     - toc.sticky
     - content.code.copy
+    - navigation.top
 
   icon:
     logo: material/chess-knight
