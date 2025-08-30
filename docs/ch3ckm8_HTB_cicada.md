@@ -1,6 +1,4 @@
-# ch3ckm8_HTB_cicada
-
-# Intro
+## Intro
 
 ![cicada_image.png](MediaFiles/cicada_image.png)
 
