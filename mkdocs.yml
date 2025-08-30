@@ -94,7 +94,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
 
@@ -114,4 +118,3 @@ plugins:
       include_wikilinks: true
       include_markdown_links: true
   - search
-  - mermaid2
