@@ -93,6 +93,7 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - nl2br
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
