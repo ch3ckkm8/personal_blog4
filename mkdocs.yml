@@ -105,6 +105,11 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra:
+  links:
+    external_new_tab: true
+
+
 extra_javascript:
   - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
   - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
