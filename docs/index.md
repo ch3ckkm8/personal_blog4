@@ -1,6 +1,6 @@
 ## Welcome, fellow curious minds!
 
-You’ve stumbled into my little corner of the internet where firewalls fear me, logs tremble, and I generously share my pentesting “wisdom” so you don’t have to make the same mistakes I did—lucky you. Here, you’ll find writeups, tutorials, and ramblings from my adventures, sprinkled with just enough chaos to keep things interesting.
+You’ve stumbled into my little corner of the internet where firewalls fear me, logs tremble, and I generously share my long journey towards pentesting so you don’t have to make the same mistakes I did—lucky you. Here, you’ll find writeups, tutorials, and ramblings from my adventures, sprinkled with just enough chaos to keep things interesting.
 
 Disclaimer: Every writeup was fueled by caffeine and questionable confidence, don’t try this at home.
 
