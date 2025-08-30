@@ -60,6 +60,8 @@ theme:
   name: material
   highlightjs: true
   highlightjs_style: vs
+  # Disable permalinks for headers
+  header_autolink: false
 
   palette:
     - scheme: default
