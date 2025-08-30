@@ -1,6 +1,4 @@
-# ch3ckm8_HTB_Timelapse
-
-# Intro
+## Intro
 
 ![timelapse_image.png](MediaFiles/timelapse_image.png)
 
