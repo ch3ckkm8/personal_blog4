@@ -2,7 +2,7 @@
 
 ![timelapse_image.png](MediaFiles/timelapse_image.png)
 
- [[windows]] [[NotAssumedBreach]] [[history]] [[LAPS]]
+ [[windows]] [[NotAssumedBreach]] [[history]] [[laps]]
 
 Tags: #windows #NotAssumedBreach #history #LAPS
 
