@@ -114,6 +114,7 @@ markdown_extensions:
 extra:
   links:
     external_new_tab: true
+  favicon: assets/images/favicon.svg
 
 
 extra_javascript:
