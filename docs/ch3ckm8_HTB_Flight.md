@@ -1,11 +1,9 @@
-
-## Intro
+# Intro
 
 ![image.png](MediaFiles/flight_image.png)
 
-[[windows]] [[NotAssumedBreach]] [[Vhosts]] [[webapp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
-
-Tags: #windows #NotAssumedBreach #Vhosts #WebApp #PortForwarding #Impersonation #DCSync #WinPEAS
+[[windows]] [[NotAssumedBreach]] [[webapp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]] [[Vhosts]]
+Tags: #windows #NotAssumedBreach #WebApp #PortForwarding #Impersonation #DCSync #WinPEAS #Vhosts
 
 Tools used:
 
@@ -1766,7 +1764,7 @@ SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
 
 The most interesting one to me here after researching it is the `SeImpersonatePrivilege` . By the name of it, it indicates impersonating other users/accounts.
 
-## What **SeImpersonatePrivilege** is
+## What is the privilege **SeImpersonate** ?
 
 - In Windows, **SeImpersonatePrivilege** is a user right that allows a process to **impersonate the security context of another user** on the same system.
 - A process with this privilege can take another user’s token (session) and execute actions **as if it were that user**.
@@ -2000,7 +1998,7 @@ Key points:
 
 so we got administrators NTLM hash! lets login via winrm
 
-## Logging in as Administrator
+## Logging in as Administrator via pass the hash
 
 ```bash
 evil-winrm -i flight.htb -u administrator -H '43bbfc530bab76141b12c8446e30c17c'
@@ -2015,6 +2013,46 @@ proof:
 ---
 
 # Summary
+
+
+Here is the list of the steps simplified, per phase, for future reference and for quick reading: 
+
+#### Reconnaissance
+1. nmap `scan` -> chose `SMB` `RPC` `LDAP` and `HTTP` to focus on first
+2. **Enumerated** `SMB` -> nothing valuable found
+3. **Enumerated** `RPC` -> nothing valuable found
+4. **Enumerated** `LDAP` -> nothing valuable found
+5. **Enumerated** `HTTP`, first **directories**, then **subdomains**, and then ==virtual hosts== -> found vhosts
+6. **Inspected** the webapp, and **gathered information**
+7. According to the information gathered, it was found to be vulnerable `RFI`
+8. **Exploiting** `RFI` leaked the NTLM hash of a user (svc_apache)
+9. **Cracked** the NTLM hash, got password for user (svc_apache)
+10. **Correlated** the found creds with SMB, LDAP, RPC services
+11. **Enumerated** `SMB` as this user (svc_apache), found valid users
+12. **Enumerated** `LDAP` as this user (svc_apache) but nothing interesting was found
+#### Foothold
+1. `Password spraying` via `SMB` was performed, found valid creds for another user (S.Moon)
+2. **Correlated** the found creds with SMB, LDAP, RPC services
+3. Enumerated `SMB` as this user (S.Moon), found **WRITE permissions** to a share
+4. Found exploit and by uploading it to the share leaked the ==NTLM hash== of another user (C.Bum) 
+5. Cracked the ==NTLM hash==, got password for user (C.Bum) 
+6. **Correlated** the found creds with SMB, LDAP, RPC services
+7. **Enumerated** `SMB` as this user (C.Bum), found **WRITE permissions** to a share, the exact same share that the vhost page was stored
+8. Found **exploit** and by **uploading** it to the share, and **triggering** it by navigating it to the webpage, we got ==rev shell== as a user (svc_apache)
+9. Impersonated user C.Bum as svc_apache, via running a new process as another user (RunAs, since we know the creds of C.Bum, and created a new cmd process run as C.Bum to send a rev shell back to our machine
+10. Got rev shell back to our machine, as user C.Bum
+11. got ==user flag==
+#### Privesc
+1. **Enumerated** files and directories , and found the existence of ==IIS server==
+2. **Uploaded** ==winPEAS== to find privesc paths, focused on the ==listening ports==
+3. **Correlated** ==listening ports== with the IIS server, found the corresponding **port**
+4. **Port forwarded** the port to attacker host, then inspected the webpage
+5. **Enumerated** the files of the IIS server, and found that user C.Bum has `WRITE` permissions there
+6. **Uploaded** an aspx ==rev shell==, and got shell as ==iis apppool\defaultapppool==
+7. **Privileges** of this user revealed the existence of `SeImpersonate` Privilege, which in this case (iis apppool user) can impersonate the machine account
+8. **Grabbed** machine account's ticket
+9. Used the ticket to authenticate and perform DCSync, which reavealed the NTLM hash of Administrator
+10. Logged in as Administrator via pass the hash and grabbed the ==root flag==
 
 ---
 
