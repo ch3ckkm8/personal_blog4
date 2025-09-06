@@ -114,7 +114,7 @@ markdown_extensions:
 extra:
   links:
     external_new_tab: true
-  favicon: assets/images/favicon.svg
+  favicon: assets/images/chess-knight.svg
 
 
 extra_javascript:
