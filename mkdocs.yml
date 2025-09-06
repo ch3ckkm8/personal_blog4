@@ -55,6 +55,7 @@ nav:
       - LAPS : laps.md
       - mssql : mssql.md
       - certvulntoESC1 : certvulntoESC1.md
+      - Impersonation : Impersonation.md
 
 theme:
   name: material
