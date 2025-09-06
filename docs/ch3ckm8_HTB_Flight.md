@@ -3,8 +3,8 @@
 
 ![image.png](MediaFiles/flight_image.png)
 
-[[windows]] [[NotAssumedBreach]] [[webapp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
-Tags: #windows #NotAssumedBreach #WebApp #PortForwarding #Impersonation #DCSync #WinPEAS
+[[windows]] [[NotAssumedBreach]] [[Vhosts]] [[webapp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
+Tags: #windows #NotAssumedBreach #Vhosts #WebApp #PortForwarding #Impersonation #DCSync #WinPEAS
 
 Tools used:
 
