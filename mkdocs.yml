@@ -57,6 +57,7 @@ nav:
       - mssql : mssql.md
       - certvulntoESC1 : certvulntoESC1.md
       - Impersonation : Impersonation.md
+      - Vhosts : Vhosts.md
 
 theme:
   name: material
