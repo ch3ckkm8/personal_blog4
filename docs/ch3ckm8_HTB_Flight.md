@@ -2024,20 +2024,20 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 4. **Enumerated** `LDAP` -> nothing valuable found
 5. **Enumerated** `HTTP`, first **directories**, then **subdomains**, and then ==virtual hosts== -> found vhosts
 6. **Inspected** the webapp, and **gathered information**
-7. According to the information gathered, it was found to be vulnerable `RFI`
+7. According to the information gathered, it was found to be **vulnerable** `RFI`
 8. **Exploiting** `RFI` leaked the NTLM hash of a user (svc_apache)
 9. **Cracked** the NTLM hash, got password for user (svc_apache)
 10. **Correlated** the found creds with SMB, LDAP, RPC services
 11. **Enumerated** `SMB` as this user (svc_apache), found valid users
 12. **Enumerated** `LDAP` as this user (svc_apache) but nothing interesting was found
 #### Foothold
-1. `Password spraying` via `SMB` was performed, found valid creds for another user (S.Moon)
+1. `Password spraying` via `SMB` was performed, found **valid creds** for another user (S.Moon)
 2. **Correlated** the found creds with SMB, LDAP, RPC services
-3. Enumerated `SMB` as this user (S.Moon), found **WRITE permissions** to a share
-4. Found exploit and by uploading it to the share leaked the ==NTLM hash== of another user (C.Bum) 
-5. Cracked the ==NTLM hash==, got password for user (C.Bum) 
+3. **Enumerated** `SMB` as this user (S.Moon), found **WRITE permissions** to a share
+4. Found **exploit** and by uploading it to the share leaked the ==NTLM hash== of another user (C.Bum) 
+5. **Cracked** the ==NTLM hash==, got password for user (C.Bum) 
 6. **Correlated** the found creds with SMB, LDAP, RPC services
-7. **Enumerated** `SMB` as this user (C.Bum), found **WRITE permissions** to a share, the exact same share that the vhost page was stored
+7. **Enumerated** `SMB` as this user (C.Bum), found **WRITE permissions** to a share, the exact same share that the vhost page's content was stored
 8. Found **exploit** and by **uploading** it to the share, and **triggering** it by navigating it to the webpage, we got ==rev shell== as a user (svc_apache)
 9. Impersonated user C.Bum as svc_apache, via running a new process as another user (RunAs, since we know the creds of C.Bum, and created a new cmd process run as C.Bum to send a rev shell back to our machine
 10. Got rev shell back to our machine, as user C.Bum
@@ -2050,9 +2050,9 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 5. **Enumerated** the files of the IIS server, and found that user C.Bum has `WRITE` permissions there
 6. **Uploaded** an aspx ==rev shell==, and got shell as ==iis apppool\defaultapppool==
 7. **Privileges** of this user revealed the existence of `SeImpersonate` Privilege, which in this case (iis apppool user) can impersonate the machine account
-8. **Grabbed** machine account's ticket
-9. Used the ticket to authenticate and perform DCSync, which reavealed the NTLM hash of Administrator
-10. Logged in as Administrator via pass the hash and grabbed the ==root flag==
+8. **Grabbed** machine account's ==ticket==
+9. **Used** the ==ticket== to authenticate and perform ==DCSync==, which reavealed the `NTLM` hash of **Administrator**
+10. **Logged** in as **Administrator** via pass the hash and grabbed the ==root flag==
 
 ---
 
