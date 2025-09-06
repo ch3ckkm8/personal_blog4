@@ -86,6 +86,7 @@ theme:
     - navigation.tabs
     - search.highlight
     - toc.sticky
+    - toc.follow        # 👈 auto-scrolls TOC outline
     - content.code.copy
     - navigation.top
     - navigation.external
