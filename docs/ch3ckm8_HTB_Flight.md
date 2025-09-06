@@ -4,7 +4,7 @@
 
 ![image.png](flight_image.png)
 
-[[windows]] [[NotAssumedBreach]] [[WebApp]] [[portForward]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
+[[windows]] [[NotAssumedBreach]] [[WebApp]] [[PortForwarding]] [[Impersonation]] [[DCSync]] [[WinPEAS]]
 Tags: #windows #NotAssumedBreach #Webapp #portForward #Impersonation #DCSync #WinPEAS
 
 Tools used:
