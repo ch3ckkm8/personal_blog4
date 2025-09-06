@@ -76,8 +76,8 @@ echo '10.10.11.42 Administrator.htb' | sudo tee -a /etc/hosts
 okay, lets first try ftp with the given users creds, 
 after trying it i found out that user Olivia cant login to ftp, so lets move on to the rest of the open ports and their associated services
 
-(ch3ckm8)        (table)
-### (╯°□°）╯︵ ┻━┻
+(ch3ckm8)  (table)
+(╯°□°）╯︵ ┻━┻
 
 narrator: no, no don't give up yet, its too early (try giving up later xd)
 
