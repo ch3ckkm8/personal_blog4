@@ -193,7 +193,7 @@ bloodyad --host "10.10.11.42" -d "Administrator.htb" -u "michael" -p "TheBestPas
 Now comes the tricky part , user benjamin cant login to winrm !!
 
 (ch3ckm8)       (table)
-### (╯°□°）╯︵ ┻━┻ 
+(╯°□°）╯︵ ┻━┻ 
 
 narrator: okay apparently he does not like this table, dude relax, put the table down, keep pro-hacking
 
