@@ -2054,6 +2054,136 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 9. **Used** the ==ticket== to authenticate and perform ==DCSync==, which reavealed the `NTLM` hash of **Administrator**
 10. **Logged** in as **Administrator** via pass the hash and grabbed the ==root flag==
 
+```mermaid
+flowchart TD
+    %% Reconnaissance
+    subgraph Reconnaissance
+        style Reconnaissance fill:blue,stroke:blue,stroke-width:2px
+
+        R1[Nmap Scan → Chose <b>SMB</b>, <b>RPC</b>, <b>LDAP</b>, <b>HTTP</b> to focus on]
+        R2[<b>SMB Enumeration</b> → nothing valuable]
+        R3[<b>RPC Enumeration</b> → nothing valuable]
+        R4[<b>LDAP Enumeration</b> → nothing valuable]
+        R5[<b>HTTP Enumeration</b> → directories → subdomains → <b>vhosts</b> found]
+        R6[Inspected <b>webapp</b> and gathered information]
+        R7[Found vulnerable <b>RFI</b>]
+        R8[<b>RFI Exploit</b> → leaked <b>NTLM hash</b> of user svc_apache]
+        R9[Cracked <b>NTLM hash</b> → got password for <b>svc_apache</b>]
+        R10[Correlated creds with <b>SMB</b>, <b>LDAP</b>, <b>RPC</b>]
+        R11[<b>SMB Enumeration</b> as svc_apache → valid users found]
+        R12[<b>LDAP Enumeration</b> as svc_apache → nothing useful]
+
+        R1 --> R2
+        R1 --> R3
+        R1 --> R4
+        R1 --> R5
+        R5 --> R6
+        R6 --> R7
+        R7 --> R8
+        R8 --> R9
+        R9 --> R10
+        R10 --> R11
+        R10 --> R12
+
+        style R1 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R2 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R3 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R4 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R5 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style R6 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style R7 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style R8 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style R9 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style R10 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style R11 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style R12 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+    end
+
+    %% Foothold
+    subgraph Foothold
+        style Foothold fill:orange,stroke:darkorange,stroke-width:2px
+
+        F1[<b>Password spraying</b> via SMB → found valid creds for <b>S.Moon</b>]
+        F2[Correlated creds with <b>SMB</b>, <b>LDAP</b>, <b>RPC</b>]
+        F3[<b>SMB Enumeration</b> as S.Moon → <b>WRITE permissions</b> to share]
+        F4[Uploaded exploit to share → leaked <b>NTLM hash</b> of user C.Bum]
+        F5[Cracked <b>NTLM hash</b> → got password for <b>C.Bum</b>]
+        F6[Correlated creds with <b>SMB</b>, <b>LDAP</b>, <b>RPC</b>]
+        F7[<b>SMB Enumeration</b> as C.Bum → WRITE to vhost share]
+        F8[Uploaded exploit → triggered via webpage → <b>rev shell</b> as svc_apache]
+        F9[Impersonated <b>C.Bum</b> using <b>RunAs</b> → launched new rev shell]
+        F10[Got rev shell as <b>C.Bum</b>]
+        F11[Grabbed <b>user flag</b>]
+
+        F1 --> F2
+        F2 --> F3
+        F3 --> F4
+        F4 --> F5
+        F5 --> F6
+        F6 --> F7
+        F7 --> F8
+        F8 --> F9
+        F9 --> F10
+        F10 --> F11
+
+        style F1 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style F2 fill:darkorange,stroke:red,stroke-width:1px,color:white
+        style F3 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style F4 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style F5 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style F6 fill:darkorange,stroke:red,stroke-width:1px,color:white
+        style F7 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style F8 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style F9 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style F10 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style F11 fill:gold,stroke:darkgoldenrod,stroke-width:1px,color:black
+    end
+
+    %% Privilege Escalation
+    subgraph Privilege_Escalation
+        style Privilege_Escalation fill:gray,stroke:black,stroke-width:2px
+
+        P1[Enumerated files → found <b>IIS server</b>]
+        P2[Uploaded <b>winPEAS</b> → focused on listening ports]
+        P3[Correlated <b>ports</b> with IIS → found web port]
+        P4[<b>Port forwarded</b> IIS port to attacker → inspected site]
+        P5[Enumerated IIS files → <b>C.Bum WRITE permissions</b>]
+        P6[Uploaded <b>ASPX rev shell</b> → shell as <b>iis apppool\defaultapppool</b>]
+        P7[Privileges revealed <b>SeImpersonate</b> → impersonate machine account]
+        P8[Grabbed <b>machine account ticket</b>]
+        P9[Used ticket → performed <b>DCSync</b> → got <b>Administrator NTLM hash</b>]
+        P10[Logged in as <b>Administrator</b> via pass-the-hash]
+        P11[Grabbed <b>root flag</b>]
+
+        P1 --> P2
+        P2 --> P3
+        P3 --> P4
+        P4 --> P5
+        P5 --> P6
+        P6 --> P7
+        P7 --> P8
+        P8 --> P9
+        P9 --> P10
+        P10 --> P11
+
+        style P1 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style P2 fill:darkorange,stroke:red,stroke-width:1px,color:white
+        style P3 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style P4 fill:darkorange,stroke:red,stroke-width:1px,color:white
+        style P5 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style P6 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style P7 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style P8 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style P9 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style P10 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style P11 fill:gold,stroke:darkgoldenrod,stroke-width:1px,color:black
+    end
+
+    %% Connect phases
+    R12 --> F1
+    F11 --> P1
+```
+
 ---
 
 # Sidenotes
