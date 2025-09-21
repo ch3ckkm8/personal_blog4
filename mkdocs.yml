@@ -58,6 +58,8 @@ nav:
       - certvulntoESC1 : certvulntoESC1.md
       - Impersonation : Impersonation.md
       - Vhosts : Vhosts.md
+      - certvulntoESC16 : certvulntoESC16.md
+      - shadowcredential : shadowcredential.md
 
 theme:
   name: material
