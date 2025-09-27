@@ -14,7 +14,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Cascade](ch3ckm8_HTB_Cascade.md)       | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach RecycleBin codereview                | ✅     |
 | [Flight](ch3ckm8_HTB_Flight.md)        | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | ✅ NotAssumedBreach WebApp PortForwarding Impersonation DCSync WinPEAS   | ✅      |
 | [Fluffy](ch3ckm8_HTB_fluffy.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ AssumedBreach certificates ESC16 shadowcredential   | ✅    |
-| [Puppy]((ch3ckm8_HTB_puppy.md)         | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ AsummedBreach DCSync ADdisabledaccount        | ✅     |
+| [Puppy](ch3ckm8_HTB_puppy.md)         | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ AsummedBreach DCSync ADdisabledaccount        | ✅     |
 | [Blackfield](ch3ckm8_HTB_Blackfield.md)    | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | ✅ NotAssumedBreach PrivGroupAbuse                       | ✅     |
 | [Administrator](ch3ckm8_HTB_Administrator.md) | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ AsummedBreach Kerberoasting DCSync                    | ✅    |
 | [Escapetwo](ch3ckm8_HTB_EscapeTwo.md)    | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ AssumedBreach certificates certvulntemplate           | ✅     |
