@@ -123,17 +123,17 @@ sudo bloodhound-python -d puppy.htb -u levi.james -p KingofAkron2025! -ns 10.10.
 ```
 
 lets see the domain users
-![image.png](image.png)
+![](MediaFiles/Pasted%20image%2020250927224103.png)
 
 the user we currently have access is member of these groups
-![image.png](image%201.png)
+![](MediaFiles/Pasted%20image%2020250927224115.png)
 
 hm interesting, lets inspect the hr group
-![image.png](image%202.png)
+![](MediaFiles/Pasted%20image%2020250927224126.png)
 
 it has genericwrite over the developers group, lets now inspect developers group, we see it has these users as members
 
-![image.png](image%203.png)
+![](MediaFiles/Pasted%20image%2020250927224135.png)
 
 it has no outbound object control
 
@@ -141,28 +141,28 @@ lets now inspect these 3 users one by one
 - jamie williams had nothing interesting (no outbound object control or other membership)
 - ant edwards as group delegated object control is a memberof senior devs, and it can also be seen that the 3rd user adam silver is member too
 
-![image.png](image%204.png)
+![](MediaFiles/Pasted%20image%2020250927224144.png)
 so senior devs have **generic all** right towards adam silver
 
 lets now inspect adam silver too
-![image.png](image%205.png)
+![](MediaFiles/Pasted%20image%2020250927224154.png)
 it seems he is member of remote management users too
 
 lets check remote management users
-![image.png](image%206.png)
+![](MediaFiles/Pasted%20image%2020250927224203.png)
 hm does not appear that interesting, but if we run the query:
 `Find Principals with DCSync Rights`
 
 we see that step cooper has dcsync rights!
-![image.png](image%207.png)
+![](MediaFiles/Pasted%20image%2020250927224213.png)
 also lets run another query,
 `List all kerberoastable accounts`
+![](MediaFiles/Pasted%20image%2020250927224231.png)
 
-![image.png](image%208.png)
 also running another query:
 `Shortest Paths to Unconstrained Delegation Systems`
 
-![image.png](image%209.png)
+![](MediaFiles/Pasted%20image%2020250927224243.png)
 
 shows that adam silver, has canpsremote rights on the dc! but canpsremote does not seem sth that can help us, so lets move on,
 
