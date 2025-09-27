@@ -61,6 +61,7 @@ nav:
       - Vhosts : Vhosts.md
       - certvulntoESC16 : certvulntoESC16.md
       - shadowcredential : shadowcredential.md
+      - ADdisabledaccount : ADdisabledaccount.md
 
 theme:
   name: material
