@@ -1,0 +1,6 @@
+/* Hide all nav items under "Hidden" */
+.md-nav__item:has(.md-nav__link:contains("Tags")),
+.md-nav__item:has(.md-nav__link:contains("Tags")) .md-nav__link,
+.md-header-nav__link:contains("Tags") {
+    display: none !important;
+}
