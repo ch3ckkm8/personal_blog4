@@ -25,14 +25,15 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Escape](ch3ckm8_HTB_Escape.md)        | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach MSSQL certificates certvulntoESC1      | ✅      |
 | [Cicada](ch3ckm8_HTB_cicada.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach PrivGroupAbuse                         | ✅     |
 | [Timelapse](ch3ckm8_HTB_Timelapse.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach History LAPS                         | ✅     |
-| Dog           | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅                                                      | 🛠️ in progress    |
+| Imagery           | Linux   | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅ WebApp XSS LFI codereview commandinjection cronjob  | ✅   |
+| Dog           | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅   | 🛠️ in progress    |
 | Scepter       | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | ✅                                                        | 🛠️ in progress    |
 | Cat           | Linux   | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅                                                     | 🛠️ in progress    |
 | Code          | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅                                                      | 🛠️ in progress    |
 | [TheFrizz](ch3ckm8_HTB_TheFrizz.md)      | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach GSSAPIauthentication GPO       | ✅    |
 | [Nocturnal](ch3ckm8_HTB_Nocturnal.md)     | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ commandinjection codereview PortForwarding   | ✅     |
 | Expressway          | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ IKE psk sudoversion     | 🛠️ in progress    |
-Season 9 progress: 1/1 (flags: 2/26)
+Season 9 progress: 2/2 (flags: 4/26)
 
 # Other CTF Writeups
 
