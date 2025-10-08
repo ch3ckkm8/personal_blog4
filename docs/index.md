@@ -4,8 +4,6 @@ You’ve stumbled into my little corner of the internet where firewalls fear me,
 
 Disclaimer: Every writeup was fueled by caffeine and questionable confidence, don’t try this at home.
 
-[HackTheBox profile](https://app.hackthebox.com/profile/284567)
-
 # HackTheBox Writeups
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
@@ -33,7 +31,6 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [TheFrizz](ch3ckm8_HTB_TheFrizz.md)      | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach GSSAPIauthentication GPO       | ✅    |
 | [Nocturnal](ch3ckm8_HTB_Nocturnal.md)     | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ commandinjection codereview PortForwarding   | ✅     |
 | Expressway          | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ IKE psk sudoversion     | 🛠️ in progress    |
-Season 9 progress: 2/2 (flags: 4/26)
 
 # Other CTF Writeups
 
