@@ -23,6 +23,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Escape](ch3ckm8_HTB_Escape.md)        | Windows | <span style="color: orange; font-weight: bold;">Medium</span>     | ✅ NotAssumedBreach MSSQL certificates certvulntoESC1      | ✅      |
 | [Cicada](ch3ckm8_HTB_cicada.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach PrivGroupAbuse                         | ✅     |
 | [Timelapse](ch3ckm8_HTB_Timelapse.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach History LAPS                         | ✅     |
+| [Tombwatcher](ch3ckm8_HTB_tombwatcher.md)     | Windows | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅ AssumedBreach certificates certvulntoESC15 RecycleBin  | ✅     |
 | Imagery           | Linux   | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅   | ✅   |
 | Dog           | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅   | 🛠️ in progress    |
 | Scepter       | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | ✅                                                        | 🛠️ in progress    |
