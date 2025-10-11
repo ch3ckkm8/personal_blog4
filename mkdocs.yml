@@ -26,6 +26,7 @@ nav:
       - Flight: ch3ckm8_HTB_Flight.md
       - Fluffy: ch3ckm8_HTB_fluffy.md
       - Puppy: ch3ckm8_HTB_puppy.md
+      - Tombwatcher: ch3ckm8_HTB_tombwatcher.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
       
@@ -61,6 +62,7 @@ nav:
       - Impersonation : Impersonation.md
       - Vhosts : Vhosts.md
       - certvulntoESC16 : certvulntoESC16.md
+      - certvulntoESC15 : certvulntoESC15.md
       - shadowcredential : shadowcredential.md
       - ADdisabledaccount : ADdisabledaccount.md
 
