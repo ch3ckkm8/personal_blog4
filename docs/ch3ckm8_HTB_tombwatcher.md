@@ -462,6 +462,8 @@ In Active Directory, tombstones are essentially placeholders for deleted object
 So knowing that, it could be a hint, lets try to view and potentially retrieve deleted objects.
 
 ## Check for deleted objects 
+
+Lets find deleted objects in the Recycle bin:
 ```shell
 Get-ADObject -Filter 'isDeleted -eq $true -and objectClass -eq "user"' -IncludeDeletedObjects -Properties objectSid, lastKnownParent, ObjectGUID | Select-Object Name, ObjectGUID, objectSid, lastKnownParent | Format-List
 ```
