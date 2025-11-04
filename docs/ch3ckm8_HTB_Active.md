@@ -355,5 +355,4 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 This was a pretty easy machine, the only thing i would remember about it will be that inspection of smb shares should be thorough and extensive .
 
-![](MediaFiles/Pasted%20image%2020250813204536.png)
 
