@@ -897,4 +897,3 @@ To sump up, Escape was a medium difficulty machine, leveraging basic enumeration
 
 This one will contribute to my knowledge mainly for the MSSQL and ADCS (ESC1) abuse parts.
 
-![image.png](MediaFiles/escape_image9.png)
