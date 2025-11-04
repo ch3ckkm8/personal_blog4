@@ -1221,4 +1221,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 All in all, this machine is a meaningful and important addition to my OSCP notes. A not assumed breach scenario requiring thorough enumeration and good understanding of ACL during the privesc stage, resulting in a solid writeup for future reference. 
 
-![](MediaFiles/Pasted%20image%2020250727194346.png)
