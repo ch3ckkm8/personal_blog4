@@ -669,4 +669,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 To conclude, this was a valuable machine, featuring cracking zip and pfx file passwords and also extracting valuable information from pfx file like keys and certificates for the foothold. As for the privesc part, it involved reading the PowerShell history where plaintext creds for another user were found, a user that was later found that can read LAPS password, which was the way i logged in as Administrator.
 
-![timelapse_image.png](MediaFiles/timelapse_image3.png)
