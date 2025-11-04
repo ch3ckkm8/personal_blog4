@@ -837,6 +837,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 # Sidenotes
 
 This one was a classic yet challenging easy AD related box that did not dissaspoint. The techniques showed here are definitely worth revisiting in the future, especially for machines related to certificates. 
-
-https://www.hackthebox.com/achievement/machine/284567/662
-![Pasted image 20250604013347](MediaFiles/Pasted%20image%2020250604013347.png)
