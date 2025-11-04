@@ -1009,5 +1009,4 @@ All in all, this did not seem like an "easy" machine, for me the foothold part w
 
 What will make this machine memorable for me, would be only the command injection part, which was unique due to the blacklisted characters. The rest of it was pretty much common among HackTheBox linux machines.
 
-https://www.hackthebox.com/achievement/machine/284567/656
-![Pasted image 20250527201110](MediaFiles/Pasted%20image%2020250527201110.png)
+
