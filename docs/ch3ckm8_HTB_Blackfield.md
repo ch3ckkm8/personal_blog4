@@ -1021,4 +1021,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 To conclude, this was a good all around machine. What i learned from this one, for the foothold was that enumeration can have multiple layers, as more users get compromised. As for the privesc part, it was essential to learn about the privileged group's permissions that the compromised user was a member of  and how to exploit them. 
 
-![](MediaFiles/Pasted%20image%2020250809133104.png)
