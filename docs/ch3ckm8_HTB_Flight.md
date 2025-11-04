@@ -2064,4 +2064,3 @@ What i also will remember from this one, is the enumeration for `virtual hosts`,
 
 To sum up, this machine almost had everything, and i will definetely revisit it often throughout my OSCP journey.
 
-![image.png](MediaFiles/flight_image24.png)
