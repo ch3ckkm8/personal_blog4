@@ -436,4 +436,3 @@ What makes this one valuable in my notes, apart from other commonly used methodo
 
 To conclude, this machine was a good example where winpeas was the only (easy) way to identify the path towards privesc.
 
-![](MediaFiles/Pasted%20image%2020250805150325.png)
