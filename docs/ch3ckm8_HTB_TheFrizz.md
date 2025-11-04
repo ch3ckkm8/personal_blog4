@@ -973,4 +973,3 @@ The trickiest parts for me was the way of authenticating on the AD without the u
 That being said, this was another valuable AD related machine that will for sure be on my notes for future reference.
 
 keep pwning :)
-![Pasted image 20250520224228](MediaFiles/Pasted%20image%2020250520224228.png)
