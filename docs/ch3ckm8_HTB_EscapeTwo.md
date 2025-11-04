@@ -343,10 +343,6 @@ Despite the difficulty mismatch, the privesc part was interesting and is worth a
 
 You might have noticed the absence of your favorite narrator, that's because his request for a huge raise  upon seeing the popularity of my previous writeup was rejected.. he will return eventually in the following writeups for the clout (and for my sense humour)
 
-WARNING! pwn badge flexing below:
-https://www.hackthebox.com/achievement/machine/284567/642
-![](MediaFiles/Pasted%20image%2020250408014836.png)
-![](MediaFiles/Pasted%20image%2020250408015441.png)
 
 Here is your reward for reaching that far (its not what you think)
 [https://www.youtube.com/watch?v=xvFZjo5PgG0](https://www.youtube.com/watch?v=xvFZjo5PgG0)
