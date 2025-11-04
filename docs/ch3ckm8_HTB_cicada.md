@@ -662,4 +662,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 All in all, this one had somewhat straightforward (extensive) enumeration to achieve foothold, while privesc was all about exploiting the backup related privileges the user had, as a member of Backup Operators group. Fun fact, this machine has the exact same privesc methodology as Blackfield (Windows, Hard). 
 The only part that was new to me, was one of the user’s creds that where found as plaintext on the LDAP Description
 
-![cicada_image.png](MediaFiles/cicada_image3.png)
