@@ -395,4 +395,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 This was a machine i wont forget, mainly because this was my first time having to abuse AD Connect. Besides that part, no new attack vectors were introduced here.
 
-![](MediaFiles/Pasted%20image%2020250624124833.png)
