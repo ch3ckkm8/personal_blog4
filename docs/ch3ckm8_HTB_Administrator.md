@@ -382,9 +382,6 @@ narrator: "It has been foretold by an ancient prophecy, the arrival of the secur
 I'm not a hacker, I'm just an analyst with excessive caffeine in my bloodstream...
 oh and mr robot was my 3rd cousin (i know not fair) ## ¯\_(ツ)_/¯
 
-WARNING! pwn badge flexing below:
-https://www.hackthebox.com/achievement/machine/284567/634
-![](MediaFiles/Pasted%20image%2020250329174441.png)
 
 If you reached that far, you must be a big fan, make sure to check my yt channel for more:
 https://www.youtube.com/watch?v=xvFZjo5PgG0
