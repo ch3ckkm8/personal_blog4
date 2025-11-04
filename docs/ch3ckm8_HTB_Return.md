@@ -482,4 +482,3 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 
 This was an interesting machine, lesson learned from this one was to thoroughly analyze and identify user group membership’s privileges. Though bloodhound usage at first showed the overall privesc path , smaller details had to be found by analyzing and investigating what the groups are allowed to do in terms of privileges. 
 
-![](MediaFiles/image%2012%201.png)
