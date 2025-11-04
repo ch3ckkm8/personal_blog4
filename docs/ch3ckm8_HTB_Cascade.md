@@ -1152,7 +1152,5 @@ Here is the list of the steps simplified, per phase, for future reference and fo
 Overall, the steps for achieving foothold were kinda easy and doable, the privesc part though required debugging and understanding the functionality of an app, and specifically it's encryption process. After the debugging part, the road to Administrator was protected by deleted objects in the recycle bin, as indicated by the latest compromised user's group membership. 
 This machine deserves a place in my notes mostly for the recon phase, the enumeration through all stages, and for the recycle bin part. 
 
-![](MediaFiles/Pasted%20image%2020250702182956.png)
-
 You can also watch the whole process recorded (apart from the .dll and .exe debugging part) here:
 https://asciinema.org/a/lSU3r4wlR1L3bOrPhxrKXjngp
