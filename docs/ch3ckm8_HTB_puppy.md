@@ -360,4 +360,3 @@ root flag found!
 
 A classic straightforward AD machine, this one is valuable for me due to the `disabled AD account`, which i saw for the first time, and was stuck by not knowing why i could not log in to it xd.
 
-![](MediaFiles/Pasted%20image%2020250927222837.png)
