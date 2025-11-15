@@ -2,8 +2,6 @@
 
 This is a WINDOWS machine of easy difficulty, named TheFrizz, lets begin 
 ![TheFrizz](MediaFiles/TheFrizz.png)
-
-[[windows]] [[RCE]] [[AD]] [[GSSAPIauthentication]] [[gpo]] [[OSCPpath]] [[NotAssumedBreach]]
 Tags: #windows #RCE #AD #GSSAPIauthentication #gpo #OSCPpath #NotAssumedBreach 
 Tools used:
 john (password cracking)
@@ -90,6 +88,14 @@ So it appears to be a Gibbon Service (which is an open source school management 
 This specific version of it (v25.0.0.), appears to be vulnerable to multiple CVEs , but specifically 
 ```CVE-2023-45878``` stands out as it allows RCE .
 # Foothold
+
+
+either this
+```shell
+
+```
+
+or:
 
 So if found this exploit: 
 https://github.com/0xyy66/CVE-2023-45878_to_RCE/blob/main/CVE-2023-45878.sh
@@ -651,6 +657,15 @@ then login via ssh and use ```-K``` for the **GSSAPI** authentication
 ssh f.frizzle@frizz.htb -K
 ```
 
+or skip the previous 2 steps (kinit and ssh with -K) and do:
+```shell
+impacket-getTGT frizz.htb/'f.frizzle':'Jenni_Luvs_Magic23' -dc-ip frizzdc.frizz.htb
+```
+then login using this command:
+```shell
+sudo KRB5CCNAME=/home/ch3ckm8/Desktop/f.frizzle.ccache ssh -vv -K -oGSSAPIAuthentication=yes -oGSSAPIDelegateCredentials=yes f.frizzle@frizzdc.frizz.htb
+```
+
 we are in
 ![Pasted image 20250518223512](MediaFiles/Pasted%20image%2020250518223512.png)
 and grabbed the user flag!
@@ -973,3 +988,4 @@ The trickiest parts for me was the way of authenticating on the AD without the u
 That being said, this was another valuable AD related machine that will for sure be on my notes for future reference.
 
 keep pwning :)
+![Pasted image 20250520224228](MediaFiles/Pasted%20image%2020250520224228.png)
