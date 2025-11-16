@@ -33,7 +33,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | Expressway          | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅      | 🛠️ in progress    |
 | Scepter       | Windows | <span style="color: red; font-weight: bold;">Hard</span>       | 🛠️ in progress        | 🛠️ in progress    |
 | Cat           | Linux   | <span style="color: orange; font-weight: bold;">Medium</span>     | 🛠️ in progress     | 🛠️ in progress    |
-| Certified          | Windows   | <span style="color: red; font-weight: bold;">Hard</span>        | 🛠️ in progress     | 🛠️ in progress    |
+| Certified          | Windows   | <span style="color: orange; font-weight: bold;">Medium</span>         | ✅    | 🛠️ in progress    |
 
 # Other CTF Writeups
 
