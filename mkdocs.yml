@@ -27,6 +27,7 @@ nav:
       - Fluffy: ch3ckm8_HTB_fluffy.md
       - Puppy: ch3ckm8_HTB_puppy.md
       - Tombwatcher: ch3ckm8_HTB_tombwatcher.md
+      - Certified: ch3ckm8_HTB_certified.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
       
@@ -59,6 +60,7 @@ nav:
       - LAPS : laps.md
       - mssql : mssql.md
       - certvulntoESC1 : certvulntoESC1.md
+      - certvulntoESC9 : certvulntoESC9.md
       - Impersonation : Impersonation.md
       - Vhosts : Vhosts.md
       - certvulntoESC16 : certvulntoESC16.md
