@@ -24,6 +24,7 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | [Cicada](ch3ckm8_HTB_cicada.md)        | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach PrivGroupAbuse                         | ✅     |
 | [Timelapse](ch3ckm8_HTB_Timelapse.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach History LAPS                         | ✅     |
 | [Tombwatcher](ch3ckm8_HTB_tombwatcher.md)     | Windows | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅ AssumedBreach certificates certvulntoESC15 RecycleBin  | ✅     |
+| [Certified](ch3ckm8_HTB_certified.md)     | Windows | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅ AssumedBreach certificates shadowcredential certvulntoESC9  | ✅     |
 | Nanocorp           | Windows   | <span style="color: red; font-weight: bold;">Hard</span>       | ✅   | 🛠️ in progress   |
 | Imagery           | Linux   | <span style="color: orange; font-weight: bold;">Medium</span>      | ✅   | 🛠️ in progress   |
 | Dog           | Linux   | <span style="color: green; font-weight: bold;">Easy</span>       | ✅   | 🛠️ in progress    |
