@@ -6,6 +6,13 @@
 [[windows]] [[NotAssumedBreach]] [[Kerberoasting]] [[OSCPpath]]
 
 Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath 
+
+tags:
+- windows
+- NotAssumedBreach
+- Kerberoasting
+- OSCPpath
+
 Tools used:
 - GetUserSPNs.py (Kerberoasting)
 - Hashcat (cracking)
