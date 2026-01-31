@@ -55,33 +55,39 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
             }
 
      def parse_markdown(self, markdown: str, page: MkDocsPage):
-        # pattern for [[wikilinks]]
-        WIKI_PATTERN = re.compile(r"(?<!\!)\[\[(?P<wikilink>[^\|\]\#]+).*?\]\]")
         page_path = self.get_page_path(page).lower()
-        
-        for match in re.finditer(WIKI_PATTERN, markdown):
-            wikilink = match.group('wikilink').strip().lower()
-            
-            # find a matching page by basename
-            target_page_path = None
-            for k in self.nodes.keys():
-                if os.path.basename(k).lower() == wikilink:
-                    target_page_path = k
-                    break
-            
-            if target_page_path is None:
-                self.logger.warning(f"{page.file.src_uri}: no target page found for wikilink: {wikilink}")
-                continue
-            
+    
+        tags = page.meta.get("tags", [])
+        if not isinstance(tags, list):
+            return
+    
+        for tag in tags:
+            tag = tag.strip().lower()
+    
+            tag_node_key = f"tag:{tag}"
+    
+            # create tag node if it doesn't exist
+            if tag_node_key not in self.nodes:
+                self.nodes[tag_node_key] = {
+                    "id": self.id,
+                    "title": f"#{tag}",
+                    "url": None,
+                    "symbolSize": 0,
+                    "markdown": None,
+                    "is_index": False
+                }
+    
             link = {
                 "source": str(self.nodes[page_path]["id"]),
-                "target": str(self.nodes[target_page_path]["id"])
+                "target": str(self.nodes[tag_node_key]["id"])
             }
+    
             self.data["links"].append(link)
-            
+    
             # increase node sizes
             self.nodes[page_path]["symbolSize"] += 1
-            self.nodes[target_page_path]["symbolSize"] += 1
+            self.nodes[tag_node_key]["symbolSize"] += 1
+
 
 
 
