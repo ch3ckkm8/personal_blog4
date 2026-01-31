@@ -141,7 +141,7 @@ extra_css:
 
 plugins:
   - obsidian-interactive-graph:
-      #include_wikilinks: true
+      include_wikilinks: true
       include_markdown_links: true
       include_tags: true
   - search
