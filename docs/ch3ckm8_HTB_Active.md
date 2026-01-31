@@ -20,7 +20,7 @@ Tools used:
 - Hashcat (cracking)
 - smbclient / smbmap / nxc (smb enumeration)
 - psexec.py (shell over smb) 
-
+ 
 ----
 # Reconnaissance
 
