@@ -54,19 +54,20 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                 "is_index": page.is_index
             }
 
-    def parse_markdown(self, markdown: str, page: MkDocsPage):
+    def parse_page(self, page: MkDocsPage):
         page_path = self.get_page_path(page).lower()
+    
+        if page_path not in self.nodes:
+            return  # page not registered yet
     
         tags = page.meta.get("tags", [])
         if not isinstance(tags, list):
             return
     
         for tag in tags:
-            tag = tag.strip().lower()
-    
+            tag = str(tag).strip().lower()
             tag_node_key = f"tag:{tag}"
     
-            # create tag node if it doesn't exist
             if tag_node_key not in self.nodes:
                 self.nodes[tag_node_key] = {
                     "id": self.id,
@@ -77,18 +78,13 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                     "is_index": False
                 }
     
-            link = {
+            self.data["links"].append({
                 "source": str(self.nodes[page_path]["id"]),
                 "target": str(self.nodes[tag_node_key]["id"])
-            }
+            })
     
-            self.data["links"].append(link)
-    
-            # increase node sizes
             self.nodes[page_path]["symbolSize"] += 1
             self.nodes[tag_node_key]["symbolSize"] += 1
-
-
 
 
     def create_graph_json(self, config: MkDocsConfig):
@@ -114,8 +110,7 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
         self.collect_pages(nav, config)
 
     def on_page_content(self, html: str, page: MkDocsPage, config: MkDocsConfig, **kwargs):
-        self.parse_markdown(page.markdown, page)
-
+        self.parse_page(page)
 
     def on_env(self, env, config: MkDocsConfig, files: MkDocsFiles):
         self.create_graph_json(config)
