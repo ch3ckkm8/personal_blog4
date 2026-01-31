@@ -33,42 +33,6 @@ nav:
   - Notes:
       - Commonly used tools and methodologies: common_tools.md
       
-  - Tags:
-      - windows: windows.md
-      - AD : AD.md
-      - ADconnectAbuse : ADconnectAbuse.md
-      - AS-REP-roasting : AS-REP-roasting.md
-      - AssumedBreach : AssumedBreach.md
-      - DCSync : DCSync.md
-      - Docker : Docker.md
-      - GSSAPIauthentication : GSSAPIauthentication.md
-      - Kerberoasting : Kerberoasting.md
-      - NotAssumedBreach : NotAssumedBreach.md
-      - OSCPpath : OSCPpath.md
-      - PortForwarding : PortForwarding.md
-      - PrivGroupAbuse : PrivGroupAbuse.md
-      - RCE : RCE.md
-      - RecycleBin : RecycleBin.md
-      - WebApp : WebApp.md
-      - WinPEAS : WinPEAS.md
-      - XSS : XSS.md
-      - certificates : certificates.md
-      - certvulntemplate : certvulntemplate.md
-      - codereview : codereview.md
-      - commandinjection : commandinjection.md
-      - gpo : gpo.md
-      - linux : linux.md
-      - history : history.md
-      - LAPS : laps.md
-      - mssql : mssql.md
-      - certvulntoESC1 : certvulntoESC1.md
-      - certvulntoESC9 : certvulntoESC9.md
-      - Impersonation : Impersonation.md
-      - Vhosts : Vhosts.md
-      - certvulntoESC16 : certvulntoESC16.md
-      - certvulntoESC15 : certvulntoESC15.md
-      - shadowcredential : shadowcredential.md
-      - ADdisabledaccount : ADdisabledaccount.md
 
 theme:
   name: material
