@@ -18,7 +18,7 @@ windapsearch (ldap enum)
 impacket (AS-REP roasting & secretsdump)
 john (password cracking)
 PowerView (DACL abuse)
-
+ 
 ---
 # Reconnaissance
 
