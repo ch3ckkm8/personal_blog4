@@ -54,7 +54,7 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                 "is_index": page.is_index
             }
 
-     def parse_markdown(self, markdown: str, page: MkDocsPage):
+    def parse_markdown(self, markdown: str, page: MkDocsPage):
         page_path = self.get_page_path(page).lower()
     
         tags = page.meta.get("tags", [])
@@ -92,19 +92,20 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
 
 
     def create_graph_json(self, config: MkDocsConfig):
-        for i, (k,v) in enumerate(self.nodes.items()):
+        for k, v in self.nodes.items():
             node = {
-                    "id": str(i),
-                    "name": v["title"],
-                    "symbolSize": v["symbolSize"],
-                    "value": v["url"]
+                "id": str(v["id"]),
+                "name": v["title"],
+                "symbolSize": v["symbolSize"],
+                "value": v["url"]
             }
             self.data["nodes"].append(node)
-
+    
         filename = os.path.join(config['site_dir'], 'assets', 'javascripts', 'graph.json')
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename, 'w') as file:
             json.dump(self.data, file, sort_keys=False, indent=2)
+
 
     def on_config(self, config: MkDocsConfig, **kwargs):
         self.site_path = ""  # not needed
@@ -112,8 +113,9 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
     def on_nav(self, nav: MkDocsNav, files: MkDocsFiles, config: MkDocsConfig, **kwargs):
         self.collect_pages(nav, config)
 
-    def on_page_markdown(self, markdown: str, page: MkDocsPage, config: MkDocsConfig, files: MkDocsFiles, **kwargs):
-        self.parse_markdown(markdown, page)
+    def on_page_content(self, html: str, page: MkDocsPage, config: MkDocsConfig, **kwargs):
+        self.parse_markdown(page.markdown, page)
+
 
     def on_env(self, env, config: MkDocsConfig, files: MkDocsFiles):
         self.create_graph_json(config)
