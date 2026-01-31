@@ -144,3 +144,5 @@ plugins:
       include_wikilinks: true
       include_markdown_links: true
   - search
+  - tags:
+     tags_file: tags.md
