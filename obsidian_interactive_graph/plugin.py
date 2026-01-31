@@ -1,3 +1,5 @@
+
+
 import json
 import os
 import re
@@ -54,54 +56,51 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
                 "is_index": page.is_index
             }
 
-    def parse_page(self, page: MkDocsPage):
+     def parse_markdown(self, markdown: str, page: MkDocsPage):
+        # pattern for [[wikilinks]]
+        WIKI_PATTERN = re.compile(r"(?<!\!)\[\[(?P<wikilink>[^\|\]\#]+).*?\]\]")
         page_path = self.get_page_path(page).lower()
-    
-        if page_path not in self.nodes:
-            return  # page not registered yet
-    
-        tags = page.meta.get("tags", [])
-        if not isinstance(tags, list):
-            return
-    
-        for tag in tags:
-            tag = str(tag).strip().lower()
-            tag_node_key = f"tag:{tag}"
-    
-            if tag_node_key not in self.nodes:
-                self.nodes[tag_node_key] = {
-                    "id": self.id,
-                    "title": f"#{tag}",
-                    "url": None,
-                    "symbolSize": 0,
-                    "markdown": None,
-                    "is_index": False
-                }
-    
-            self.data["links"].append({
+        
+        for match in re.finditer(WIKI_PATTERN, markdown):
+            wikilink = match.group('wikilink').strip().lower()
+            
+            # find a matching page by basename
+            target_page_path = None
+            for k in self.nodes.keys():
+                if os.path.basename(k).lower() == wikilink:
+                    target_page_path = k
+                    break
+            
+            if target_page_path is None:
+                self.logger.warning(f"{page.file.src_uri}: no target page found for wikilink: {wikilink}")
+                continue
+            
+            link = {
                 "source": str(self.nodes[page_path]["id"]),
-                "target": str(self.nodes[tag_node_key]["id"])
-            })
-    
+                "target": str(self.nodes[target_page_path]["id"])
+            }
+            self.data["links"].append(link)
+            
+            # increase node sizes
             self.nodes[page_path]["symbolSize"] += 1
-            self.nodes[tag_node_key]["symbolSize"] += 1
+            self.nodes[target_page_path]["symbolSize"] += 1
+
 
 
     def create_graph_json(self, config: MkDocsConfig):
-        for k, v in self.nodes.items():
+        for i, (k,v) in enumerate(self.nodes.items()):
             node = {
-                "id": str(v["id"]),
-                "name": v["title"],
-                "symbolSize": v["symbolSize"],
-                "value": v["url"]
+                    "id": str(i),
+                    "name": v["title"],
+                    "symbolSize": v["symbolSize"],
+                    "value": v["url"]
             }
             self.data["nodes"].append(node)
-    
+
         filename = os.path.join(config['site_dir'], 'assets', 'javascripts', 'graph.json')
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename, 'w') as file:
             json.dump(self.data, file, sort_keys=False, indent=2)
-
 
     def on_config(self, config: MkDocsConfig, **kwargs):
         self.site_path = ""  # not needed
@@ -109,8 +108,8 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
     def on_nav(self, nav: MkDocsNav, files: MkDocsFiles, config: MkDocsConfig, **kwargs):
         self.collect_pages(nav, config)
 
-    def on_page_content(self, html: str, page: MkDocsPage, config: MkDocsConfig, **kwargs):
-        self.parse_page(page)
+    def on_page_markdown(self, markdown: str, page: MkDocsPage, config: MkDocsConfig, files: MkDocsFiles, **kwargs):
+        self.parse_markdown(markdown, page)
 
     def on_env(self, env, config: MkDocsConfig, files: MkDocsFiles):
         self.create_graph_json(config)
