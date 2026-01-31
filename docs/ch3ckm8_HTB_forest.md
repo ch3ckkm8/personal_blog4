@@ -10,7 +10,6 @@ tags:
 
 ![](MediaFiles/Pasted%20image%2020250727182355.png)
 
-
  
 Tools used:
 enum4linux (smb & rpc enum)
