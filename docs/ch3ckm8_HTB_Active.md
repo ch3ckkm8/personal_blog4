@@ -7,11 +7,13 @@
 
 Tags: #windows #NotAssumedBreach #Kerberoasting #OSCPpath 
 
+---
 tags:
-- windows
-- NotAssumedBreach
-- Kerberoasting
-- OSCPpath
+   - windows
+   - NotAssumedBreach
+   - Kerberoasting
+   - OSCPpath
+---
 
 Tools used:
 - GetUserSPNs.py (Kerberoasting)
