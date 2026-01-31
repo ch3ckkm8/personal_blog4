@@ -88,19 +88,32 @@ class ObsidianInteractiveGraphPlugin(BasePlugin):
 
 
     def create_graph_json(self, config: MkDocsConfig):
-        for i, (k,v) in enumerate(self.nodes.items()):
+        for i, (k, v) in enumerate(self.nodes.items()):
+            title = v["title"]
+    
+            # default URL (normal pages)
+            url = v["url"]
+    
+            # tag node → redirect to mkdocs-material tag URL
+            if isinstance(title, str) and title.startswith("#"):
+                tag = title[1:]  # remove #
+                url = f"/tags/#tag:{tag}"
+    
             node = {
-                    "id": str(i),
-                    "name": v["title"],
-                    "symbolSize": v["symbolSize"],
-                    "value": v["url"]
+                "id": str(i),
+                "name": title,
+                "symbolSize": v["symbolSize"],
+                "value": url
             }
             self.data["nodes"].append(node)
-
-        filename = os.path.join(config['site_dir'], 'assets', 'javascripts', 'graph.json')
+    
+        filename = os.path.join(
+            config['site_dir'], 'assets', 'javascripts', 'graph.json'
+        )
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename, 'w') as file:
             json.dump(self.data, file, sort_keys=False, indent=2)
+
 
     def on_config(self, config: MkDocsConfig, **kwargs):
         self.site_path = ""  # not needed
