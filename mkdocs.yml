@@ -143,6 +143,7 @@ plugins:
   - obsidian-interactive-graph:
       include_wikilinks: true
       include_markdown_links: true
+      include_tags: true
   - search
   - tags:
      tags_file: tags.md
