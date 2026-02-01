@@ -7,6 +7,67 @@ This page contains my most commonly used tools across my writeups, along with so
 
 # Scanning
 
+## Common services
+
+### TCP
+
+| Port | Service      | Purpose                     | Pentest Focus                         |
+|------|--------------|-----------------------------|---------------------------------------|
+| 21   | FTP          | File transfer               | Anonymous login, weak creds           |
+| 22   | SSH          | Remote shell                | Bruteforce, key reuse                 |
+| 23   | Telnet       | Legacy remote access        | Cleartext credentials                 |
+| 25   | SMTP         | Mail transfer               | User enumeration, open relay          |
+| 53   | DNS          | Name resolution (TCP)       | AXFR / IXFR zone transfers            |
+| 80   | HTTP         | Web service                 | Web vulns, CMS enum                   |
+| 110  | POP3         | Mail retrieval              | Weak credentials                      |
+| 139  | NetBIOS-SSN  | NetBIOS session service     | User/share enumeration                |
+| 143  | IMAP         | Mail retrieval              | Credential stuffing                   |
+| 443  | HTTPS        | Encrypted web               | Same as HTTP + TLS issues             |
+| 445  | SMB          | Windows file sharing        | Null sessions, NTLM relay             |
+| 3389 | RDP          | Remote desktop              | Cred attacks, NLA issues              |
+| 3306 | MySQL        | Database                    | Weak creds, misconfig                 |
+| 5432 | PostgreSQL   | Database                    | Privilege escalation                  |
+| 5900 | VNC          | Remote desktop              | No auth / weak auth                   |
+| 8080 | HTTP-alt     | Web apps / proxies          | Admin panels                          |
+
+
+### UDP
+
+| Port | Service        | Purpose                     | Pentest Focus                         |
+|------|----------------|-----------------------------|---------------------------------------|
+| 53   | DNS            | Name resolution (UDP)       | Recursion, cache poisoning            |
+| 67   | DHCP (server)  | IP assignment               | Network mapping                       |
+| 68   | DHCP (client)  | IP configuration            | Info disclosure                       |
+| 69   | TFTP           | File transfer               | Config / backup leaks                 |
+| 123  | NTP            | Time sync                   | Info leak, amplification              |
+| 137  | NetBIOS-NS     | NetBIOS name service        | Host / user enumeration               |
+| 138  | NetBIOS-DGM    | NetBIOS datagrams           | Enumeration                           |
+| 161  | SNMP           | Network management          | Community strings                     |
+| 162  | SNMP Trap      | Alerts                      | Misconfiguration                      |
+| 500  | ISAKMP         | IPsec key exchange          | Aggressive mode attacks               |
+| 514  | Syslog (UDP)   | Logging                     | Log injection                         |
+| 520  | RIP            | Routing protocol            | Route poisoning                       |
+| 1900 | SSDP           | UPnP discovery              | Device enumeration                    |
+| 4500 | IPsec NAT-T    | VPN traversal               | VPN enumeration                       |
+
+
+### TCP & UDP
+
+| Port | Service  | TCP Usage                               | UDP Usage                              | Pentest Focus                         |
+|------|----------|------------------------------------------|----------------------------------------|---------------------------------------|
+| 53   | DNS      | AXFR / large responses                  | Standard queries                       | Zone leaks, recursion                 |
+| 88   | Kerberos | Large/reliable auth exchanges           | Default authentication                | AS-REP roasting                       |
+| 123  | NTP      | Rare / fallback                         | Time synchronization                  | Info leak, amplification              |
+| 389  | LDAP     | Directory queries                      | CLDAP (unauth enum)                   | User/computer enumeration             |
+| 514  | Syslog   | Reliable log transport (RFC 6587)       | Legacy logging                        | Log manipulation                      |
+
+
+## Network Discovery
+
+```shell
+nmap -sn -T4 <network>/24
+```
+
 ## Nmap
 
 ### Identifying open ports
@@ -20,9 +81,12 @@ sudo nmap -p- --min-rate 3000 -T4 target
 sudo nmap -sC -sV -p port1,port2, target
 ```
 
-## UDP
+### UDP
 
-
+(much slower than TCP)
+```shell
+nmap -sU --top-ports 100 -T4 <target>
+```
 
 # Enumeration
 
@@ -48,6 +112,18 @@ sudo bloodhound-python -u 'user' -p 'pass' -d domainname -dc DChostname -ns DCIP
 
 ## DNS
 
+### Zone transfer
+
+#### Find name servers
+```shell
+dig NS target.com
+```
+
+#### Attempt AXFR
+
+```shell
+dig axfr target.com @ns1.target.com
+```
 
 
 
