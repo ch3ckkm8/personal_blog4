@@ -22,7 +22,7 @@ Tools used:
 ```bash
 sudo sh -c "echo '10.129.164.18 blackfield.htb' >> /etc/hosts"
 ```
-
+ 
 ## Nmap scan
 ```bash
 sudo nmap -sC -sV blackfield.htb
