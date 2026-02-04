@@ -1,0 +1,744 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "name": "Welcome",
+      "symbolSize": 0,
+      "value": "/personal_blog4/"
+    },
+    {
+      "id": "1",
+      "name": "Active",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_Active/"
+    },
+    {
+      "id": "2",
+      "name": "Administrator",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_Administrator/"
+    },
+    {
+      "id": "3",
+      "name": "Blackfield",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_Blackfield/"
+    },
+    {
+      "id": "4",
+      "name": "Cascade",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_Cascade/"
+    },
+    {
+      "id": "5",
+      "name": "EscapeTwo",
+      "symbolSize": 6,
+      "value": "/personal_blog4/ch3ckm8_HTB_EscapeTwo/"
+    },
+    {
+      "id": "6",
+      "name": "Nocturnal",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_Nocturnal/"
+    },
+    {
+      "id": "7",
+      "name": "Return",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_Return/"
+    },
+    {
+      "id": "8",
+      "name": "TheFrizz",
+      "symbolSize": 7,
+      "value": "/personal_blog4/ch3ckm8_HTB_TheFrizz/"
+    },
+    {
+      "id": "9",
+      "name": "Forest",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_forest/"
+    },
+    {
+      "id": "10",
+      "name": "Monteverde",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_monteverde/"
+    },
+    {
+      "id": "11",
+      "name": "Sauna",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_sauna/"
+    },
+    {
+      "id": "12",
+      "name": "Timelapse",
+      "symbolSize": 4,
+      "value": "/personal_blog4/ch3ckm8_HTB_Timelapse/"
+    },
+    {
+      "id": "13",
+      "name": "Cicada",
+      "symbolSize": 3,
+      "value": "/personal_blog4/ch3ckm8_HTB_cicada/"
+    },
+    {
+      "id": "14",
+      "name": "Escape",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_Escape/"
+    },
+    {
+      "id": "15",
+      "name": "Flight",
+      "symbolSize": 8,
+      "value": "/personal_blog4/ch3ckm8_HTB_Flight/"
+    },
+    {
+      "id": "16",
+      "name": "Fluffy",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_fluffy/"
+    },
+    {
+      "id": "17",
+      "name": "Puppy",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_puppy/"
+    },
+    {
+      "id": "18",
+      "name": "Tombwatcher",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_HTB_tombwatcher/"
+    },
+    {
+      "id": "19",
+      "name": "Certified",
+      "symbolSize": 6,
+      "value": "/personal_blog4/ch3ckm8_HTB_certified/"
+    },
+    {
+      "id": "20",
+      "name": "RoboGRoot's-Portfolio",
+      "symbolSize": 5,
+      "value": "/personal_blog4/ch3ckm8_RoboGRoot-CTF_Portfolio/"
+    },
+    {
+      "id": "21",
+      "name": "Commonly used tools and methodologies",
+      "symbolSize": 0,
+      "value": "/personal_blog4/common_tools/"
+    },
+    {
+      "id": "22",
+      "name": "windows",
+      "symbolSize": 17,
+      "value": "/personal_blog4/windows/"
+    },
+    {
+      "id": "23",
+      "name": "AD",
+      "symbolSize": 4,
+      "value": "/personal_blog4/AD/"
+    },
+    {
+      "id": "24",
+      "name": "ADconnectAbuse",
+      "symbolSize": 1,
+      "value": "/personal_blog4/ADconnectAbuse/"
+    },
+    {
+      "id": "25",
+      "name": "AS-REP-roasting",
+      "symbolSize": 1,
+      "value": "/personal_blog4/AS-REP-roasting/"
+    },
+    {
+      "id": "26",
+      "name": "AssumedBreach",
+      "symbolSize": 6,
+      "value": "/personal_blog4/AssumedBreach/"
+    },
+    {
+      "id": "27",
+      "name": "DCSync",
+      "symbolSize": 3,
+      "value": "/personal_blog4/DCSync/"
+    },
+    {
+      "id": "28",
+      "name": "Docker",
+      "symbolSize": 1,
+      "value": "/personal_blog4/Docker/"
+    },
+    {
+      "id": "29",
+      "name": "GSSAPIauthentication",
+      "symbolSize": 1,
+      "value": "/personal_blog4/GSSAPIauthentication/"
+    },
+    {
+      "id": "30",
+      "name": "Kerberoasting",
+      "symbolSize": 2,
+      "value": "/personal_blog4/Kerberoasting/"
+    },
+    {
+      "id": "31",
+      "name": "NotAssumedBreach",
+      "symbolSize": 12,
+      "value": "/personal_blog4/NotAssumedBreach/"
+    },
+    {
+      "id": "32",
+      "name": "OSCPpath",
+      "symbolSize": 13,
+      "value": "/personal_blog4/OSCPpath/"
+    },
+    {
+      "id": "33",
+      "name": "PortForwarding",
+      "symbolSize": 2,
+      "value": "/personal_blog4/PortForwarding/"
+    },
+    {
+      "id": "34",
+      "name": "PrivGroupAbuse",
+      "symbolSize": 3,
+      "value": "/personal_blog4/PrivGroupAbuse/"
+    },
+    {
+      "id": "35",
+      "name": "RCE",
+      "symbolSize": 2,
+      "value": "/personal_blog4/RCE/"
+    },
+    {
+      "id": "36",
+      "name": "RecycleBin",
+      "symbolSize": 2,
+      "value": "/personal_blog4/RecycleBin/"
+    },
+    {
+      "id": "37",
+      "name": "WebApp",
+      "symbolSize": 2,
+      "value": "/personal_blog4/WebApp/"
+    },
+    {
+      "id": "38",
+      "name": "WinPEAS",
+      "symbolSize": 2,
+      "value": "/personal_blog4/WinPEAS/"
+    },
+    {
+      "id": "39",
+      "name": "XSS",
+      "symbolSize": 1,
+      "value": "/personal_blog4/XSS/"
+    },
+    {
+      "id": "40",
+      "name": "certificates",
+      "symbolSize": 5,
+      "value": "/personal_blog4/certificates/"
+    },
+    {
+      "id": "41",
+      "name": "certvulntemplate",
+      "symbolSize": 1,
+      "value": "/personal_blog4/certvulntemplate/"
+    },
+    {
+      "id": "42",
+      "name": "codereview",
+      "symbolSize": 2,
+      "value": "/personal_blog4/codereview/"
+    },
+    {
+      "id": "43",
+      "name": "commandinjection",
+      "symbolSize": 1,
+      "value": "/personal_blog4/commandinjection/"
+    },
+    {
+      "id": "44",
+      "name": "gpo",
+      "symbolSize": 1,
+      "value": "/personal_blog4/gpo/"
+    },
+    {
+      "id": "45",
+      "name": "linux",
+      "symbolSize": 2,
+      "value": "/personal_blog4/linux/"
+    },
+    {
+      "id": "46",
+      "name": "history",
+      "symbolSize": 1,
+      "value": "/personal_blog4/history/"
+    },
+    {
+      "id": "47",
+      "name": "LAPS",
+      "symbolSize": 1,
+      "value": "/personal_blog4/laps/"
+    },
+    {
+      "id": "48",
+      "name": "mssql",
+      "symbolSize": 1,
+      "value": "/personal_blog4/mssql/"
+    },
+    {
+      "id": "49",
+      "name": "certvulntoESC1",
+      "symbolSize": 1,
+      "value": "/personal_blog4/certvulntoESC1/"
+    },
+    {
+      "id": "50",
+      "name": "certvulntoESC9",
+      "symbolSize": 1,
+      "value": "/personal_blog4/certvulntoESC9/"
+    },
+    {
+      "id": "51",
+      "name": "Impersonation",
+      "symbolSize": 1,
+      "value": "/personal_blog4/Impersonation/"
+    },
+    {
+      "id": "52",
+      "name": "Vhosts",
+      "symbolSize": 1,
+      "value": "/personal_blog4/Vhosts/"
+    },
+    {
+      "id": "53",
+      "name": "certvulntoESC16",
+      "symbolSize": 1,
+      "value": "/personal_blog4/certvulntoESC16/"
+    },
+    {
+      "id": "54",
+      "name": "certvulntoESC15",
+      "symbolSize": 1,
+      "value": "/personal_blog4/certvulntoESC15/"
+    },
+    {
+      "id": "55",
+      "name": "shadowcredential",
+      "symbolSize": 2,
+      "value": "/personal_blog4/shadowcredential/"
+    },
+    {
+      "id": "56",
+      "name": "ADdisabledaccount",
+      "symbolSize": 1,
+      "value": "/personal_blog4/ADdisabledaccount/"
+    }
+  ],
+  "links": [
+    {
+      "source": "1",
+      "target": "22"
+    },
+    {
+      "source": "1",
+      "target": "31"
+    },
+    {
+      "source": "1",
+      "target": "30"
+    },
+    {
+      "source": "1",
+      "target": "32"
+    },
+    {
+      "source": "2",
+      "target": "22"
+    },
+    {
+      "source": "2",
+      "target": "23"
+    },
+    {
+      "source": "2",
+      "target": "26"
+    },
+    {
+      "source": "2",
+      "target": "30"
+    },
+    {
+      "source": "2",
+      "target": "32"
+    },
+    {
+      "source": "3",
+      "target": "22"
+    },
+    {
+      "source": "3",
+      "target": "31"
+    },
+    {
+      "source": "3",
+      "target": "32"
+    },
+    {
+      "source": "3",
+      "target": "34"
+    },
+    {
+      "source": "4",
+      "target": "22"
+    },
+    {
+      "source": "4",
+      "target": "31"
+    },
+    {
+      "source": "4",
+      "target": "42"
+    },
+    {
+      "source": "4",
+      "target": "36"
+    },
+    {
+      "source": "4",
+      "target": "32"
+    },
+    {
+      "source": "14",
+      "target": "22"
+    },
+    {
+      "source": "14",
+      "target": "31"
+    },
+    {
+      "source": "14",
+      "target": "48"
+    },
+    {
+      "source": "14",
+      "target": "40"
+    },
+    {
+      "source": "14",
+      "target": "49"
+    },
+    {
+      "source": "5",
+      "target": "22"
+    },
+    {
+      "source": "5",
+      "target": "23"
+    },
+    {
+      "source": "5",
+      "target": "26"
+    },
+    {
+      "source": "5",
+      "target": "40"
+    },
+    {
+      "source": "5",
+      "target": "41"
+    },
+    {
+      "source": "5",
+      "target": "32"
+    },
+    {
+      "source": "15",
+      "target": "22"
+    },
+    {
+      "source": "15",
+      "target": "31"
+    },
+    {
+      "source": "15",
+      "target": "33"
+    },
+    {
+      "source": "15",
+      "target": "51"
+    },
+    {
+      "source": "15",
+      "target": "27"
+    },
+    {
+      "source": "15",
+      "target": "38"
+    },
+    {
+      "source": "15",
+      "target": "52"
+    },
+    {
+      "source": "15",
+      "target": "32"
+    },
+    {
+      "source": "6",
+      "target": "45"
+    },
+    {
+      "source": "6",
+      "target": "43"
+    },
+    {
+      "source": "6",
+      "target": "42"
+    },
+    {
+      "source": "6",
+      "target": "33"
+    },
+    {
+      "source": "7",
+      "target": "31"
+    },
+    {
+      "source": "7",
+      "target": "32"
+    },
+    {
+      "source": "7",
+      "target": "34"
+    },
+    {
+      "source": "7",
+      "target": "37"
+    },
+    {
+      "source": "8",
+      "target": "22"
+    },
+    {
+      "source": "8",
+      "target": "35"
+    },
+    {
+      "source": "8",
+      "target": "23"
+    },
+    {
+      "source": "8",
+      "target": "29"
+    },
+    {
+      "source": "8",
+      "target": "44"
+    },
+    {
+      "source": "8",
+      "target": "32"
+    },
+    {
+      "source": "8",
+      "target": "31"
+    },
+    {
+      "source": "12",
+      "target": "22"
+    },
+    {
+      "source": "12",
+      "target": "31"
+    },
+    {
+      "source": "12",
+      "target": "46"
+    },
+    {
+      "source": "12",
+      "target": "47"
+    },
+    {
+      "source": "19",
+      "target": "22"
+    },
+    {
+      "source": "19",
+      "target": "26"
+    },
+    {
+      "source": "19",
+      "target": "32"
+    },
+    {
+      "source": "19",
+      "target": "40"
+    },
+    {
+      "source": "19",
+      "target": "55"
+    },
+    {
+      "source": "19",
+      "target": "50"
+    },
+    {
+      "source": "13",
+      "target": "22"
+    },
+    {
+      "source": "13",
+      "target": "31"
+    },
+    {
+      "source": "13",
+      "target": "34"
+    },
+    {
+      "source": "16",
+      "target": "22"
+    },
+    {
+      "source": "16",
+      "target": "26"
+    },
+    {
+      "source": "16",
+      "target": "40"
+    },
+    {
+      "source": "16",
+      "target": "53"
+    },
+    {
+      "source": "16",
+      "target": "55"
+    },
+    {
+      "source": "9",
+      "target": "22"
+    },
+    {
+      "source": "9",
+      "target": "31"
+    },
+    {
+      "source": "9",
+      "target": "25"
+    },
+    {
+      "source": "9",
+      "target": "32"
+    },
+    {
+      "source": "10",
+      "target": "22"
+    },
+    {
+      "source": "10",
+      "target": "23"
+    },
+    {
+      "source": "10",
+      "target": "32"
+    },
+    {
+      "source": "10",
+      "target": "31"
+    },
+    {
+      "source": "10",
+      "target": "24"
+    },
+    {
+      "source": "17",
+      "target": "22"
+    },
+    {
+      "source": "17",
+      "target": "26"
+    },
+    {
+      "source": "17",
+      "target": "27"
+    },
+    {
+      "source": "17",
+      "target": "56"
+    },
+    {
+      "source": "17",
+      "target": "32"
+    },
+    {
+      "source": "11",
+      "target": "22"
+    },
+    {
+      "source": "11",
+      "target": "31"
+    },
+    {
+      "source": "11",
+      "target": "32"
+    },
+    {
+      "source": "11",
+      "target": "27"
+    },
+    {
+      "source": "11",
+      "target": "38"
+    },
+    {
+      "source": "18",
+      "target": "22"
+    },
+    {
+      "source": "18",
+      "target": "26"
+    },
+    {
+      "source": "18",
+      "target": "40"
+    },
+    {
+      "source": "18",
+      "target": "54"
+    },
+    {
+      "source": "18",
+      "target": "36"
+    },
+    {
+      "source": "20",
+      "target": "45"
+    },
+    {
+      "source": "20",
+      "target": "37"
+    },
+    {
+      "source": "20",
+      "target": "39"
+    },
+    {
+      "source": "20",
+      "target": "35"
+    },
+    {
+      "source": "20",
+      "target": "28"
+    }
+  ]
+}
