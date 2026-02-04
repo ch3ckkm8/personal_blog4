@@ -28,7 +28,7 @@ sudo sh -c "echo '10.129.164.18 blackfield.htb' >> /etc/hosts"
 sudo nmap -sC -sV blackfield.htb
 ```
 
-```bash
+```bash 
 Starting Nmap 7.94SVN ( <https://nmap.org> ) at 2025-08-04 17:06 CDT
 Nmap scan report for blackfield.htb (10.129.164.18)
 Host is up (0.0076s latency).
