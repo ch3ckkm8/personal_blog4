@@ -333,6 +333,12 @@ ssh -D 1080 -q -C -N user@TARGETIP
 
 [linpeas & winpeas](https://github.com/peass-ng/PEASS-ng/releases/tag/20260121-aabd17ef)
 
+## Cracking
+
+John
+
+Hashcat
+
 
 ## Wordlists
 
