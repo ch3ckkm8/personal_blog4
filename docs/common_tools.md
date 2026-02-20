@@ -329,9 +329,13 @@ ssh -D 1080 -q -C -N user@TARGETIP
 
 - [php revshell](https://github.com/pentestmonkey/php-reverse-shell)
 
-## Privesc
+## Privesc (Privilege Escalation)
 
 [linpeas & winpeas](https://github.com/peass-ng/PEASS-ng/releases/tag/20260121-aabd17ef)
+
+### Linux notes
+
+### Windows notes
 
 ## Cracking
 
@@ -455,10 +459,11 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
 
 
-
 # RDP
 
 ```
 xfreerdp3 /clipboard /u:user /p:password /v:targetIP:3330 /port:3330
 ```
+
+
 
