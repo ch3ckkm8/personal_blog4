@@ -53,13 +53,13 @@ This page contains my most commonly used tools across my writeups, along with so
 
 ### TCP & UDP
 
-| Port | Service  | TCP Usage                               | UDP Usage                              | Pentest Focus                         |
+| Port | Service  | TCP Usage                                | UDP Usage                              | Pentest Focus                         |
 |------|----------|------------------------------------------|----------------------------------------|---------------------------------------|
-| 53   | DNS      | AXFR / large responses                  | Standard queries                       | Zone leaks, recursion                 |
-| 88   | Kerberos | Large/reliable auth exchanges           | Default authentication                | AS-REP roasting                       |
-| 123  | NTP      | Rare / fallback                         | Time synchronization                  | Info leak, amplification              |
-| 389  | LDAP     | Directory queries                      | CLDAP (unauth enum)                   | User/computer enumeration             |
-| 514  | Syslog   | Reliable log transport (RFC 6587)       | Legacy logging                        | Log manipulation                      |
+| 53   | DNS      | AXFR / large responses                   | Standard queries                       | Zone leaks, recursion                 |
+| 88   | Kerberos | Large/reliable auth exchanges            | Default authentication                 | AS-REP roasting                       |
+| 123  | NTP      | Rare / fallback                          | Time synchronization                   | Info leak, amplification              |
+| 389  | LDAP     | Directory queries                        | CLDAP (unauth enum)                    | User/computer enumeration             |
+| 514  | Syslog   | Reliable log transport (RFC 6587)        | Legacy logging                         | Log manipulation                      |
 
 
 ## Network Discovery
