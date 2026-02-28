@@ -335,6 +335,24 @@ ssh -D 1080 -q -C -N user@TARGETIP
 
 ### Linux notes
 
+#### System information
+```shell
+uname -a
+```
+
+#### sudo rights
+```
+sudo -l
+```
+#### processes
+```shell
+ps -aux
+```
+#### SUID executables
+```shell
+find / -perm -u=s -type f 2>/dev/null
+```
+
 ### Windows notes
 
 #### System Information
@@ -347,6 +365,12 @@ systeminfo
 
 ```shell
 cmdkey /list
+```
+
+#### Finding string inside files
+This searches only on working directory and its subdirectories, here i search the string "password" on multiple file extensions
+```shell
+findstr /si password *.xml *.ini *.txt *.config 2>nul
 ```
 
 ## Cracking
