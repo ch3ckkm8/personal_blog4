@@ -337,6 +337,12 @@ ssh -D 1080 -q -C -N user@TARGETIP
 
 ### Windows notes
 
+#### System Information
+```shell
+systeminfo
+```
+
+
 #### Stored credentials (cached)
 
 ```shell
