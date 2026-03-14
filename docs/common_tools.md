@@ -588,7 +588,20 @@ powershell
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 ```
 
+## RID-brute force
+find valid domain users
+```shell
+nxc smb target -u 'user' -p 'pass' --rid-brute
+```
+
+## Password spraying
+```shell
+nxc smb target -u users.txt -p passwords.txt
+```
+
+
 ## RBCD (Resource-Based Constrained Delegation)
+
 
 
 
