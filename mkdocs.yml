@@ -28,6 +28,7 @@ nav:
       - Puppy: ch3ckm8_HTB_puppy.md
       - Tombwatcher: ch3ckm8_HTB_tombwatcher.md
       - Certified: ch3ckm8_HTB_certified.md
+      - Heist: ch3ckm8_HTB_heist.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
   - Notes:
@@ -69,6 +70,7 @@ nav:
       - certvulntoESC15 : certvulntoESC15.md
       - shadowcredential : shadowcredential.md
       - ADdisabledaccount : ADdisabledaccount.md
+      - processdump : processdump.md
 
 theme:
   name: material
