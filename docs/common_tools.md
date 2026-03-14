@@ -104,7 +104,7 @@ Download all shares at once
 
 generates zip file too
 ```shell
-sudo bloodhound-python -u 'user' -p 'pass' -d domainname -dc DChostname -ns DCIP -c all  --zip
+sudo bloodhound-python -u $user -p $pass -d domainname -dc DChostname -ns DCIP -c all  --zip
 ```
 
 #### Queries
@@ -591,7 +591,7 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 ## RID-brute force
 find valid domain users
 ```shell
-nxc smb target -u 'user' -p 'pass' --rid-brute
+nxc smb target -u $user -p $pass --rid-brute
 ```
 
 ## Password spraying
@@ -609,7 +609,7 @@ nxc smb target -u users.txt -p passwords.txt
 # RDP
 
 ```
-xfreerdp3 /clipboard /u:user /p:password /v:targetIP:3330 /port:3330
+xfreerdp3 /clipboard /u:$user /p:$pass /v:targetIP:3330 /port:3330
 ```
 
 # WinRM
@@ -618,7 +618,7 @@ xfreerdp3 /clipboard /u:user /p:password /v:targetIP:3330 /port:3330
 
 ### via password
 ```shell
-evil-winrm -i target -u 'user' -p 'pass'
+evil-winrm -i target -u $user -p $pass
 ```
 
 ### via pass the hash
