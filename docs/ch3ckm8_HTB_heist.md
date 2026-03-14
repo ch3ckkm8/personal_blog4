@@ -762,138 +762,6 @@ e01988779ad34fc43519dc971b3a9b6b
 9. **WinRM** as Administrator → root flag
 
 
-
-![graph](actions_horizontal.svg)
-
------
-# Sidenotes
-
-
-Highlights here were the process enumeration and the assumption that administrator runs these processes, along with the process dump in order to find admin creds
-
-![](MediaFiles/Pasted%20image%2020260313230035.png)
-
-
-
-
----
-
-layout: default
-
-title: Pentest Graph
-
----
-
-  
-
-# Pentest Action Graph
-
-  
-
-**Layout:** `hybrid` &nbsp;|&nbsp; **Actions:** 11
-
-  
-
-## Graph
-
-  
-
-<div id="graph-container" style="width:100%;height:600px;overflow:hidden;border:1px solid #333;border-radius:6px;background:#0a0a0a;cursor:grab;position:relative;">
-
-  <div id="graph-loading" style="color:#666;font-size:13px;padding:20px;">Loading graph...</div>
-
-</div>
-
-  
-
-<div style="font-size:12px;color:#666;margin-top:4px;">
-
-  Scroll to zoom &nbsp;·&nbsp; Click and drag to pan &nbsp;·&nbsp;
-
-  <a href="#" onclick="resetView();return false;" style="color:#888;">Reset view</a>
-
-</div>
-
-  
-
-<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-
-<script>
-
-(function() {
-
-  var container = document.getElementById('graph-container');
-
-  var panZoom;
-
-  
-
-  fetch('actions_horizontal.svg')
-
-    .then(function(r) { return r.text(); })
-
-    .then(function(svgText) {
-
-      container.innerHTML = svgText;
-
-      var el = container.querySelector('svg');
-
-      if (!el) return;
-
-      el.setAttribute('id', 'the-graph');
-
-      el.style.width  = '100%';
-
-      el.style.height = '100%';
-
-  
-
-      panZoom = svgPanZoom(el, {
-
-        zoomEnabled: true,
-
-        controlIconsEnabled: false,
-
-        fit: true,
-
-        center: true,
-
-        minZoom: 0.1,
-
-        maxZoom: 20,
-
-        zoomScaleSensitivity: 0.3,
-
-      });
-
-  
-
-      container.style.cursor = 'grab';
-
-      el.addEventListener('mousedown', function() { container.style.cursor = 'grabbing'; });
-
-      el.addEventListener('mouseup',   function() { container.style.cursor = 'grab'; });
-
-    })
-
-    .catch(function(e) {
-
-      container.innerHTML = '<div style="color:#e24b4a;padding:20px;font-size:13px;">Failed to load graph: ' + e + '</div>';
-
-    });
-
-  
-
-  window.resetView = function() { if (panZoom) { panZoom.fit(); panZoom.center(); } };
-
-})();
-
-</script>
-
-  
-
-## Actions
-
 | #    | inputs                                    | action             | results                      |
 | ---- | ----------------------------------------- | ------------------ | ---------------------------- |
 | 1    | target                                    | nmap               | port 80, port 135, port 445  |
@@ -906,6 +774,16 @@ title: Pentest Graph
 | 8    | valid_domain_users1, pass1, pass2, pass3  | spraying           | valid_creds1                 |
 | 9    | valid_creds1                              | creds_vs_services  | SMB1, RPC1                   |
 | 10   | SMB1                                      | rid-brute-force    | valid_domain_users2          |
-| 11   | valid_domain_users2, pass1, pass2, pass3  | spraying           | WINRM1                       |
+| 11   | valid_domain_users2, pass1, pass2, pass3  | spraying           | WINRM1                       |
 
-![actions_horizontal](../actions_horizontal.svg)
+![actions_horizontal](MediaFiles/actions_horizontal.svg)
+
+
+
+-----
+# Sidenotes
+
+
+Highlights here were the process enumeration and the assumption that administrator runs these processes, along with the process dump in order to find admin creds
+
+![](MediaFiles/Pasted%20image%2020260313230035.png)
