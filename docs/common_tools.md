@@ -355,6 +355,7 @@ ssh -D 1080 -q -C -N user@TARGETIP
 ## Privesc (Privilege Escalation)
 
 [linpeas & winpeas](https://github.com/peass-ng/PEASS-ng/releases/tag/20260121-aabd17ef)
+
 [Windows-exploit-suggester](https://github.com/Pwnistry/Windows-Exploit-Suggester-python3)
 for this one, you need to paste the output of target's systeminfo on a txt and provide it to the tool
 
