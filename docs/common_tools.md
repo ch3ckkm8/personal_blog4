@@ -600,12 +600,14 @@ xfreerdp3 /clipboard /u:user /p:password /v:targetIP:3330 /port:3330
 
 # WinRM
 
-## evil-winrm via pass
+## evil-winrm 
+
+### via password
 ```shell
 evil-winrm -i target -u 'user' -p 'pass'
 ```
 
-## evil-winrm via pass the hash
+### via pass the hash
 ```shell
 evil-winrm -i target -u user -H "hash"
 ```
