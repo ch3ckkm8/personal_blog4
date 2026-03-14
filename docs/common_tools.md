@@ -70,15 +70,15 @@ nmap -sn -T4 <network>/24
 
 ## Nmap
 
-### Identifying open ports
+### Identifying open ports fast
 
 ```shell
-sudo nmap -p- --min-rate 3000 -T4 target
+sudo nmap -p- --open -sS --min-rate 5000 -Pn -n target
 ```
 
 #### Scan discovered open ports
 ```shell
-sudo nmap -sC -sV -p port1,port2, target
+sudo nmap -sC -sV -p port1,port2 target
 ```
 
 ### UDP
