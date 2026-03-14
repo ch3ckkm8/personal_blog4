@@ -1,7 +1,16 @@
+---
+tags:
+  - windows
+  - NotAssumedBreach
+  - OSCPpath
+  - processdump
+---
+
 ## Intro
 
 ![](MediaFiles/Pasted%20image%2020260313211250.png)
-Tags: #windows #processdump
+[[windows]] [[processdump]] [[NotAssumedBreach]] [[OSCPpath]]
+Tags: #windows #NotAssumedBreach  #processdump #OSCPpath 
 Tools used:
 - smbclient
 - rcpclient
