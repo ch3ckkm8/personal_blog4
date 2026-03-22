@@ -29,6 +29,7 @@ nav:
       - Tombwatcher: ch3ckm8_HTB_tombwatcher.md
       - Certified: ch3ckm8_HTB_certified.md
       - Heist: ch3ckm8_HTB_heist.md
+      - actions_notes: actions_notes.md
   - Other CTF Writeups:
       - RoboGRoot's-Portfolio: ch3ckm8_RoboGRoot-CTF_Portfolio.md
   - Notes:
