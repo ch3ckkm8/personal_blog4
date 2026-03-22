@@ -4,7 +4,7 @@
 
 > Click any action ellipse to jump to its section below.
 
-> **No matching section for:** `nmap`, `contains`, `rid-brute-force`, `creds_vs_services`, `rid-brute-force`
+> **No matching section for:** `found`, `rid-brute-force`, `creds_vs_services`, `rid-brute-force`
 
 ## Graph
 
@@ -59,7 +59,7 @@ Nmap done: 1 IP address (1 host up) scanned in 26.63 seconds
 ```
 According to these open ports, like port 88 for example its clear that the target is a DC
 
-### Scan specific open TCP ports
+### Scan specific open TCP ports with nmap
 ```shell
 sudo nmap -p80,135,445,5985,49669 -A heist.htb
 ```
@@ -163,7 +163,7 @@ was not successful
 cant login with default creds with admin admin 
 i can login as guest instead, and then i am redirected to `/issues.php`, then opened attachment
 
-#### File found
+#### File contains usefull info
 it appears to be a cisco router configuration
 ```shell
 version 12.2
