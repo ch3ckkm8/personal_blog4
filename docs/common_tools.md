@@ -2,6 +2,29 @@
 
 This page contains my most commonly used tools across my writeups, along with some common/repetitive methodologies for quick reference.
 
+----------
+# Kali initial setup
+
+ligolo binaries
+```shell
+sudo apt install ligolo-ng-common-binaries
+```
+
+Rubeus
+```
+sudo apt install rubeus
+```
+
+linpeas/winpeas exist
+impacket tools exist
+
+Mimikatz
+```
+sudo apt install mimikatz
+```
+
+Powersploit
+
 
 ----------
 
