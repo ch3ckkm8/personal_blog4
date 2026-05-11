@@ -42,3 +42,10 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
 |---------------|---------|------------|---------------------------------------------------------|------------------|
 | [Portfolio](ch3ckm8_RoboGRoot-CTF_Portfolio.md)        | Linux | -       | ✅ WebApp XSS RCE Docker   | ✅       |
+
+# Certifications
+| Blue          | Red      |
+|---------------|----------|
+| <span style="color: blue; font-weight: bold;">SC-900</span>    ✅ | <span style="color: red; font-weight: bold;">CEH</span>   ✅ |
+| <span style="color: blue; font-weight: bold;">SC-200</span>    ✅ | <span style="color: red; font-weight: bold;">OSCP</span>  🛠️ |
+| <span style="color: blue; font-weight: bold;">SPLK-1001</span> 🛠️ | <span style="color: red; font-weight: bold;">CPTS</span>  🛠️ |
