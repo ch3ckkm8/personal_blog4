@@ -4,7 +4,7 @@ You’ve stumbled into my little corner of the internet where firewalls fear me,
 
 Disclaimer: Every writeup was fueled by caffeine and questionable confidence, don’t try this at home.
 
-# HackTheBox Writeups
+# HackTheBox Machine Writeups
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
 |---------------|---------|------------|---------------------------------------------------------|------------------|
@@ -37,6 +37,12 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 | Certified          | Windows   | <span style="color: orange; font-weight: bold;">Medium</span>         | ✅    | 🛠️ in progress    |
 | [Heist](ch3ckm8_HTB_heist.md)     | Windows | <span style="color: green; font-weight: bold;">Easy</span>       | ✅ NotAssumedBreach processdump                        | ✅     |
 
+# HTB Pro Labs
+|  Lab       | Difficulty  |     Type    |  Progress  |
+|------------|-------------|-------------|------------| 
+| Mythical   | Advanced    |    AD       |    ✅      |
+
+
 # Other CTF Writeups
 
 | Machine       | OS      | Difficulty | Progress / Tags                                         | Writeup          |
@@ -48,4 +54,5 @@ Disclaimer: Every writeup was fueled by caffeine and questionable confidence, do
 |---------------|----------|
 | <span style="color: blue; font-weight: bold;">SC-900</span>    ✅ | <span style="color: red; font-weight: bold;">CEH</span>   ✅ |
 | <span style="color: blue; font-weight: bold;">SC-200</span>    ✅ | <span style="color: red; font-weight: bold;">OSCP</span>  🛠️ |
-| <span style="color: blue; font-weight: bold;">SPLK-1001</span> 🛠️ | <span style="color: red; font-weight: bold;">CPTS</span>  🛠️ |
+| <span style="color: blue; font-weight: bold;">SPLK-1001</span> ✅ | <span style="color: red; font-weight: bold;">CPTS</span>  🛠️ |
+| <span style="color: blue; font-weight: bold;">SPLK-5001</span> 🛠️ |                                                               |
