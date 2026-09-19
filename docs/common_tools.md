@@ -709,6 +709,7 @@ git-dumper http://$target1 .git
 
 # Filesystem enumeration
 
+## Recursive file listing
 linux (recursive tree like structured output)
 ```shell
 find . -print | sort | awk -F/ '{indent=""; for(i=2;i<NF;i++) indent=indent"│   "; print indent"├── "$NF}' > cat.txt
@@ -721,6 +722,13 @@ tree /f /a
 
 # Persistence
 
+## setup keys
 
+`attacker [create key-pair] ---[pub key]---> target [/.ssh/authorized_keys]`
+and the reverse (from target towards attacker also)
+create pair:
+```shell
+ssh-keygen key_rsa
+```
 
 
