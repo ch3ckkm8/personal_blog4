@@ -108,10 +108,46 @@ sudo nmap -sC -sV -p port1,port2 target
 
 (much slower than TCP)
 ```shell
+sudo nmap -p- --open -sU --min-rate 5000 -Pn -n $target1
+```
+
+```shell
 nmap -sU --top-ports 100 -T4 <target>
 ```
 
 # Enumeration
+
+## Directories
+
+```shell
+ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -u http://$target1/FUZZ
+```
+
+## Vhosts
+
+```shell
+ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt \
+  -u http://linkvortex.htb/ \
+  -H "Host: FUZZ.linkvortex.htb" \
+  -mc 200
+```
+for a quicker scan
+```shell
+ffuf -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt \                                                                          
+  -u http://$target1/FUZZ \
+  -mc 200,301,302,403
+```
+
+or via gobuster
+```shell
+curl -s http://$target1 | wc -c
+230
+```
+
+```shell
+gobuster vhost -u http://linkvortex.htb \
+  -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt --append-domain --exclude-length 230 -t 50
+```
 
 ## SMB
 
@@ -648,6 +684,43 @@ evil-winrm -i target -u $user -p $pass
 ```shell
 evil-winrm -i target -u user -H "hash"
 ```
+
+# Git
+
+```shell
+git show
+```
+
+```shell
+git restore .
+```
+
+```shell
+git diff git_commit
+```
+git-dumper
+```shell
+sudo apt install pipx -y
+pipx ensurepath
+pipx install git-dumper
+
+git-dumper http://$target1 .git
+```
+
+# Filesystem enumeration
+
+linux (recursive tree like structured output)
+```shell
+find . -print | sort | awk -F/ '{indent=""; for(i=2;i<NF;i++) indent=indent"│   "; print indent"├── "$NF}' > cat.txt
+```
+
+windows
+```powershell
+tree /f /a
+```
+
+# Persistence
+
 
 
 
