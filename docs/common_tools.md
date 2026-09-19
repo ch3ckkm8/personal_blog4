@@ -795,4 +795,10 @@ create pair:
 ssh-keygen key_rsa
 ```
 
+## Add user to administrators
+
+```shell
+net localgroup Administrators user_name /add
+```
+
 
