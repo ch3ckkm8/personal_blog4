@@ -300,6 +300,7 @@ upload filename
 
 ## Ligolo
 
+on kali `sudo apt install ligolo-ng-common-binaries`
 guide: https://www.hackingarticles.in/a-detailed-guide-on-ligolo-ng/
 u need 2 parts of it:
 - proxy (attacker)
@@ -324,7 +325,7 @@ ifconfig
 ```shell
 route_add --name ch3ckm8 --route subnet
 ```
-
+when target connects via its agent, type `session`, and select session number, then start tunnel:
 ```shell
 start --tun ch3ckm8
 ```
